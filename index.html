@@ -1,0 +1,808 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sago Paint - Sơn nội thất, sơn ngoại thất, chống thấm chuyên nghiệp</title>
+    <meta name="description" content="Sago Paint là đại lý sơn uy tín cung cấp sơn nội thất, sơn ngoại thất, sơn chống thấm và giải pháp sơn nhà toàn diện cho công trình dân dụng, thương mại và kiến trúc.">
+    <meta name="keywords" content="sơn nội thất, sơn ngoại thất, sơn chống thấm, giải pháp sơn nhà, đại lý sơn uy tín, sơn nhà đẹp, sơn kiến trúc, Sago Paint">
+    <meta name="author" content="Sago Paint">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Sago Paint - Giải pháp sơn nhà toàn diện">
+    <meta property="og:description" content="Đại lý sơn uy tín cho sơn nội thất, sơn ngoại thất, sơn chống thấm và giải pháp sơn nhà chuyên nghiệp tại Việt Nam.">
+    <meta property="og:image" content="assets/sago-logo.png">
+    <meta property="og:url" content="https://sagopaint.com/">
+    <meta property="og:locale" content="vi_VN">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <style>
+      :root {
+        --brand-primary: #d45141;
+        --brand-primary-dark: #a83c31;
+        --brand-ink: #1f2428;
+        --brand-muted: #6b7178;
+        --brand-soft: #fff4f1;
+        --brand-cream: #f8eee9;
+        --brand-line: rgba(31, 36, 40, 0.12);
+        --bs-primary: #d45141;
+        --bs-primary-rgb: 212, 81, 65;
+      }
+
+      body {
+        color: var(--brand-ink);
+        font-family: "Inter", sans-serif;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+      }
+
+      .btn-primary {
+        --bs-btn-bg: var(--brand-primary);
+        --bs-btn-border-color: var(--brand-primary);
+        --bs-btn-hover-bg: var(--brand-primary-dark);
+        --bs-btn-hover-border-color: var(--brand-primary-dark);
+        --bs-btn-active-bg: var(--brand-primary-dark);
+        --bs-btn-active-border-color: var(--brand-primary-dark);
+      }
+
+      .btn-outline-primary {
+        --bs-btn-color: var(--brand-primary);
+        --bs-btn-border-color: var(--brand-primary);
+        --bs-btn-hover-bg: var(--brand-primary);
+        --bs-btn-hover-border-color: var(--brand-primary);
+      }
+
+      .site-header {
+        background: rgba(255, 255, 255, 0.96);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--brand-line);
+        z-index: 1030;
+      }
+
+      .brand-logo {
+        display: block;
+        width: auto;
+        height: 52px;
+      }
+
+      .navbar-nav .nav-link {
+        color: var(--brand-ink);
+        font-weight: 650;
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      .navbar-nav .nav-link:hover,
+      .navbar-nav .nav-link:focus {
+        color: var(--brand-primary);
+      }
+
+      .hero-carousel {
+        margin-top: 78px;
+      }
+
+      .carousel-item {
+        min-height: calc(100vh - 78px);
+        background: #222;
+      }
+
+      .hero-image {
+        height: calc(100vh - 78px);
+        min-height: 560px;
+        object-fit: cover;
+        filter: saturate(1.02);
+      }
+
+      .carousel-item::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(90deg, rgba(17, 20, 24, 0.78), rgba(17, 20, 24, 0.42) 48%, rgba(17, 20, 24, 0.1));
+        pointer-events: none;
+      }
+
+      .carousel-caption {
+        inset: 0;
+        z-index: 2;
+        display: flex !important;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 0;
+        text-align: left;
+      }
+
+      .hero-content {
+        max-width: 680px;
+      }
+
+      .product-banner {
+        background:
+          radial-gradient(circle at 82% 42%, rgba(255, 255, 255, 0.22), transparent 28%),
+          linear-gradient(135deg, #1a3335 0%, #24494a 46%, #d45141 100%);
+      }
+
+      .s68-banner-backdrop {
+        background:
+          linear-gradient(90deg, rgba(12, 23, 26, 0.92), rgba(12, 23, 26, 0.58) 52%, rgba(12, 23, 26, 0.16)),
+          url("https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1920&q=85") center/cover;
+      }
+
+      .product-banner::after {
+        background:
+          linear-gradient(90deg, rgba(11, 22, 24, 0.76), rgba(11, 22, 24, 0.2) 55%, rgba(11, 22, 24, 0.04)),
+          linear-gradient(180deg, rgba(212, 81, 65, 0), rgba(212, 81, 65, 0.2));
+      }
+
+      .hero-product-panel {
+        position: relative;
+        z-index: 3;
+        display: grid;
+        place-items: center;
+        min-height: 440px;
+      }
+
+      .hero-product-panel::before {
+        content: "";
+        position: absolute;
+        width: min(460px, 86vw);
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background:
+          radial-gradient(circle, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.12) 44%, transparent 68%);
+        filter: blur(2px);
+      }
+
+      .hero-product-image {
+        position: relative;
+        z-index: 2;
+        width: min(430px, 90%);
+        max-height: 560px;
+        object-fit: contain;
+        filter: drop-shadow(0 34px 42px rgba(0, 0, 0, 0.34));
+      }
+
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.16);
+        color: #fff;
+        font-size: 0.82rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        padding: 8px 13px;
+        text-transform: uppercase;
+        backdrop-filter: blur(8px);
+      }
+
+      .eyebrow {
+        color: #ffd9d3;
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .hero-title {
+        color: #fff;
+        font-size: clamp(2.4rem, 5vw, 5rem);
+        font-weight: 850;
+        line-height: 1.02;
+        margin-bottom: 1.25rem;
+      }
+
+      .hero-description {
+        color: rgba(255, 255, 255, 0.88);
+        font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+        max-width: 620px;
+      }
+
+      .section-padding {
+        padding: 86px 0;
+      }
+
+      .section-kicker {
+        color: var(--brand-primary);
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .section-title {
+        font-weight: 850;
+        letter-spacing: -0.02em;
+      }
+
+      .category-row {
+        background: transparent;
+      }
+
+      .category-image {
+        width: 100%;
+        height: 100%;
+        min-height: 340px;
+        object-fit: cover;
+        border-radius: 16px;
+      }
+
+      .category-content {
+        padding: clamp(28px, 5vw, 54px);
+      }
+
+      .category-tag {
+        display: inline-flex;
+        align-items: center;
+        margin-bottom: 12px;
+        padding: 4px 9px;
+        border-radius: 999px;
+        background: #fff3cd;
+        color: #8a5a00;
+        font-size: 0.66rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .category-content h3 {
+        font-size: clamp(1.6rem, 3vw, 2.2rem);
+        font-weight: 800;
+        letter-spacing: -0.02em;
+      }
+
+      .category-headline {
+        color: var(--brand-ink);
+        font-size: clamp(1.15rem, 2vw, 1.45rem);
+        font-weight: 750;
+        line-height: 1.35;
+      }
+
+      .category-content p {
+        color: var(--brand-muted);
+        font-size: 1.05rem;
+        line-height: 1.75;
+      }
+
+      .fengshui-feature {
+        background:
+          radial-gradient(circle at 82% 16%, rgba(207, 228, 238, 0.78), transparent 28%),
+          radial-gradient(circle at 18% 78%, rgba(245, 201, 184, 0.62), transparent 30%),
+          linear-gradient(135deg, #fffaf2 0%, #f0eadb 46%, #dfeade 100%);
+      }
+
+      .fengshui-card {
+        overflow: hidden;
+        border: 1px solid rgba(79, 115, 95, 0.16);
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.74);
+        box-shadow: 0 24px 64px rgba(31, 36, 40, 0.1);
+      }
+
+      .fengshui-copy {
+        padding: clamp(28px, 5vw, 58px);
+      }
+
+      .fengshui-copy h2 {
+        color: #24302a;
+        font-size: clamp(2rem, 4vw, 3.6rem);
+        font-weight: 850;
+        line-height: 1.05;
+      }
+
+      .fengshui-copy p {
+        color: #5f6f65;
+        font-size: 1.08rem;
+        line-height: 1.75;
+      }
+
+      .fengshui-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 22px 0 28px;
+      }
+
+      .fengshui-links a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 38px;
+        padding: 8px 13px;
+        border: 1px solid rgba(79, 115, 95, 0.24);
+        border-radius: 999px;
+        background: rgba(255, 250, 242, 0.86);
+        color: #4f735f;
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 800;
+      }
+
+      .fengshui-visual {
+        position: relative;
+        min-height: 420px;
+        height: 100%;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.36), rgba(255, 250, 242, 0.1)),
+          url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=82") center/cover;
+      }
+
+      .fengshui-visual::after {
+        content: "Kim  Mộc  Thủy  Hỏa  Thổ";
+        position: absolute;
+        left: 24px;
+        right: 24px;
+        bottom: 24px;
+        padding: 14px 18px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.82);
+        color: #4f735f;
+        font-size: 0.86rem;
+        font-weight: 850;
+        letter-spacing: 0.08em;
+        text-align: center;
+        text-transform: uppercase;
+        backdrop-filter: blur(10px);
+      }
+
+      .trust-band {
+        background: linear-gradient(135deg, var(--brand-primary), var(--brand-primary-dark));
+        color: #fff;
+      }
+
+      .trust-item {
+        border-left: 1px solid rgba(255, 255, 255, 0.28);
+      }
+
+      .trust-item:first-child {
+        border-left: 0;
+      }
+
+      .trust-item strong {
+        display: block;
+        font-size: clamp(1.5rem, 3vw, 2.4rem);
+        line-height: 1;
+      }
+
+      .trust-item span {
+        color: rgba(255, 255, 255, 0.84);
+      }
+
+      .footer {
+        background: #191d20;
+        color: rgba(255, 255, 255, 0.76);
+      }
+
+      .footer h2,
+      .footer h3 {
+        color: #fff;
+        font-weight: 800;
+      }
+
+      .footer a {
+        color: rgba(255, 255, 255, 0.76);
+        text-decoration: none;
+      }
+
+      .footer a:hover {
+        color: #fff;
+      }
+
+      .footer-logo {
+        height: 54px;
+        width: auto;
+        background: #fff;
+        border-radius: 999px;
+        padding: 4px 10px;
+      }
+
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+      }
+
+      @media (max-width: 991.98px) {
+        .brand-logo {
+          height: 44px;
+        }
+
+        .hero-carousel {
+          margin-top: 70px;
+        }
+
+        .carousel-item,
+        .hero-image {
+          height: 640px;
+          min-height: 640px;
+        }
+
+        .carousel-item::after {
+          background: linear-gradient(180deg, rgba(17, 20, 24, 0.72), rgba(17, 20, 24, 0.58));
+        }
+
+        .product-banner::after {
+          background: linear-gradient(180deg, rgba(11, 22, 24, 0.84), rgba(11, 22, 24, 0.48));
+        }
+
+        .hero-product-panel {
+          min-height: 300px;
+          margin-top: 18px;
+        }
+
+        .hero-product-image {
+          max-height: 310px;
+          width: min(340px, 78%);
+        }
+
+        .trust-item,
+        .trust-item:first-child {
+          border-left: 0;
+          border-top: 1px solid rgba(255, 255, 255, 0.24);
+        }
+
+        .trust-item:first-child {
+          border-top: 0;
+        }
+      }
+
+      @media (max-width: 575.98px) {
+        .hero-carousel {
+          margin-top: 66px;
+        }
+
+        .carousel-item,
+        .hero-image {
+          height: 650px;
+          min-height: 650px;
+        }
+
+        .hero-product-panel {
+          min-height: 160px;
+          margin-top: 8px;
+        }
+
+        .product-banner .carousel-caption {
+          align-items: flex-start;
+          padding-top: 28px;
+        }
+
+        .product-banner .hero-content {
+          max-width: min(330px, calc(100vw - 56px));
+        }
+
+        .hero-product-image {
+          max-height: 160px;
+          width: min(200px, 68%);
+        }
+
+        .product-banner .hero-title {
+          font-size: 1.7rem;
+          line-height: 1.08;
+        }
+
+        .product-banner .hero-description {
+          font-size: 0.98rem;
+          max-width: min(315px, calc(100vw - 72px));
+        }
+
+        .section-padding {
+          padding: 58px 0;
+        }
+
+        .category-image {
+          min-height: 240px;
+          height: 240px;
+        }
+
+        .fengshui-visual {
+          min-height: 280px;
+        }
+      }
+    </style>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "HomeAndConstructionBusiness",
+        "name": "Sago Paint",
+        "image": "assets/sago-logo.png",
+        "url": "https://sagopaint.com/",
+        "telephone": "+84 28 1234 5678",
+        "email": "hello@sagopaint.com",
+        "priceRange": "$$",
+        "description": "Sago Paint là đại lý sơn uy tín cung cấp sơn nội thất, sơn ngoại thất, sơn chống thấm và giải pháp sơn nhà toàn diện.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "123 Đường Nguyễn Văn Linh",
+          "addressLocality": "Quận 7",
+          "addressRegion": "TP. Hồ Chí Minh",
+          "addressCountry": "VN"
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            "opens": "08:00",
+            "closes": "17:30"
+          }
+        ],
+        "areaServed": "Việt Nam",
+        "serviceType": ["Sơn nội thất", "Sơn ngoại thất", "Sơn chống thấm", "Giải pháp sơn nhà"]
+      }
+    </script>
+  </head>
+  <body>
+    <header class="site-header fixed-top">
+      <nav class="navbar navbar-expand-lg" aria-label="Điều hướng chính">
+        <div class="container">
+          <a class="navbar-brand" href="index.html" aria-label="Sago Paint - Trang chủ">
+            <img class="brand-logo" src="assets/sago-logo.png" alt="Logo Sago Professional Coatings">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavigation" aria-controls="mainNavigation" aria-expanded="false" aria-label="Mở menu điều hướng">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="mainNavigation">
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+              <li class="nav-item"><a class="nav-link" href="index.html">Trang chủ</a></li>
+              <li class="nav-item"><a class="nav-link" href="son-noi-that.html">Nội thất</a></li>
+              <li class="nav-item"><a class="nav-link" href="son-ngoai-that.html">Ngoại thất</a></li>
+              <li class="nav-item"><a class="nav-link" href="son-chong-tham.html">Chống thấm</a></li>
+              <li class="nav-item"><a class="nav-link" href="phong-thuy-son-nha/index.html">Phong thủy</a></li>
+              <li class="nav-item"><a class="nav-link" href="#lien-he">Liên hệ</a></li>
+            </ul>
+            <a class="btn btn-primary ms-lg-3 mt-3 mt-lg-0" href="#lien-he">Nhận tư vấn</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero-carousel" aria-label="Giải pháp sơn nổi bật">
+        <div id="paintHeroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#paintHeroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide SAGO S 68 PRO"></button>
+            <button type="button" data-bs-target="#paintHeroCarousel" data-bs-slide-to="1" aria-label="Slide ngoại thất"></button>
+            <button type="button" data-bs-target="#paintHeroCarousel" data-bs-slide-to="2" aria-label="Slide chống thấm"></button>
+            <button type="button" data-bs-target="#paintHeroCarousel" data-bs-slide-to="3" aria-label="Slide giải pháp sơn toàn diện"></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item product-banner active">
+              <div class="d-block w-100 hero-image s68-banner-backdrop" role="img" aria-label="Bề mặt công trình lộ thiên cần giải pháp chống thấm bền vững"></div>
+              <div class="carousel-caption">
+                <div class="container">
+                  <div class="row align-items-center g-4">
+                    <div class="col-lg-7">
+                      <div class="hero-content">
+                        <span class="hero-badge mb-3">Sản phẩm nổi bật</span>
+                        <p class="eyebrow mb-3">Chống thấm đa năng lộ thiên cao cấp</p>
+                        <h1 class="hero-title">
+                          <span>SAGO S 68 PRO</span><br class="d-sm-none">
+                          <span>chống thấm mái, sàn,</span><br class="d-sm-none">
+                          <span>ban công.</span>
+                        </h1>
+                        <p class="hero-description mb-4">Vật liệu chống thấm Acrylic - PU một thành phần, dùng ngay sau khi mở nắp, phù hợp tường đứng, sàn mái, sê nô, ban công và tầng hầm.</p>
+                        <div class="d-flex flex-wrap gap-2">
+                          <a class="btn btn-primary btn-lg" href="sago-s-68-pro-chong-tham-a-nang-lo-thien-cao-cap.html">Xem SAGO S 68 PRO</a>
+                          <a class="btn btn-outline-light btn-lg" href="son-chong-tham.html">Danh mục chống thấm</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-5">
+                      <div class="hero-product-panel" aria-hidden="true">
+                        <img class="hero-product-image" src="assets/products/sago-s-68-pro-chong-tham-a-nang-lo-thien-cao-cap.png" alt="SAGO S 68 PRO chống thấm đa năng lộ thiên cao cấp">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="https://picsum.photos/seed/son-ngoai-that/1920/980" class="d-block w-100 hero-image" alt="Mặt tiền công trình kiến trúc sử dụng sơn ngoại thất bền màu">
+              <div class="carousel-caption">
+                <div class="container">
+                  <div class="hero-content">
+                    <p class="eyebrow mb-3">Sơn ngoại thất chống thời tiết</p>
+                    <h2 class="hero-title">Sơn ngoại thất bảo vệ công trình trước nắng mưa.</h2>
+                    <p class="hero-description mb-4">Hệ sơn ngoại thất có khả năng chống bám bẩn, hạn chế phai màu và bảo vệ bề mặt tường trong điều kiện khí hậu Việt Nam.</p>
+                    <a class="btn btn-primary btn-lg" href="son-ngoai-that.html">Xem sơn ngoại thất</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="https://picsum.photos/seed/son-chong-tham/1920/980" class="d-block w-100 hero-image" alt="Khu vực tường và mái nhà được xử lý bằng sơn chống thấm">
+              <div class="carousel-caption">
+                <div class="container">
+                  <div class="hero-content">
+                    <p class="eyebrow mb-3">Sơn chống thấm chuyên dụng</p>
+                    <h2 class="hero-title">Chống thấm hiệu quả cho tường, mái và ban công.</h2>
+                    <p class="hero-description mb-4">Giải pháp sơn chống thấm giúp giảm rạn nứt, ngăn nước xâm nhập và kéo dài tuổi thọ cho bề mặt công trình.</p>
+                    <a class="btn btn-primary btn-lg" href="son-chong-tham.html">Xem chống thấm</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="https://picsum.photos/seed/giai-phap-son-nha/1920/980" class="d-block w-100 hero-image" alt="Đội ngũ tư vấn giải pháp sơn nhà toàn diện cho công trình kiến trúc">
+              <div class="carousel-caption">
+                <div class="container">
+                  <div class="hero-content">
+                    <p class="eyebrow mb-3">Giải pháp sơn nhà toàn diện</p>
+                    <h2 class="hero-title">Tư vấn đúng hệ sơn cho từng công trình.</h2>
+                    <p class="hero-description mb-4">Từ khảo sát bề mặt, chọn màu, tính định mức đến giao hàng, Sago Paint đồng hành như một đại lý sơn uy tín cho chủ nhà và nhà thầu.</p>
+                    <a class="btn btn-primary btn-lg" href="#lien-he">Liên hệ tư vấn</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#paintHeroCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Trước</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#paintHeroCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Sau</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="section-padding bg-white" aria-labelledby="category-heading">
+        <div class="container">
+          <div class="row justify-content-center text-center mb-5">
+            <div class="col-lg-8">
+              <p class="section-kicker mb-2">Danh mục giải pháp</p>
+              <h2 id="category-heading" class="section-title display-6 mb-3">Chọn đúng sơn cho từng khu vực công trình.</h2>
+              <p class="text-secondary mb-0">Sago Paint cung cấp danh mục sơn nội thất, sơn ngoại thất và sơn chống thấm đáp ứng nhu cầu thi công nhà phố, biệt thự, căn hộ, văn phòng và dự án kiến trúc.</p>
+            </div>
+          </div>
+          <div class="d-grid gap-4 gap-lg-5">
+            <article class="category-row" id="noi-that">
+              <div class="row g-0 align-items-center">
+                <div class="col-lg-6 p-3 p-lg-4">
+                  <img class="category-image" src="https://picsum.photos/seed/noi-that-card/900/620" alt="Phòng khách sử dụng sơn nội thất màu sáng và hiện đại">
+                </div>
+                <div class="col-lg-6">
+                  <div class="category-content">
+                    <span class="category-tag">Nội thất</span>
+                    <h3>Sơn nội thất</h3>
+                    <p class="category-headline mb-3">Không Gian Sống Mịn Đẹp Và Bền Màu</p>
+                    <p>Sơn nội thất Sago Paint giúp tường nhà lên màu tinh tế, ít mùi, dễ lau chùi và phù hợp cho phòng khách, phòng ngủ, căn hộ, văn phòng hiện đại.</p>
+                    <a class="btn btn-outline-primary" href="son-noi-that.html">Tìm hiểu thêm</a>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <article class="category-row" id="ngoai-that">
+              <div class="row g-0 align-items-center">
+                <div class="col-lg-6 order-2 order-lg-1">
+                  <div class="category-content">
+                    <span class="category-tag">Ngoại thất</span>
+                    <h3>Sơn ngoại thất</h3>
+                    <p class="category-headline mb-3">Bảo Vệ Mặt Tiền Trước Nắng Mưa</p>
+                    <p>Sơn ngoại thất chất lượng cao giúp chống bám bẩn, hạn chế rong rêu, bảo vệ bề mặt trước thời tiết và duy trì vẻ đẹp lâu dài cho công trình.</p>
+                    <a class="btn btn-outline-primary" href="son-ngoai-that.html">Tìm hiểu thêm</a>
+                  </div>
+                </div>
+                <div class="col-lg-6 order-1 order-lg-2 p-3 p-lg-4">
+                  <img class="category-image" src="https://picsum.photos/seed/ngoai-that-card/900/620" alt="Mặt tiền nhà phố sử dụng sơn ngoại thất bền màu">
+                </div>
+              </div>
+            </article>
+            <article class="category-row" id="chong-tham">
+              <div class="row g-0 align-items-center">
+                <div class="col-lg-6 p-3 p-lg-4">
+                  <img class="category-image" src="https://picsum.photos/seed/chong-tham-card/900/620" alt="Bề mặt tường ngoài trời được xử lý bằng sơn chống thấm">
+                </div>
+                <div class="col-lg-6">
+                  <div class="category-content">
+                    <span class="category-tag">Chống thấm</span>
+                    <h3>Sơn chống thấm</h3>
+                    <p class="category-headline mb-3">Giải Pháp Chống Thấm Toàn Diện</p>
+                    <p>Sơn chống thấm chuyên dụng hỗ trợ ngăn nước xâm nhập, giảm ẩm mốc và bảo vệ tường, mái, sân thượng, ban công trong điều kiện thời tiết khắc nghiệt.</p>
+                    <a class="btn btn-outline-primary" href="son-chong-tham.html">Tìm hiểu thêm</a>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-padding fengshui-feature" aria-labelledby="fengshui-home-heading">
+        <div class="container">
+          <article class="fengshui-card">
+            <div class="row g-0 align-items-stretch">
+              <div class="col-lg-6">
+                <div class="fengshui-copy">
+                  <p class="section-kicker mb-3">Cụm nội dung phong thủy</p>
+                  <h2 id="fengshui-home-heading" class="mb-4">Sơn Nhà Hợp Phong Thủy</h2>
+                  <p>Khám phá cách chọn màu sơn theo ngũ hành, mệnh và năm sinh để không gian sống hài hòa hơn, dễ phối nội thất hơn và vẫn giữ vẻ hiện đại. Cụm bài viết ưu tiên các bảng màu pastel, warm white, sage green, soft beige cùng gợi ý S68 Pro cho bề mặt cần chống thấm bền đẹp.</p>
+                  <nav class="fengshui-links" aria-label="Liên kết nhanh phong thủy sơn nhà">
+                    <a href="phong-thuy-son-nha/menh-kim/index.html">Mệnh Kim</a>
+                    <a href="phong-thuy-son-nha/menh-moc/index.html">Mệnh Mộc</a>
+                    <a href="phong-thuy-son-nha/menh-thuy/index.html">Mệnh Thủy</a>
+                    <a href="phong-thuy-son-nha/menh-hoa/index.html">Mệnh Hỏa</a>
+                    <a href="phong-thuy-son-nha/menh-tho/index.html">Mệnh Thổ</a>
+                    <a href="sago-s-68-pro-chong-tham-a-nang-lo-thien-cao-cap.html">S68 Pro</a>
+                  </nav>
+                  <a class="btn btn-primary btn-lg" href="phong-thuy-son-nha/index.html">Khám Phá Ngay</a>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <a class="d-block h-100" href="phong-thuy-son-nha/index.html" aria-label="Khám phá cụm nội dung Sơn Nhà Hợp Phong Thủy">
+                  <div class="fengshui-visual" role="img" aria-label="Nhà hiện đại với bảng màu phong thủy pastel"></div>
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="trust-band py-5" aria-label="Điểm mạnh của Sago Paint">
+        <div class="container">
+          <div class="row g-4 text-center text-lg-start">
+            <div class="col-lg-4 trust-item px-lg-5">
+              <strong>2.400+</strong>
+              <span>Màu sơn nội thất và ngoại thất cho nhiều phong cách kiến trúc.</span>
+            </div>
+            <div class="col-lg-4 trust-item px-lg-5">
+              <strong>15 năm</strong>
+              <span>Giải pháp bảo vệ bề mặt ngoại thất với quy trình thi công phù hợp.</span>
+            </div>
+            <div class="col-lg-4 trust-item px-lg-5">
+              <strong>Uy tín</strong>
+              <span>Đại lý sơn uy tín đồng hành cùng chủ nhà, kiến trúc sư và nhà thầu.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="lien-he" class="footer pt-5">
+      <div class="container">
+        <div class="row g-4 pb-5">
+          <div class="col-lg-4">
+            <img class="footer-logo mb-3" src="assets/sago-logo.png" alt="Logo công ty Sago Paint">
+            <h2 class="h4">Công ty Sơn Sago</h2>
+            <p class="mb-0">Cung cấp sơn nội thất, sơn ngoại thất, sơn chống thấm và giải pháp sơn nhà toàn diện cho công trình Việt Nam.</p>
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            <h3 class="h5 mb-3">Thông tin liên hệ</h3>
+            <p class="mb-2">Địa chỉ: 123 Đường Nguyễn Văn Linh, Quận 7, TP. Hồ Chí Minh</p>
+            <p class="mb-2">Điện thoại: <a href="tel:+842812345678">028 1234 5678</a></p>
+            <p class="mb-0">Email: <a href="mailto:hello@sagopaint.com">hello@sagopaint.com</a></p>
+          </div>
+          <div class="col-sm-6 col-lg-2">
+            <h3 class="h5 mb-3">Liên kết nhanh</h3>
+            <ul class="list-unstyled d-grid gap-2 mb-0">
+              <li><a href="index.html">Trang chủ</a></li>
+              <li><a href="son-noi-that.html">Nội thất</a></li>
+              <li><a href="son-ngoai-that.html">Ngoại thất</a></li>
+              <li><a href="son-chong-tham.html">Chống thấm</a></li>
+              <li><a href="#lien-he">Liên hệ</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3">
+            <h3 class="h5 mb-3">Giờ làm việc</h3>
+            <p class="mb-2">Thứ Hai - Thứ Sáu: 08:00 - 17:30</p>
+            <p class="mb-2">Thứ Bảy: 08:00 - 12:00</p>
+            <p class="mb-0">Chủ Nhật: Nghỉ</p>
+          </div>
+        </div>
+        <div class="footer-bottom py-4 d-flex flex-column flex-md-row justify-content-between gap-2">
+          <span>&copy; 2026 Công ty Sơn Sago. Đã đăng ký bản quyền.</span>
+          <span>Đại lý sơn uy tín cho giải pháp sơn nhà chuyên nghiệp.</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  </body>
+</html>
