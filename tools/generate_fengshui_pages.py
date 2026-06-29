@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import json
 from pathlib import Path
@@ -6,7 +6,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "phong-thuy-son-nha"
-SITE = "https://sagopaint.com"
+SITE = "https://sagopaint.vn"
 S68_FILE = "sago-s-68-pro-chong-tham-a-nang-lo-thien-cao-cap.html"
 S68_NAME = "SAGO S 68 PRO"
 
@@ -168,7 +168,7 @@ def article_schema(title: str, description: str, url: str) -> dict:
         "headline": title,
         "description": description,
         "author": {"@type": "Organization", "name": "Sago Paint"},
-        "publisher": {"@type": "Organization", "name": "Sago Paint", "logo": {"@type": "ImageObject", "url": f"{SITE}/assets/sago-logo.png"}},
+        "publisher": {"@type": "Organization", "name": "Sago Paint", "logo": {"@type": "ImageObject", "url": f"{SITE}/https://cdn.sagopaint.vn/assets/sago-logo.png"}},
         "mainEntityOfPage": f"{SITE}/{url}",
     }
 
@@ -180,20 +180,21 @@ def nav(depth: int) -> str:
       <nav class="navbar navbar-expand-lg" aria-label="Điều hướng chính">
         <div class="container">
           <a class="navbar-brand" href="{root}index.html" aria-label="Sago Paint - Trang chủ">
-            <img class="brand-logo" src="{root}assets/sago-logo.png" alt="Logo Sago Professional Coatings" loading="eager">
+            <img class="brand-logo" src="{root}https://cdn.sagopaint.vn/assets/sago-logo.png" alt="Logo Sago Professional Coatings" loading="eager">
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavigation" aria-controls="mainNavigation" aria-expanded="false" aria-label="Mở menu điều hướng">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="mainNavigation">
             <ul class="navbar-nav ms-auto align-items-lg-center">
-              <li class="nav-item"><a class="nav-link" href="{root}index.html">Trang chủ</a></li>
-              <li class="nav-item"><a class="nav-link" href="{root}son-noi-that.html">Nội thất</a></li>
-              <li class="nav-item"><a class="nav-link" href="{root}son-ngoai-that.html">Ngoại thất</a></li>
-              <li class="nav-item"><a class="nav-link" href="{root}son-chong-tham.html">Chống thấm</a></li>
-              <li class="nav-item"><a class="nav-link active" href="{root}phong-thuy-son-nha/index.html">Phong thủy</a></li>
+              <li class="nav-item"><a class="nav-link" href="{root}index.html">Trang Chủ</a></li>
+              <li class="nav-item"><a class="nav-link" href="{root}son-noi-that.html">Nội Thất</a></li>
+              <li class="nav-item"><a class="nav-link" href="{root}son-ngoai-that.html">Ngoại Thất</a></li>
+              <li class="nav-item"><a class="nav-link" href="{root}son-chong-tham.html">Chống Thấm</a></li>
+              <li class="nav-item"><a class="nav-link active" href="{root}phong-thuy-son-nha/index.html">Phong Thủy</a></li>
+              <li class="nav-item"><a class="nav-link" href="{root}ve-chung-toi.html">Về Chúng Tôi</a></li>
             </ul>
-            <a class="btn btn-primary ms-lg-3 mt-3 mt-lg-0" href="#tu-van">Nhận tư vấn</a>
+            <a class="btn btn-primary ms-lg-3 mt-3 mt-lg-0" href="tel:+842866815050">Nhận tư vấn</a>
           </div>
         </div>
       </nav>
@@ -207,15 +208,15 @@ def footer(depth: int) -> str:
       <div class="container">
         <div class="row g-4 align-items-center">
           <div class="col-lg-7">
-            <img class="footer-logo mb-3" src="{root}assets/sago-logo.png" alt="Logo Sago Paint" loading="lazy">
+            <img class="footer-logo mb-3" src="{root}https://cdn.sagopaint.vn/assets/sago-logo.png" alt="Logo Sago Paint" loading="lazy">
             <h2>Nhận tư vấn màu sơn phong thủy cùng Sago Paint</h2>
             <p>Đội ngũ tư vấn giúp bạn chọn bảng màu hài hòa với mệnh, tuổi, ánh sáng thực tế và ngân sách thi công. S68 Pro được ưu tiên khi cần bề mặt bền đẹp, chống thấm lộ thiên, bền UV và chống bám bẩn.</p>
           </div>
           <div class="col-lg-5">
             <div class="cta-box">
               <strong>Hotline tư vấn miễn phí</strong>
-              <a href="tel:+842812345678">028 1234 5678</a>
-              <span>hello@sagopaint.com</span>
+              <a href="tel:+842866815050">+8428 6681 5050</a>
+              <a href="mailto:info.sagopaint@gmail.com">info.sagopaint@gmail.com</a>
             </div>
           </div>
         </div>
@@ -238,10 +239,11 @@ def head(title: str, description: str, url: str, depth: int, schemas: list[dict]
     <meta property="og:type" content="article">
     <meta property="og:title" content="{esc(title)}">
     <meta property="og:description" content="{esc(description)}">
-    <meta property="og:image" content="{SITE}/assets/sago-logo.png">
+    <meta property="og:image" content="{SITE}/https://cdn.sagopaint.vn/assets/sago-logo.png">
     <meta property="og:url" content="{SITE}/{url}">
     <meta property="og:locale" content="vi_VN">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="{SITE}/https://cdn.sagopaint.vn/assets/sago-logo.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link href="{root}phong-thuy-son-nha/styles.css" rel="stylesheet">
     <script type="application/ld+json">{json.dumps(schemas, ensure_ascii=False, indent=6)}</script>
@@ -261,10 +263,10 @@ def product_highlight(depth: int) -> str:
               <div class="feature-grid">
                 <span>Độ bền trên 15 năm</span><span>Chống tia UV</span><span>Chống thấm lộ thiên</span><span>Không cần pha trộn</span>
               </div>
-              <a class="btn btn-primary" href="{root}{S68_FILE}">Nhận tư vấn S68 Pro</a>
+              <a class="btn btn-primary" href="tel:+842866815050">Nhận tư vấn S68 Pro</a>
             </div>
             <a class="product-packshot" href="{root}{S68_FILE}" aria-label="Xem chi tiết sản phẩm SAGO S 68 PRO">
-              <img src="{root}assets/products/sago-s-68-pro-chong-tham-a-nang-lo-thien-cao-cap.png" alt="SAGO S 68 PRO chống thấm đa năng lộ thiên cao cấp" loading="lazy" width="520" height="620">
+              <img src="{root}https://cdn.sagopaint.vn/assets/products/sago-s-68-pro-chong-tham-a-nang-lo-thien-cao-cap.png" alt="SAGO S 68 PRO chống thấm đa năng lộ thiên cao cấp" loading="lazy" width="520" height="620">
             </a>
           </div>
         </div>
@@ -473,7 +475,7 @@ def pillar() -> str:
           <h2>Ý nghĩa ngũ hành trong thiết kế nhà ở</h2>
           <p>Kim gợi sự sáng, sạch, tinh tế; Mộc gợi sinh khí và thiên nhiên; Thủy tạo cảm giác mát, sâu và linh hoạt; Hỏa đem lại năng lượng ấm áp; Thổ tạo nền ổn định, vững chãi. Một ngôi nhà đẹp thường không dùng một hành duy nhất mà phối các hành theo tỷ lệ hợp lý.</p>
           <p>Với nhà phố Việt Nam, bảng màu pastel như sage green, warm white, soft beige, pastel blue và pastel peach giúp cân bằng giữa thẩm mỹ hiện đại và nguyên lý ngũ hành. Những màu này cũng dễ lên hình, dễ chọn rèm, sofa, sàn gỗ và đèn.</p>
-          <h2>Cách chọn màu sơn theo mệnh</h2>
+          <h2 id="ngu-hanh">Cách chọn màu sơn theo mệnh</h2>
           <p>Gia chủ nên chọn một màu nền chiếm khoảng 60 phần trăm diện tích, một màu phụ khoảng 30 phần trăm và màu nhấn khoảng 10 phần trăm. Màu hợp mệnh nên xuất hiện ở nền hoặc mảng nhấn có chủ đích, thay vì phủ toàn bộ căn nhà bằng một màu quá mạnh.</p>
           {element_links(1)}
           <h2>Cách chọn màu sơn theo tuổi</h2>
