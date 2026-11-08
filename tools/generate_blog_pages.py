@@ -299,6 +299,10 @@ def render_post(md_name: str, config: dict[str, str]) -> None:
 <html lang="vi">
   <head>
     <meta charset="utf-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.sagopaint.vn">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&amp;display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{esc(meta.get("seo_title") or title)} | Sago Paint</title>
     <meta name="description" content="{esc(description)}">
@@ -319,10 +323,12 @@ def render_post(md_name: str, config: dict[str, str]) -> None:
     <script type="application/ld+json">
 {schema_block}
     </script>
+    <link href="assets/css/site-base.css" rel="stylesheet">
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Bỏ qua điều hướng, đến nội dung chính</a>
 {nav("blog")}
-    <main>
+    <main id="main-content" tabindex="-1">
       <section class="product-hero blog-article-hero">
         <div class="container">
           <div class="row g-5 align-items-center">
@@ -372,7 +378,7 @@ def article_card(article: dict[str, object]) -> str:
     featured = " featured" if article.get("featured") else ""
     return f"""
             <article class="trend-card{featured}">
-              <a class="trend-card-link" href="{esc(str(article["url"]))}" aria-label="{esc(str(article["title"]))}">
+              <a class="trend-card-link" href="{esc(str(article["url"]))}">
                 <div class="trend-card-media">
                   <img src="{esc(str(article["thumbnail"]))}" alt="{esc(str(article["title"]))}" loading="lazy" width="1400" height="788">
                   <span class="trend-badge">{esc(str(article["category"]))}</span>
@@ -393,6 +399,10 @@ def render_blog_index() -> None:
 <html lang="vi">
   <head>
     <meta charset="utf-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.sagopaint.vn">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&amp;display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bài viết sơn nhà, chống thấm và màu sơn 2026 | Sago Paint</title>
     <meta name="description" content="Tổng hợp bài viết chuyên sâu về màu sơn nhà, chống thấm, chống nóng, phong thủy và kỹ thuật sơn cho nhà miền Tây.">
@@ -406,10 +416,12 @@ def render_blog_index() -> None:
     <meta property="og:locale" content="vi_VN">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link href="category-pages.css" rel="stylesheet">
+    <link href="assets/css/site-base.css" rel="stylesheet">
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Bỏ qua điều hướng, đến nội dung chính</a>
 {nav("blog")}
-    <main>
+    <main id="main-content" tabindex="-1">
       <section class="category-hero">
         <div class="container">
           <p class="section-kicker mb-3">Cẩm nang sơn nhà</p>
@@ -419,9 +431,20 @@ def render_blog_index() -> None:
       </section>
       <section class="trend-section blog-index-section">
         <div class="container">
+          <h2 class="visually-hidden">Bài viết tư vấn sơn nhà</h2>
           <div class="trend-grid">
 {cards}
           </div>
+        </div>
+      </section>
+      <section class="section-padding bg-white" aria-labelledby="related-guides-heading">
+        <div class="container">
+          <h2 id="related-guides-heading" class="h3">Hướng dẫn hữu ích trước khi chọn sơn</h2>
+          <ul class="internal-link-list list-unstyled d-flex flex-wrap gap-3 mt-3">
+            <li><a href="/cach-tinh-luong-son-can-dung">Cách tính lượng sơn cần dùng</a></li>
+            <li><a href="/mau-son-phong-khach-nha-nho">Màu sơn phòng khách nhà nhỏ</a></li>
+            <li><a href="/son-nha-hop-phong-thuy-2026">Chọn sơn nhà hợp phong thủy năm 2026</a></li>
+          </ul>
         </div>
       </section>
     </main>

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Frontend Static Site"
+  short_description: "Build and review this repo's static frontend pages."
+  default_prompt: "Use $frontend-static-site when editing Sago Paint static HTML/CSS pages."

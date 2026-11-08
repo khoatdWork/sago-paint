@@ -1,0 +1,45 @@
+:root {
+  --font-sans: "Be Vietnam Pro", Arial, sans-serif;
+  --bs-font-sans-serif: var(--font-sans);
+  --bs-body-font-family: var(--font-sans);
+}
+body, h1, h2, h3, h4, h5, h6, button, input, select, textarea {
+  font-family: var(--font-sans);
+}
+body { line-height: 1.6; }
+img { max-width: 100%; }
+main, section, article, aside, .row > *, .product-visual { min-width: 0; }
+.skip-link {
+  position: fixed;
+  z-index: 2000;
+  top: 8px;
+  left: 8px;
+  padding: 12px 18px;
+  color: #fff;
+  background: #202428;
+  border-radius: 4px;
+  transform: translateY(-180%);
+}
+.skip-link:focus { transform: translateY(0); color: #fff; }
+:focus-visible { outline: 3px solid #a83c31; outline-offset: 4px; }
+:target, #main-content { scroll-margin-top: 100px; }
+.product-visual, .product-detail-image { max-width: 100%; }
+.product-visual img { min-width: 0; }
+.calculator-results, .result-value { font-variant-numeric: tabular-nums; }
+#calculationMessage:empty { display: none; }
+.lead-form-card input, .lead-form-card select { scroll-margin-block: 100px; }
+footer a { overflow-wrap: anywhere; }
+footer p a, .footer-bottom a { text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 575.98px) {
+  /* Bootstrap g-5's 48px gutters exceed the container's 24px mobile padding. */
+  .row.g-5 { --bs-gutter-x: 1.5rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

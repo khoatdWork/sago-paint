@@ -5,19 +5,9 @@ const path = require("path");
 const https = require("https");
 const { spawnSync } = require("child_process");
 
-const ROOT = path.resolve(__dirname, "..");
+const { ROOT, pageFiles, routeFromFile } = require("./site-files");
 const DEFAULT_DOMAIN = "https://sagopaint.vn";
 const DEFAULT_PROJECT = "sagopaint";
-const EXCLUDED_DIRS = new Set([
-  ".git",
-  ".wrangler",
-  "assets",
-  "seo",
-  "tools",
-  "__pycache__",
-]);
-const EXCLUDED_FILES = [/^google[a-z0-9]+\.html$/i];
-
 const args = new Set(process.argv.slice(2));
 const getArgValue = (name, fallback) => {
   const prefix = `${name}=`;
@@ -28,41 +18,13 @@ const getArgValue = (name, fallback) => {
 const DOMAIN = normalizeDomain(getArgValue("--domain", DEFAULT_DOMAIN));
 const PROJECT = getArgValue("--project", DEFAULT_PROJECT);
 const DRY_RUN = args.has("--dry-run");
+const CHECK = args.has("--check");
 const CHECK_LIVE = args.has("--check-live");
 const DEPLOY = args.has("--deploy");
 const SKIP_HEAD = args.has("--skip-head");
-const MIN_WORDS = 300;
 
 function normalizeDomain(domain) {
   return domain.replace(/\/+$/, "");
-}
-
-function walkHtmlFiles(dir) {
-  const files = [];
-  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-    if (EXCLUDED_DIRS.has(entry.name)) continue;
-
-    const fullPath = path.join(dir, entry.name);
-    if (entry.isDirectory()) {
-      files.push(...walkHtmlFiles(fullPath));
-      continue;
-    }
-
-    if (entry.isFile() && entry.name.endsWith(".html") && !EXCLUDED_FILES.some((re) => re.test(entry.name))) {
-      files.push(fullPath);
-    }
-  }
-  return files;
-}
-
-function routeFromFile(filePath) {
-  const rel = path.relative(ROOT, filePath).replace(/\\/g, "/");
-
-  if (rel === "index.html") return "/";
-  if (rel.endsWith("/index.html")) {
-    return `/${rel.slice(0, -"index.html".length)}`;
-  }
-  return `/${rel.replace(/\.html$/, "")}`;
 }
 
 function urlFromRoute(route) {
@@ -175,8 +137,8 @@ function auditPages(pages) {
     if (!page.title) issues.push(`missing title: ${page.route}`);
     if (!page.description) issues.push(`missing meta description: ${page.route}`);
     if (!page.h1) issues.push(`missing h1: ${page.route}`);
-    if (page.canonical && page.canonical !== page.url) issues.push(`canonical mismatch: ${page.route}`);
-    if (page.wordCount < MIN_WORDS) issues.push(`thin page (${page.wordCount} words): ${page.route}`);
+    if (!page.canonical) issues.push(`missing canonical: ${page.route}`);
+    else if (page.canonical !== page.url) issues.push(`canonical mismatch: ${page.route}`);
   }
 
   for (const [value, first, second] of duplicates(indexablePages, "title")) {
@@ -199,7 +161,7 @@ Sitemap: ${DOMAIN}/sitemap.xml
 function writeIfChanged(filePath, content) {
   const current = fs.existsSync(filePath) ? fs.readFileSync(filePath, "utf8") : "";
   if (current === content) return false;
-  if (!DRY_RUN) fs.writeFileSync(filePath, content, "utf8");
+  if (!DRY_RUN && !CHECK) fs.writeFileSync(filePath, content, "utf8");
   return true;
 }
 
@@ -251,7 +213,7 @@ function syncHeadTags(pages) {
 
     if (html !== before) {
       changed++;
-      if (!DRY_RUN) fs.writeFileSync(page.filePath, html, "utf8");
+      if (!DRY_RUN && !CHECK) fs.writeFileSync(page.filePath, html, "utf8");
     }
   }
   return changed;
@@ -311,6 +273,7 @@ async function checkLive(pages) {
   }
 
   const badPages = results.filter((result) => result.status < 200 || result.status >= 400);
+  if (badPages.length || sitemap.status !== 200 || robots.status !== 200) process.exitCode = 1;
   console.log(`  pages checked: ${results.length}`);
   console.log(`  page errors:   ${badPages.length}`);
   for (const result of badPages.slice(0, 20)) {
@@ -327,6 +290,7 @@ async function checkLive(pages) {
       });
     }
     const badRedirects = redirectResults.filter(({ result }) => result.status !== 301 && result.status !== 302 && result.status !== 308);
+    if (badRedirects.length) process.exitCode = 1;
     console.log(`  redirects checked: ${redirectResults.length}`);
     console.log(`  redirect errors:   ${badRedirects.length}`);
     for (const { redirect, result } of badRedirects.slice(0, 20)) {
@@ -349,7 +313,9 @@ function deploy() {
     return;
   }
 
-  const result = spawnSync("npx", ["wrangler", "pages", "deploy", ".", "--project-name", PROJECT], {
+  if (!/^[a-z0-9][a-z0-9-]*$/.test(PROJECT)) throw new Error("Invalid Cloudflare project name");
+  require("./build-static").build();
+  const result = spawnSync("npx", ["wrangler", "pages", "deploy", "dist", "--project-name", PROJECT], {
     cwd: ROOT,
     stdio: "inherit",
     shell: process.platform === "win32",
@@ -361,7 +327,8 @@ function deploy() {
 }
 
 async function main() {
-  const pages = walkHtmlFiles(ROOT)
+  if (CHECK && DEPLOY) throw new Error("--check cannot be combined with --deploy");
+  const pages = pageFiles(ROOT)
     .map((filePath) => ({
       filePath,
       route: routeFromFile(filePath),
@@ -372,11 +339,22 @@ async function main() {
     .sort(sortPages);
 
   const indexablePages = pages.filter((page) => !page.noindex);
-  const auditIssues = auditPages(pages);
+  let auditIssues = auditPages(pages);
+  if (CHECK && auditIssues.length) {
+    console.error(auditIssues.join("\n"));
+    process.exitCode = 1;
+    return;
+  }
 
-  const sitemapChanged = writeIfChanged(path.join(ROOT, "sitemap.xml"), buildSitemap(indexablePages));
+  const sitemapPath = path.join(ROOT, "sitemap.xml");
+  const existingSitemap = fs.existsSync(sitemapPath) ? fs.readFileSync(sitemapPath, "utf8") : "";
+  const sitemapUrls = [...existingSitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(match => match[1]).sort();
+  const expectedUrls = indexablePages.map(page => page.url).sort();
+  const sitemapMismatch = JSON.stringify(sitemapUrls) !== JSON.stringify(expectedUrls);
+  const sitemapChanged = CHECK ? sitemapMismatch : writeIfChanged(sitemapPath, buildSitemap(indexablePages));
   const robotsChanged = writeIfChanged(path.join(ROOT, "robots.txt"), buildRobots());
   const headChanged = SKIP_HEAD ? 0 : syncHeadTags(pages);
+  if (!CHECK && !DRY_RUN) auditIssues = auditPages(pages.map(pageMeta));
 
   console.log("SEO sync complete");
   console.log(`  domain:           ${DOMAIN}`);
@@ -392,6 +370,11 @@ async function main() {
   }
   if (auditIssues.length > 30) console.log(`    ... ${auditIssues.length - 30} more`);
 
+  if (CHECK && (sitemapChanged || robotsChanged || headChanged)) {
+    console.error("SEO check failed: sitemap, robots or head tags need synchronization");
+    process.exitCode = 1;
+  }
+  if (auditIssues.length) { process.exitCode = 1; return; }
   if (DEPLOY) deploy();
   if (CHECK_LIVE) await checkLive(indexablePages);
 }

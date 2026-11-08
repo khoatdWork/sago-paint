@@ -1,0 +1,66 @@
+[
+  {
+    "name": "ponytail",
+    "source": "https://github.com/DietrichGebert/ponytail/tree/96608e078b2d5ea607c5c3b8b5a54d1c1fba6846/skills/ponytail",
+    "commit": "96608e078b2d5ea607c5c3b8b5a54d1c1fba6846",
+    "license_file": "LICENSE",
+    "upstream_skill_sha256": "9badd22a32e19cb884e46dfa8d3aae82bb81dfa5484105b8b4f0262df823a509",
+    "notes": "Body unchanged; upstream argument-hint moved into metadata.argument_hint for the Codex skill schema."
+  },
+  {
+    "name": "ponytail-audit",
+    "source": "https://github.com/DietrichGebert/ponytail/tree/96608e078b2d5ea607c5c3b8b5a54d1c1fba6846/skills/ponytail-audit",
+    "commit": "96608e078b2d5ea607c5c3b8b5a54d1c1fba6846",
+    "license_file": "LICENSE",
+    "upstream_skill_sha256": "2b3223a02c386d1263e1b08343cb8eb3a53e444cdafb1d79e26c8ec2a8fcad28"
+  },
+  {
+    "name": "ponytail-review",
+    "source": "https://github.com/DietrichGebert/ponytail/tree/96608e078b2d5ea607c5c3b8b5a54d1c1fba6846/skills/ponytail-review",
+    "commit": "96608e078b2d5ea607c5c3b8b5a54d1c1fba6846",
+    "license_file": "LICENSE",
+    "upstream_skill_sha256": "33fe4ebe22a460924e5d4a261e223df22e409cc94ab76182bee9fb91a3ef022e"
+  },
+  {
+    "name": "frontend-design",
+    "source": "https://github.com/anthropics/skills/tree/2c5958ecac7cee2b583967a2c4981d0f4a75c579/skills/frontend-design",
+    "commit": "2c5958ecac7cee2b583967a2c4981d0f4a75c579",
+    "license_file": "LICENSE.txt",
+    "upstream_skill_sha256": "d91970639e9f5c37682ac7ab60094d35f1c7c1f38d731bd56396563aee10c1d3"
+  },
+  {
+    "name": "webapp-testing",
+    "source": "https://github.com/anthropics/skills/tree/2c5958ecac7cee2b583967a2c4981d0f4a75c579/skills/webapp-testing",
+    "commit": "2c5958ecac7cee2b583967a2c4981d0f4a75c579",
+    "license_file": "LICENSE.txt",
+    "upstream_skill_sha256": "51b7349e77ec63b7744a6f63647e7566a0b4d2e301121cc10e8c2113af6556a2"
+  },
+  {
+    "name": "seo",
+    "source": "https://github.com/addyosmani/web-quality-skills/tree/afa8da942115f2961fdbfa80807ea0b232ff6c00/skills/seo",
+    "commit": "afa8da942115f2961fdbfa80807ea0b232ff6c00",
+    "license_file": "LICENSE",
+    "upstream_skill_sha256": "57cd16566c2c706186b643644dec2884da89c42f296843364c65a40a4d566ae6"
+  },
+  {
+    "name": "seo-audit",
+    "source": "https://github.com/coreyhaines31/marketingskills/tree/96798cf38736ecdba015a1d2b0521b0c8f8f41dd/skills/seo-audit",
+    "commit": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
+    "license_file": "LICENSE",
+    "upstream_skill_sha256": "e0ebb5808787f2ff26b96d7b429423874d9785541cd4ab775629a5cf1137e7a9"
+  },
+  {
+    "name": "web-design-guidelines",
+    "source": "https://github.com/vercel-labs/web-interface-guidelines/blob/434b7f91364665f2f733b310ec54809bf8f37937/command.md",
+    "commit": "434b7f91364665f2f733b310ec54809bf8f37937",
+    "license_file": "LICENSE",
+    "notes": "Official MIT rules: required name added, argument-hint moved to metadata.argument_hint; rule body unchanged."
+  },
+  {
+    "name": "frontend-static-site",
+    "source": "https://github.com/khoatdWork/sago-paint",
+    "commit": "5c2bda6-project-local",
+    "license_file": "LICENSE",
+    "notes": "Project-maintained guidance migrated from the ignored .codex/skills copy."
+  }
+]

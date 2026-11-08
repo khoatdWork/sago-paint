@@ -148,6 +148,8 @@ def extract_product(path: Path) -> dict:
         "file": path.name,
         "name": title,
         "image": image,
+        "image_width": attr_from_tag(source, "img", "product-detail-image", "width") or "600",
+        "image_height": attr_from_tag(source, "img", "product-detail-image", "height") or "600",
         "category_file": category_file,
         "category_name": category["name"],
         "category_short": category["short"],
@@ -189,7 +191,7 @@ def nav(active: str | None = None) -> str:
       <nav class="navbar navbar-expand-lg" aria-label="Điều hướng chính">
         <div class="container">
           <a class="navbar-brand" href="index.html" aria-label="Sago Paint - Trang chủ">
-            <img class="brand-logo" src="https://cdn.sagopaint.vn/assets/sago-logo.png" alt="Logo Sago Professional Coatings">
+            <img class="brand-logo" src="https://cdn.sagopaint.vn/assets/sago-logo.png" alt="Logo Sago Professional Coatings" width="1010" height="518">
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavigation" aria-controls="mainNavigation" aria-expanded="false" aria-label="Mở menu điều hướng">
             <span class="navbar-toggler-icon"></span>
@@ -216,7 +218,7 @@ def footer() -> str:
       <div class="container">
         <div class="row g-4 pb-5">
           <div class="col-lg-4">
-            <img class="footer-logo mb-3" src="https://cdn.sagopaint.vn/assets/sago-logo.png" alt="Logo Sago Paint">
+            <img class="footer-logo mb-3" src="https://cdn.sagopaint.vn/assets/sago-logo.png" alt="Logo Sago Paint" width="1010" height="518">
             <h2 class="h4 text-white">Công ty Sơn Sago</h2>
             <p class="mb-0">Cung cấp sơn nội thất, sơn ngoại thất, sơn chống thấm và giải pháp sơn nhà toàn diện cho công trình Việt Nam.</p>
           </div>
@@ -244,11 +246,15 @@ def footer() -> str:
 
 
 def head(title: str, description: str, path: str, image: str = "https://cdn.sagopaint.vn/assets/sago-logo.png", schema: list[dict] | None = None) -> str:
-    canonical = f"{SITE_URL}/{path}"
+    canonical = f"{SITE_URL}/{path.removesuffix('.html')}"
     image_url = image if image.startswith(("http://", "https://")) else f"{SITE_URL}/{image.lstrip('/')}"
     schema_json = json.dumps(schema or [], ensure_ascii=False, indent=6)
     return f"""  <head>
     <meta charset="utf-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.sagopaint.vn">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&amp;display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{esc(title)}</title>
     <meta name="description" content="{esc(description)}">
@@ -269,6 +275,7 @@ def head(title: str, description: str, path: str, image: str = "https://cdn.sago
     <script type="application/ld+json">
       {schema_json}
     </script>
+    <link href="assets/css/site-base.css" rel="stylesheet">
   </head>"""
 
 
@@ -414,7 +421,7 @@ def render_product(product: dict, products: list[dict]) -> str:
         f"""            <div class="col-md-4">
               <article class="related-card h-100">
                 <a class="related-image" href="{esc(item['file'])}">
-                  <img src="{esc(item['image'])}" alt="{esc(item['name'])}" loading="lazy">
+                  <img src="{esc(item['image'])}" alt="{esc(item['name'])}" loading="lazy" width="{esc(item['image_width'])}" height="{esc(item['image_height'])}">
                 </a>
                 <div class="related-body">
                   <span>{esc(item['badge'])}</span>
@@ -429,8 +436,9 @@ def render_product(product: dict, products: list[dict]) -> str:
 <html lang="vi">
 {head(title, description, product['file'], product['image'], schema)}
   <body>
+    <a class="skip-link" href="#main-content">Bỏ qua điều hướng, đến nội dung chính</a>
 {nav(cat_file)}
-    <main>
+    <main id="main-content" tabindex="-1">
       <section class="product-hero">
         <div class="container">
           <div class="row g-5 align-items-center">
@@ -449,7 +457,7 @@ def render_product(product: dict, products: list[dict]) -> str:
             </div>
             <div class="col-lg-5">
               <div class="product-visual">
-                <img class="product-detail-image" src="{esc(product['image'])}" alt="{esc(product['name'])}">
+                <img class="product-detail-image" src="{esc(product['image'])}" alt="{esc(product['name'])}" width="{esc(product['image_width'])}" height="{esc(product['image_height'])}">
               </div>
             </div>
           </div>
@@ -586,7 +594,7 @@ def render_category(category_file: str, products: list[dict]) -> str:
         f"""            <div class="col-md-6 col-xl-4">
               <article class="product-card d-flex flex-column">
                 <a class="product-image-link" href="{esc(product['file'])}" aria-label="Xem {esc(product['name'])}">
-                  <img src="{esc(product['image'])}" alt="{esc(product['name'])}" loading="lazy">
+                  <img src="{esc(product['image'])}" alt="{esc(product['name'])}" loading="lazy" width="{esc(product['image_width'])}" height="{esc(product['image_height'])}">
                 </a>
                 <div class="product-card-body d-flex flex-column flex-grow-1">
                   <span class="product-badge">{esc(product['badge'])}</span>
@@ -611,8 +619,9 @@ def render_category(category_file: str, products: list[dict]) -> str:
 <html lang="vi">
 {head(title, meta['description'], category_file, "https://cdn.sagopaint.vn/assets/sago-logo.png", schema)}
   <body>
+    <a class="skip-link" href="#main-content">Bỏ qua điều hướng, đến nội dung chính</a>
 {nav(category_file)}
-    <main>
+    <main id="main-content" tabindex="-1">
       <section class="category-hero">
         <div class="container">
           <div class="row align-items-end g-4">
@@ -677,12 +686,52 @@ def render_category(category_file: str, products: list[dict]) -> str:
 
 
 def main() -> None:
-    product_files = [path for path in ROOT.glob("*.html") if path.name not in CATEGORY_META and path.name not in NON_PRODUCT_FILES]
+    product_files = [path for path in ROOT.glob("*.html") if is_product_page(path)]
     products = [extract_product(path) for path in sorted(product_files)]
+    output = {}
     for product in products:
-        (ROOT / product["file"]).write_text(render_product(product, products), encoding="utf-8", newline="\n")
+        path = ROOT / product["file"]
+        output[path] = preserve_head(path, render_product(product, products))
     for category_file in CATEGORY_META:
-        (ROOT / category_file).write_text(render_category(category_file, products), encoding="utf-8", newline="\n")
+        path = ROOT / category_file
+        output[path] = preserve_head(path, render_category(category_file, products))
+    # Validate every source head before the first write.
+    for path, content in output.items():
+        path.write_text(content, encoding="utf-8", newline="\n")
+
+
+def is_product_page(path: Path) -> bool:
+    if path.name in CATEGORY_META or path.name in NON_PRODUCT_FILES or path.name.startswith("google"):
+        return False
+
+    def contains_product(value) -> bool:
+        if isinstance(value, list):
+            return any(contains_product(item) for item in value)
+        if not isinstance(value, dict):
+            return False
+        types = value.get("@type", [])
+        if "Product" in (types if isinstance(types, list) else [types]):
+            return True
+        return contains_product(value.get("@graph", []))
+
+    source = path.read_text(encoding="utf-8")
+    for block in re.findall(r'<script\b[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>', source, re.S | re.I):
+        try:
+            if contains_product(json.loads(block)):
+                return True
+        except json.JSONDecodeError:
+            continue
+    return False
+
+
+def preserve_head(path: Path, rendered: str) -> str:
+    # Refreshing a layout must not reset index controls, social or business data.
+    if not path.exists():
+        return rendered
+    original = re.search(r"<head\b[^>]*>.*?</head>", path.read_text(encoding="utf-8"), re.S | re.I)
+    if not original:
+        raise ValueError(f"Missing head in {path}; refusing to overwrite metadata")
+    return re.sub(r"<head\b[^>]*>.*?</head>", lambda _: original.group(), rendered, count=1, flags=re.S | re.I)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,440 @@
+{
+  "verification": {
+    "file": "google4bd4155c856d151b.html",
+    "sha256": "9895d6ead897d8b0ee7388319475f41a3ffb7ba9cd7ca6dbf04fa4ef9af25dcd"
+  },
+  "pages": {
+    "blog.html": {
+      "canonical": [
+        "https://sagopaint.vn/blog"
+      ],
+      "robots": [
+        "index, follow"
+      ]
+    },
+    "bot-tret-ngoai-that-hoasen-ana.html": {
+      "canonical": [
+        "https://sagopaint.vn/bot-tret-ngoai-that-hoasen-ana"
+      ],
+      "robots": [
+        "index, follow"
+      ]
+    },
+    "bot-tret-noi-that-hoasen-ana.html": {
+      "canonical": [
+        "https://sagopaint.vn/bot-tret-noi-that-hoasen-ana"
+      ],
+      "robots": [
+        "index, follow"
+      ]
+    },
+    "cach-tinh-luong-son-can-dung.html": {
+      "canonical": [
+        "https://sagopaint.vn/cach-tinh-luong-son-can-dung"
+      ],
+      "robots": [
+        "index, follow"
+      ]
+    },
+    "chat-chong-tham-bt-11a-pha-xi-mang.html": {
+      "canonical": [
+        "https://sagopaint.vn/chat-chong-tham-bt-11a-pha-xi-mang"
+      ],
+      "robots": [
+        "index, follow"
+      ]
+    },
+    "chong-tham-lo-thien-pu-502.html": {
+      "canonical": [
+        "https://sagopaint.vn/chong-tham-lo-thien-pu-502"
+      ],
+      "robots": [
+        "index, follow"
+      ]
+    },
+    "chong-tham-san-thuong-ban-cong.html": {
+      "canonical": [
+        "https://sagopaint.vn/chong-tham-san-thuong-ban-cong"
+      ],
+      "robots": [
+        "index, follow"
+      ]
+    },
+    "chong-tham-tuong-ngoai-troi.html": {
+      "canonical": [
+        "https://sagopaint.vn/chong-tham-tuong-ngoai-troi"
+      ],
+      "robots": [
+        "index, follow"
+      ]
+    },
+    "index.html": {
+      "canonical": [
+        "https://sagopaint.vn/"
+      ],
+      "robots": [
+        "index, follow"
+      ]
+    },
+    "mau-son-nha-cap-4-dep-2026.html": {
+      "canonical": [
+        "https://sagopaint.vn/mau-son-nha-cap-4-dep-2026"
+      ],
+      "robots": [
+        "index, follow"
+      ]
+    },
+    "mau-son-phong-khach-nha-nho.html": {
+      "canonical": [
+        "https://sagopaint.vn/mau-son-phong-khach-nha-nho"
+      ],
+      "robots": [
+        "index, follow"
+      ]
+    },
+    "sago-s-68-pro-chong-tham-a-nang-lo-thien-cao-cap.html": {
+      "canonical": [
+        "https://sagopaint.vn/sago-s-68-pro-chong-tham-a-nang-lo-thien-cao-cap"
+      ],
+      "robots": [
+        "index, follow"
+      ]
+    },
+    "son-chong-tham-mau-aqua-shield-5-in1.html": {
+      "canonical": [
+        "https://sagopaint.vn/son-chong-tham-mau-aqua-shield-5-in1"
+      ],
+      "robots": [
+        "index, follow"
+      ]
+    },
+    "son-chong-tham-san-thuong-mua-mua.html": {
+      "canonical": [
+        "https://sagopaint.vn/son-chong-tham-san-thuong-mua-mua"
+      ],
+      "robots": [
+        "index, follow"
+      ]
+    },
+    "son-chong-tham.html": {
+      "canonical": [
+        "https://sagopaint.vn/son-chong-tham"
+      ],
+      "robots": [
+        "index, follow"
+      ]
+    },
+    "son-ngoai-that-ana-satin-be-mat-ban-bong.html": {
+      "canonical": [
+        "https://sagopaint.vn/son-ngoai-that-ana-satin-be-mat-ban-bong"
+      ],
+      "robots": [
+        "index, follow"
+      ]
+    },
+    "son-ngoai-that-ana-satin-be-mat-sieu-bong.html": {
+      "canonical": [
+        "https://sagopaint.vn/son-ngoai-that-ana-satin-be-mat-sieu-bong"
+      ],
+      "robots": [
+        "index, follow"
+      ]
+    },
+    "son-ngoai-that.html": {
+      "canonical": [
+        "https://sagopaint.vn/son-ngoai-that"
+      ],
+      "robots": [
+        "index, follow"
+      ]
+    },
+    "son-nha-hop-phong-thuy-2026.html": {
+      "canonical": [
+        "https://sagopaint.vn/son-nha-hop-phong-thuy-2026"
+      ],
+      "robots": [
+        "index, follow"
+      ]
+    },
+    "son-nha-hop-phong-thuy.html": {
+      "canonical": [
+        "https://sagopaint.vn/son-nha-hop-phong-thuy"
+      ],
+      "robots": [
+        "index, follow"
+      ]
+    },
+    "son-nha-huong-tay-chong-nong.html": {
+      "canonical": [
+        "https://sagopaint.vn/son-nha-huong-tay-chong-nong"
+      ],
+      "robots": [
+        "index, follow"
+      ]
+    },
+    "son-nha-mien-tay-mua-mua-chong-tham.html": {
+      "canonical": [
+        "https://sagopaint.vn/son-nha-mien-tay-mua-mua-chong-tham"
+      ],
+      "robots": [
+        "index, follow"
+      ]
+    },
+    "son-nha-moi-xay.html": {
+      "canonical": [
+        "https://sagopaint.vn/son-nha-moi-xay"
+      ],
+      "robots": [
+        "index, follow"
+      ]
+    },
+    "son-noi-that-lau-chui-hieu-qua-anaclean-be-mat-ban-bong-2.html": {
+      "canonical": [
+        "https://sagopaint.vn/son-noi-that-lau-chui-hieu-qua-anaclean-be-mat-ban-bong"
+      ],
+      "robots": [
+        "noindex, follow"
+      ]
+    },
+    "son-noi-that-lau-chui-hieu-qua-anaclean-be-mat-ban-bong.html": {
+      "canonical": [
+        "https://sagopaint.vn/son-noi-that-lau-chui-hieu-qua-anaclean-be-mat-ban-bong"
+      ],
+      "robots": [
+        "index, follow"
+      ]
+    },
+    "son-noi-that.html": {
+      "canonical": [
+        "https://sagopaint.vn/son-noi-that"
+      ],
+      "robots": [
+        "index, follow"
+      ]
+    },
+    "son-sagopain-lot-noi-ngoai-that-ana-sealer.html": {
+      "canonical": [
+        "https://sagopaint.vn/son-sagopain-lot-noi-ngoai-that-ana-sealer"
+      ],
+      "robots": [
+        "index, follow"
+      ]
+    },
+    "son-sagopain-lot-noi-ngoai-that-sealer-primer.html": {
+      "canonical": [
+        "https://sagopaint.vn/son-sagopain-lot-noi-ngoai-that-sealer-primer"
+      ],
+      "robots": [
+        "index, follow"
+      ]
+    },
+    "son-sagopaint-chong-tham-mau-aqua-shield-5in1.html": {
+      "canonical": [
+        "https://sagopaint.vn/son-sagopaint-chong-tham-mau-aqua-shield-5in1"
+      ],
+      "robots": [
+        "index, follow"
+      ]
+    },
+    "son-sagopaint-ngoai-that-chong-phai-mau-anashield-be-mat-bong-mo.html": {
+      "canonical": [
+        "https://sagopaint.vn/son-sagopaint-ngoai-that-chong-phai-mau-anashield-be-mat-bong-mo"
+      ],
+      "robots": [
+        "index, follow"
+      ]
+    },
+    "son-sagopaint-ngoai-that-chong-reu-moc-super-satin-1.html": {
+      "canonical": [
+        "https://sagopaint.vn/son-sagopaint-ngoai-that-chong-reu-moc-super-satin-1"
+      ],
+      "robots": [
+        "index, follow"
+      ]
+    },
+    "son-sagopaint-noi-that-che-phu-toi-a-ana-matex.html": {
+      "canonical": [
+        "https://sagopaint.vn/son-sagopaint-noi-that-che-phu-toi-a-ana-matex"
+      ],
+      "robots": [
+        "index, follow"
+      ]
+    },
+    "son-sagopaint-noi-that-lau-chui-hieu-qua-anaclean-be-mat-bong-mo.html": {
+      "canonical": [
+        "https://sagopaint.vn/son-sagopaint-noi-that-lau-chui-hieu-qua-anaclean-be-mat-bong-mo"
+      ],
+      "robots": [
+        "index, follow"
+      ]
+    },
+    "son-sagopaint-not-that-mang-son-min-ep-v-2000.html": {
+      "canonical": [
+        "https://sagopaint.vn/son-sagopaint-not-that-mang-son-min-ep-v-2000"
+      ],
+      "robots": [
+        "index, follow"
+      ]
+    },
+    "ve-chung-toi.html": {
+      "canonical": [
+        "https://sagopaint.vn/ve-chung-toi"
+      ],
+      "robots": [
+        "index, follow"
+      ]
+    },
+    "xu-huong-mau-son-nha-2026.html": {
+      "canonical": [
+        "https://sagopaint.vn/xu-huong-mau-son-nha-2026"
+      ],
+      "robots": [
+        "index, follow"
+      ]
+    },
+    "phong-thuy-son-nha/index.html": {
+      "canonical": [
+        "https://sagopaint.vn/phong-thuy-son-nha/"
+      ],
+      "robots": [
+        "index, follow"
+      ]
+    },
+    "phong-thuy-son-nha/menh-hoa/index.html": {
+      "canonical": [
+        "https://sagopaint.vn/phong-thuy-son-nha/menh-hoa/"
+      ],
+      "robots": [
+        "index, follow"
+      ]
+    },
+    "phong-thuy-son-nha/menh-kim/index.html": {
+      "canonical": [
+        "https://sagopaint.vn/phong-thuy-son-nha/menh-kim/"
+      ],
+      "robots": [
+        "index, follow"
+      ]
+    },
+    "phong-thuy-son-nha/menh-moc/index.html": {
+      "canonical": [
+        "https://sagopaint.vn/phong-thuy-son-nha/menh-moc/"
+      ],
+      "robots": [
+        "index, follow"
+      ]
+    },
+    "phong-thuy-son-nha/menh-tho/index.html": {
+      "canonical": [
+        "https://sagopaint.vn/phong-thuy-son-nha/menh-tho/"
+      ],
+      "robots": [
+        "index, follow"
+      ]
+    },
+    "phong-thuy-son-nha/menh-thuy/index.html": {
+      "canonical": [
+        "https://sagopaint.vn/phong-thuy-son-nha/menh-thuy/"
+      ],
+      "robots": [
+        "index, follow"
+      ]
+    },
+    "phong-thuy-son-nha/tuoi-1990/index.html": {
+      "canonical": [
+        "https://sagopaint.vn/phong-thuy-son-nha/tuoi-1990/"
+      ],
+      "robots": [
+        "index, follow"
+      ]
+    },
+    "phong-thuy-son-nha/tuoi-1991/index.html": {
+      "canonical": [
+        "https://sagopaint.vn/phong-thuy-son-nha/tuoi-1991/"
+      ],
+      "robots": [
+        "index, follow"
+      ]
+    },
+    "phong-thuy-son-nha/tuoi-1992/index.html": {
+      "canonical": [
+        "https://sagopaint.vn/phong-thuy-son-nha/tuoi-1992/"
+      ],
+      "robots": [
+        "index, follow"
+      ]
+    },
+    "phong-thuy-son-nha/tuoi-1993/index.html": {
+      "canonical": [
+        "https://sagopaint.vn/phong-thuy-son-nha/tuoi-1993/"
+      ],
+      "robots": [
+        "index, follow"
+      ]
+    },
+    "phong-thuy-son-nha/tuoi-1994/index.html": {
+      "canonical": [
+        "https://sagopaint.vn/phong-thuy-son-nha/tuoi-1994/"
+      ],
+      "robots": [
+        "index, follow"
+      ]
+    },
+    "phong-thuy-son-nha/tuoi-1995/index.html": {
+      "canonical": [
+        "https://sagopaint.vn/phong-thuy-son-nha/tuoi-1995/"
+      ],
+      "robots": [
+        "index, follow"
+      ]
+    },
+    "phong-thuy-son-nha/tuoi-1996/index.html": {
+      "canonical": [
+        "https://sagopaint.vn/phong-thuy-son-nha/tuoi-1996/"
+      ],
+      "robots": [
+        "index, follow"
+      ]
+    },
+    "phong-thuy-son-nha/tuoi-1997/index.html": {
+      "canonical": [
+        "https://sagopaint.vn/phong-thuy-son-nha/tuoi-1997/"
+      ],
+      "robots": [
+        "index, follow"
+      ]
+    },
+    "phong-thuy-son-nha/tuoi-1998/index.html": {
+      "canonical": [
+        "https://sagopaint.vn/phong-thuy-son-nha/tuoi-1998/"
+      ],
+      "robots": [
+        "index, follow"
+      ]
+    },
+    "phong-thuy-son-nha/tuoi-1999/index.html": {
+      "canonical": [
+        "https://sagopaint.vn/phong-thuy-son-nha/tuoi-1999/"
+      ],
+      "robots": [
+        "index, follow"
+      ]
+    },
+    "phong-thuy-son-nha/tuoi-2000/index.html": {
+      "canonical": [
+        "https://sagopaint.vn/phong-thuy-son-nha/tuoi-2000/"
+      ],
+      "robots": [
+        "index, follow"
+      ]
+    },
+    "tinh-son/index.html": {
+      "canonical": [
+        "https://sagopaint.vn/tinh-son/"
+      ],
+      "robots": [
+        "index, follow"
+      ]
+    }
+  }
+}

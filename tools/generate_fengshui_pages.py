@@ -180,7 +180,7 @@ def nav(depth: int) -> str:
       <nav class="navbar navbar-expand-lg" aria-label="Điều hướng chính">
         <div class="container">
           <a class="navbar-brand" href="{root}index.html" aria-label="Sago Paint - Trang chủ">
-            <img class="brand-logo" src="{root}https://cdn.sagopaint.vn/assets/sago-logo.png" alt="Logo Sago Professional Coatings" loading="eager">
+            <img class="brand-logo" src="https://cdn.sagopaint.vn/assets/sago-logo.png" alt="Logo Sago Professional Coatings" loading="eager">
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavigation" aria-controls="mainNavigation" aria-expanded="false" aria-label="Mở menu điều hướng">
             <span class="navbar-toggler-icon"></span>
@@ -208,7 +208,7 @@ def footer(depth: int) -> str:
       <div class="container">
         <div class="row g-4 align-items-center">
           <div class="col-lg-7">
-            <img class="footer-logo mb-3" src="{root}https://cdn.sagopaint.vn/assets/sago-logo.png" alt="Logo Sago Paint" loading="lazy">
+            <img class="footer-logo mb-3" src="https://cdn.sagopaint.vn/assets/sago-logo.png" alt="Logo Sago Paint" loading="lazy">
             <h2>Nhận tư vấn màu sơn phong thủy cùng Sago Paint</h2>
             <p>Đội ngũ tư vấn giúp bạn chọn bảng màu hài hòa với mệnh, tuổi, ánh sáng thực tế và ngân sách thi công. S68 Pro được ưu tiên khi cần bề mặt bền đẹp, chống thấm lộ thiên, bền UV và chống bám bẩn.</p>
           </div>
@@ -231,6 +231,10 @@ def head(title: str, description: str, url: str, depth: int, schemas: list[dict]
 <html lang="vi">
   <head>
     <meta charset="utf-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.sagopaint.vn">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&amp;display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{esc(title)}</title>
     <meta name="description" content="{esc(description)}">
@@ -247,6 +251,7 @@ def head(title: str, description: str, url: str, depth: int, schemas: list[dict]
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link href="{root}phong-thuy-son-nha/styles.css" rel="stylesheet">
     <script type="application/ld+json">{json.dumps(schemas, ensure_ascii=False, indent=6)}</script>
+    <link href="{root}assets/css/site-base.css" rel="stylesheet">
   </head>"""
 
 
@@ -266,7 +271,7 @@ def product_highlight(depth: int) -> str:
               <a class="btn btn-primary" href="tel:+842866815050">Nhận tư vấn S68 Pro</a>
             </div>
             <a class="product-packshot" href="{root}{S68_FILE}" aria-label="Xem chi tiết sản phẩm SAGO S 68 PRO">
-              <img src="{root}https://cdn.sagopaint.vn/assets/products/sago-s-68-pro-chong-tham-a-nang-lo-thien-cao-cap.png" alt="SAGO S 68 PRO chống thấm đa năng lộ thiên cao cấp" loading="lazy" width="520" height="620">
+              <img src="/assets/products/sago-s68-pro-preview.webp" alt="SAGO S 68 PRO chống thấm đa năng lộ thiên cao cấp" loading="lazy" width="520" height="620">
             </a>
           </div>
         </div>
@@ -428,8 +433,9 @@ def page(title: str, description: str, url: str, depth: int, body: str, crumbs: 
     schemas = [breadcrumb(crumbs), article_schema(title, description, url), faq_schema(faqs)]
     return head(title, description, url, depth, schemas) + f"""
   <body>
+    <a class="skip-link" href="#main-content">Bỏ qua điều hướng, đến nội dung chính</a>
     {nav(depth)}
-    <main>
+    <main id="main-content" tabindex="-1">
       {body}
     </main>
     {footer(depth)}

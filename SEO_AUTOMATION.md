@@ -1,142 +1,83 @@
-# Huong dan tu dong hoa SEO cho Sago Paint
+# SEO và kiểm tra chất lượng Sago Paint
 
-File nay mo ta quy trinh tu dong hoa cac viec SEO ky thuat co the lam duoc trong repo nay.
+## Chuẩn bị
 
-## Viec da tu dong hoa
+Dùng Node.js 24+ và Python 3.12+. Cài công cụ phát triển bằng `npm ci`, rồi
+`npx playwright install chromium`. Trên CI Linux dùng `--with-deps`.
+Site vẫn là HTML/CSS/Bootstrap tĩnh; không có dependency production mới.
 
-Script chinh:
+## Kiểm tra trước khi hoàn tất task
 
-```bash
-node tools/seo-sync.js
-```
+- `npm run check:site`: parse 54 trang nội dung; kiểm tra title, description,
+  canonical/robots theo baseline, schema JSON, liên kết/ảnh nội bộ, orphan,
+  54 context, nguồn và giấy phép skills. Có lỗi trả exit code 1.
+- `npm run check:seo`: **chỉ đọc**, kiểm tra metadata, canonical, sitemap và
+  robots; không sửa HTML. Không thể kết hợp `--check` với `--deploy`.
+- `npm run test:generators`: chạy hồi quy trong thư mục tạm, không sinh đè trang thật.
+- `npm run test:unit`: inventory, bản public, route/redirect và chế độ SEO chỉ đọc.
+- `npm run test:e2e`: build rồi kiểm tra 54 trang ở 360/768/1440px, font tải thật,
+  ảnh, overflow, axe serious/critical, menu, hero S68, calculator và soạn email.
+- `npm test`: chạy tất cả các kiểm tra trên.
+- `npm run audit:lighthouse`: báo cáo lab cho 6 trang đại diện. Lỗi chạy audit
+  trả mã thất bại; điểm số dùng để so sánh và chẩn đoán, không bảo đảm thứ hạng.
 
-Script nay tu dong:
+Browser report, screenshots, traces và Lighthouse lưu trong `output/`,
+`playwright-report/`, `test-results/`; các thư mục này được gitignore.
+CI chạy trên push/PR và tải báo cáo lên artifact, không tự deploy.
 
-- kiem tra chat luong programmatic SEO: URL trung lap, canonical, title/description/H1, trang mong duoi 300 tu, duplicate title/meta description;
-- bo qua file xac minh Google dang `google*.html`;
-- loai trang `noindex` khoi `sitemap.xml`;
+## Đồng bộ SEO và xuất bản
 
-- quet tat ca file `.html` trong project;
-- tao lai `sitemap.xml`;
-- tao lai `robots.txt`;
-- dong bo `canonical` va `og:url` trong tung trang;
-- dung domain chinh `https://sagopaint.vn`;
-- dung URL khong duoi `.html`, vi Cloudflare Pages dang phuc vu URL dang nay;
-- doc file `_redirects` de kiem tra cac redirect cu.
+`node tools/seo-sync.js --dry-run` xem trước, không ghi. Lệnh
+`node tools/seo-sync.js` đồng bộ canonical, og:url, favicon, sitemap và robots.
+`lastmod` ở chế độ sync lấy từ thời gian sửa file; chế độ check so sánh tập URL,
+không yêu cầu timestamp checkout/CI trùng máy phát triển.
 
-## Lenh thuong dung
+Sitemap có 53 URL canonical indexable, bỏ file xác minh Google và trang
+ANAclean `-2` đang noindex. Không áp đặt số từ tối thiểu như điều kiện SEO đạt:
+độ hữu ích và ý định tìm kiếm được review bằng skill seo-audit.
 
-Dong bo sitemap, robots va canonical:
+`npm run build` chỉ đóng gói các file công khai vào `dist` theo inventory
+`tools/site-files.js`; docs, skills, tests và node_modules không được xuất bản.
+`npm run serve` phục vụ dist ở http://127.0.0.1:4173, có URL không đuôi .html
+và redirect hiện có để kiểm tra tại máy.
 
-```bash
-node tools/seo-sync.js
-```
+Chỉ khi task yêu cầu deploy mới chạy:
 
-Xem truoc thay doi, khong ghi file:
-
-```bash
-node tools/seo-sync.js --dry-run
-```
-
-Dong bo va deploy len Cloudflare Pages:
-
-```bash
+```sh
 node tools/seo-sync.js --deploy
+node tools/seo-sync.js --check --check-live
 ```
 
-Kiem tra ban live sau khi deploy:
+Khi release commit đã đồng bộ SEO và kiểm thử, giữ nguyên nguồn bằng cách build
+rồi deploy trực tiếp, không chạy sync ghi lại lastmod sau commit:
 
-```bash
-node tools/seo-sync.js --check-live
+```sh
+npm run build
+npx wrangler pages deploy dist --project-name sagopaint --branch main
+node tools/seo-sync.js --check --check-live
 ```
 
-Dong bo, deploy, roi kiem tra live:
+Deploy dùng `wrangler pages deploy dist --project-name sagopaint`, không dùng
+thư mục repo gốc. Nếu Cloudflare Pages còn cấu hình auto build cũ ở dashboard,
+cần đổi build command thành `npm run build`, output directory thành `dist`
+trước lần auto deploy tiếp theo. Cấu hình dashboard chưa được thay trong đợt này.
 
-```bash
-node tools/seo-sync.js --deploy --check-live
-```
+## Thêm hoặc đổi trang
 
-Neu doi domain chinh:
+1. Sửa nguồn/template và HTML, giữ lang vi, Be Vietnam Pro, skip link và metadata.
+2. Nhóm thư mục route mới cần được khai báo trong PUBLIC_DIRS của site-files.js.
+3. Đổi URL cần redirect; không bỏ trạng thái noindex của alias nếu chưa có quyết định.
+4. Cập nhật baseline `tests/page-contracts.json` khi có thay đổi URL/index được duyệt.
+5. Chạy `python tools/update_contexts.py`, đọc diff từng context và cập nhật số
+   trang kỳ vọng trong checks/tests khi thêm hoặc bỏ trang có chủ ý.
+6. Sync SEO, chạy test và Ponytail review theo AGENTS.md.
 
-```bash
-node tools/seo-sync.js --domain=https://ten-domain-moi.vn
-```
+## Phạm vi báo cáo
 
-Neu doi ten Cloudflare Pages project:
+Báo cáo hiện tại là `seo/seo-summary.md` và `docs/audits/final-review.md`.
+Các báo cáo còn lại trong seo/ là tài liệu lịch sử của đợt audit trước, có thể chỉ
+bao phủ 41 trang. Không dùng điểm 100/100 cũ làm bằng chứng cho lần kiểm tra mới.
 
-```bash
-node tools/seo-sync.js --deploy --project=ten-project
-```
-
-## Quy trinh khi them trang moi
-
-1. Tao file HTML moi trong repo.
-2. Chay:
-
-```bash
-node tools/seo-sync.js
-```
-
-3. Kiem tra `sitemap.xml` co URL moi.
-4. Deploy:
-
-```bash
-node tools/seo-sync.js --deploy --check-live
-```
-
-5. Vao Google Search Console > So do trang web > gui lai:
-
-```txt
-sitemap.xml
-```
-
-## Quy trinh khi thay URL
-
-Neu doi URL cu sang URL moi, them redirect vao file `_redirects`.
-
-Vi du:
-
-```txt
-/url-cu/ /url-moi 301
-```
-
-Sau do chay:
-
-```bash
-node tools/seo-sync.js --deploy --check-live
-```
-
-## Nhung viec khong the tu dong hoa hoan toan
-
-Google khong cho API de ep lap chi muc hang loat cho website thuong.
-
-Nhung viec van nen lam trong Google Search Console:
-
-- gui lai `sitemap.xml`;
-- dung Kiem tra URL cho vai trang quan trong;
-- bam Yeu cau lap chi muc cho trang chu va cac trang san pham/danh muc chinh;
-- theo doi muc Trang de xem loi 404, redirect, canonical, hoac da thu thap du lieu nhung chua lap chi muc.
-
-Indexing API cua Google chi dung cho `JobPosting` hoac livestream video `BroadcastEvent`, khong phu hop cho cac trang san pham son cua site nay.
-
-## URL uu tien yeu cau lap chi muc
-
-```txt
-https://sagopaint.vn/
-https://sagopaint.vn/son-noi-that
-https://sagopaint.vn/son-ngoai-that
-https://sagopaint.vn/son-chong-tham
-https://sagopaint.vn/tinh-son/
-https://sagopaint.vn/phong-thuy-son-nha/
-```
-
-## Ghi chu ve 404 cu
-
-Neu Search Console bao cac URL dang WordPress cu nhu:
-
-```txt
-/wp-content/...
-/wp-*.php
-```
-
-thi co the bo qua neu site hien tai khong con dung WordPress. Google se tu loai dan cac URL do khoi bao cao.
+Chưa kiểm tra Search Console, traffic, index Google hoặc Core Web Vitals thực tế.
+Không cần Indexing API cho trang sản phẩm sơn. Sau deploy được duyệt mới kiểm tra
+HTTP live và gửi sitemap trong Search Console nếu người quản trị có quyền.

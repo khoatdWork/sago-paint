@@ -2,6 +2,11 @@
 <html lang="vi">
   <head>
     <meta charset="utf-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.sagopaint.vn">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&amp;display=swap" rel="stylesheet">
+    <link rel="preload" as="image" fetchpriority="high" href="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&amp;fit=crop&amp;w=1920&amp;q=85">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Công Cụ Tính Sơn Nhà Chính Xác | Tính Lượng Sơn Cần Dùng</title>
     <meta name="description" content="Công cụ tính sơn miễn phí giúp bạn tính chính xác lượng sơn cần dùng cho nhà ở, căn hộ, văn phòng và công trình. Nhận tư vấn và báo giá nhanh chóng.">
@@ -69,8 +74,10 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
     <link rel="manifest" href="/assets/site.webmanifest">
     <link rel="shortcut icon" href="/assets/favicon.ico">
+    <link href="../assets/css/site-base.css" rel="stylesheet">
 </head>
   <body>
+    <a class="skip-link" href="#main-content">Bỏ qua điều hướng, đến nội dung chính</a>
     <header class="site-header fixed-top">
       <nav class="navbar navbar-expand-lg" aria-label="Điều hướng chính">
         <div class="container">
@@ -95,7 +102,7 @@
       </nav>
     </header>
 
-    <main>
+    <main id="main-content" tabindex="-1">
       <section class="category-hero">
         <div class="container">
           <div class="row align-items-center g-5">
@@ -141,9 +148,10 @@
           <div class="row g-4 align-items-start">
             <div class="col-lg-7">
               <div class="calculator-shell">
+                <p id="calculationMessage" class="text-danger" role="status"></p>
                 <div class="calculator-tabs" role="tablist" aria-label="Cách tính sơn">
                   <button id="tab-room" class="calculator-tab active" type="button" role="tab" aria-controls="panel-room" aria-selected="true" data-tab="room">Tính Theo Kích Thước Phòng</button>
-                  <button id="tab-area" class="calculator-tab" type="button" role="tab" aria-controls="panel-area" aria-selected="false" data-tab="area">Tính Theo Diện Tích Có Sẵn</button>
+                  <button id="tab-area" class="calculator-tab" type="button" role="tab" aria-controls="panel-area" aria-selected="false" tabindex="-1" data-tab="area">Tính Theo Diện Tích Có Sẵn</button>
                 </div>
                 <div id="panel-room" class="calculator-panel active" role="tabpanel" aria-labelledby="tab-room">
                   <div class="row g-3">
@@ -153,14 +161,14 @@
                     <div class="col-md-6"><label class="form-label" for="doors">Số cửa ra vào</label><input class="form-control" id="doors" type="number" min="0" step="1" value="1"></div>
                     <div class="col-md-6"><label class="form-label" for="windows">Số cửa sổ</label><input class="form-control" id="windows" type="number" min="0" step="1" value="2"></div>
                     <div class="col-md-6"><label class="form-label" for="coatsRoom">Số lớp sơn</label><input class="form-control" id="coatsRoom" type="number" min="1" step="1" value="2"></div>
-                    <div class="col-12"><label class="form-label" for="paintTypeRoom">Loại sơn</label><select class="form-select" id="paintTypeRoom"><option>Sơn Nội Thất</option><option>Sơn Ngoại Thất</option><option>Sơn Chống Thấm</option></select></div>
+                    <div class="col-12"><label class="form-label" for="paintTypeRoom">Loại sơn</label><select class="form-select" id="paintTypeRoom"><option>Sơn Nội Thất</option><option>Sơn Ngoại Thất</option><option>Sơn Chống Thấm</option></select><span id="projectTypeError" class="invalid-feedback">Vui lòng chọn loại công trình.</span></div>
                   </div>
                 </div>
-                <div id="panel-area" class="calculator-panel" role="tabpanel" aria-labelledby="tab-area">
+                <div id="panel-area" class="calculator-panel" hidden role="tabpanel" aria-labelledby="tab-area">
                   <div class="row g-3">
                     <div class="col-12"><label class="form-label" for="manualArea">Tổng diện tích cần sơn (m²)</label><input class="form-control" id="manualArea" type="number" min="0" step="1" value="120"></div>
                     <div class="col-md-6"><label class="form-label" for="coatsArea">Số lớp sơn</label><input class="form-control" id="coatsArea" type="number" min="1" step="1" value="2"></div>
-                    <div class="col-md-6"><label class="form-label" for="paintTypeArea">Loại sơn</label><select class="form-select" id="paintTypeArea"><option>Sơn Nội Thất</option><option>Sơn Ngoại Thất</option><option>Sơn Chống Thấm</option></select></div>
+                    <div class="col-md-6"><label class="form-label" for="paintTypeArea">Loại sơn</label><select class="form-select" id="paintTypeArea"><option>Sơn Nội Thất</option><option>Sơn Ngoại Thất</option><option>Sơn Chống Thấm</option></select><span id="projectTypeError" class="invalid-feedback">Vui lòng chọn loại công trình.</span></div>
                   </div>
                 </div>
               </div>
@@ -206,18 +214,18 @@
           <div class="row g-4 align-items-center">
             <div class="col-lg-5">
               <p class="section-kicker mb-2">Tư vấn miễn phí</p>
-              <h2 id="lead-heading" class="h1 mb-3">Gửi thông tin để nhận báo giá chính xác</h2>
+              <h2 id="lead-heading" class="h1 mb-3">Liên hệ tư vấn để nhận báo giá chính xác</h2>
               <p class="lead text-secondary mb-0">Kết quả máy tính là cơ sở tham khảo. Đội ngũ Sago Paint sẽ kiểm tra bề mặt, hệ sơn phù hợp và tối ưu chi phí thi công cho từng công trình.</p>
             </div>
             <div class="col-lg-7">
               <form id="consultForm" class="lead-form-card" novalidate>
                 <div class="row g-3">
-                  <div class="col-md-6"><label class="form-label" for="fullName">Họ và tên</label><input class="form-control" id="fullName" required></div>
-                  <div class="col-md-6"><label class="form-label" for="phone">Số điện thoại</label><input class="form-control" id="phone" type="tel" required></div>
-                  <div class="col-md-6"><label class="form-label" for="email">Email</label><input class="form-control" id="email" type="email"></div>
-                  <div class="col-md-6"><label class="form-label" for="projectType">Loại công trình</label><select class="form-select" id="projectType" required><option value="">Chọn loại công trình</option><option>Nhà phố</option><option>Chung cư</option><option>Biệt thự</option><option>Văn phòng</option><option>Khác</option></select></div>
-                  <div class="col-12"><button class="btn btn-primary btn-lg w-100" type="submit">Nhận Tư Vấn Miễn Phí</button></div>
-                  <div class="col-12"><p id="formMessage" class="mb-0 small text-secondary" role="status"></p></div>
+                  <div class="col-md-6"><label class="form-label" for="fullName">Họ và tên</label><input class="form-control" id="fullName" name="fullName" autocomplete="name" required aria-describedby="fullNameError"><span id="fullNameError" class="invalid-feedback">Vui lòng nhập họ và tên.</span></div>
+                  <div class="col-md-6"><label class="form-label" for="phone">Số điện thoại</label><input class="form-control" id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required aria-describedby="phoneError"><span id="phoneError" class="invalid-feedback">Vui lòng nhập số điện thoại.</span></div>
+                  <div class="col-md-6"><label class="form-label" for="email">Email</label><input class="form-control" id="email" name="email" type="email" autocomplete="email" spellcheck="false" aria-describedby="emailError"><span id="emailError" class="invalid-feedback">Vui lòng kiểm tra địa chỉ email.</span></div>
+                  <div class="col-md-6"><label class="form-label" for="projectType">Loại công trình</label><select class="form-select" id="projectType" name="projectType" required aria-describedby="projectTypeError"><option value="">Chọn loại công trình</option><option>Nhà phố</option><option>Chung cư</option><option>Biệt thự</option><option>Văn phòng</option><option>Khác</option></select><span id="projectTypeError" class="invalid-feedback">Vui lòng chọn loại công trình.</span></div>
+                  <div class="col-12"><button class="btn btn-primary btn-lg w-100" type="submit">Soạn email tư vấn</button><a class="btn btn-outline-primary w-100 mt-2" href="tel:+842866815050">Gọi +8428 6681 5050</a></div>
+                  <div class="col-12"><p id="formMessage" class="mb-0 small text-secondary" role="status">Nút soạn email mở ứng dụng email của bạn. Hãy kiểm tra và tự gửi; website chưa gửi thông tin.</p></div>
                 </div>
               </form>
             </div>
@@ -318,154 +326,6 @@
 
     <a class="btn btn-primary mobile-sticky-cta" href="#tu-van">Nhận Tư Vấn Miễn Phí</a>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-    <script>
-      const products = {
-        "Sơn Nội Thất": [
-          {name: "S60 Pro", badge: "Khuyên dùng", href: "../son-sagopaint-noi-that-lau-chui-hieu-qua-anaclean-be-mat-bong-mo.html", img: "https://cdn.sagopaint.vn/assets/products/son-sagopaint-noi-that-lau-chui-hieu-qua-anaclean-be-mat-bong-mo.png", features: "Bề mặt mịn, dễ lau chùi, phù hợp phòng khách và phòng ngủ.", coverage: "10m²/lít/lớp", primary: true},
-          {name: "Sơn Nội Thất Cao Cấp", badge: "Nội thất", href: "../son-noi-that-lau-chui-hieu-qua-anaclean-be-mat-ban-bong.html", img: "https://cdn.sagopaint.vn/assets/products/son-noi-that-lau-chui-hieu-qua-anaclean-be-mat-ban-bong.png", features: "Màng sơn đẹp, che phủ tốt, dùng cho căn hộ và nhà phố.", coverage: "10m²/lít/lớp"},
-          {name: "Sơn Siêu Mịn", badge: "Mịn đẹp", href: "../son-sagopaint-not-that-mang-son-min-ep-v-2000.html", img: "https://cdn.sagopaint.vn/assets/products/son-sagopaint-not-that-mang-son-min-ep-v-2000.png", features: "Hoàn thiện bề mặt tường mịn, tối ưu chi phí thi công.", coverage: "10m²/lít/lớp"}
-        ],
-        "Sơn Ngoại Thất": [
-          {name: "ANA Satin Bề Mặt Bán Bóng", badge: "Ngoại thất", href: "../son-ngoai-that-ana-satin-be-mat-ban-bong.html", img: "https://cdn.sagopaint.vn/assets/products/son-ngoai-that-ana-satin-be-mat-ban-bong.png", features: "Bền màu, chống rêu mốc, phù hợp mặt tiền và tường ngoài.", coverage: "10m²/lít/lớp", primary: true},
-          {name: "ANA Satin Bề Mặt Siêu Bóng", badge: "Bền thời tiết", href: "../son-ngoai-that-ana-satin-be-mat-sieu-bong.html", img: "https://cdn.sagopaint.vn/assets/products/son-ngoai-that-ana-satin-be-mat-sieu-bong.png", features: "Bề mặt sáng, dễ vệ sinh, chống chịu môi trường ngoài trời.", coverage: "10m²/lít/lớp"},
-          {name: "Anashield Bóng Mờ", badge: "Chống phai", href: "../son-sagopaint-ngoai-that-chong-phai-mau-anashield-be-mat-bong-mo.html", img: "https://cdn.sagopaint.vn/assets/products/son-sagopaint-ngoai-that-chong-phai-mau-anashield-be-mat-bong-mo.png", features: "Hỗ trợ chống phai màu cho tường ngoại thất hiện đại.", coverage: "10m²/lít/lớp"}
-        ],
-        "Sơn Chống Thấm": [
-          {name: "SAGO S68 Pro", badge: "Chống thấm cao cấp", href: "../sago-s-68-pro-chong-tham-a-nang-lo-thien-cao-cap.html", img: "https://cdn.sagopaint.vn/assets/products/sago-s-68-pro-chong-tham-a-nang-lo-thien-cao-cap.png", features: "Chống thấm lộ thiên, bền UV, phù hợp sân thượng và ban công.", coverage: "Theo bề mặt thực tế", primary: true},
-          {name: "Aqua Shield 5 in 1", badge: "Chống thấm màu", href: "../son-chong-tham-mau-aqua-shield-5-in1.html", img: "https://cdn.sagopaint.vn/assets/products/son-chong-tham-mau-aqua-shield-5-in1.png", features: "Bảo vệ tường khỏi nước xâm nhập, dùng được cho tường ngoài.", coverage: "10m²/lít/lớp"},
-          {name: "BT-11A Pha Xi Măng", badge: "Xử lý nền", href: "../chat-chong-tham-bt-11a-pha-xi-mang.html", img: "https://cdn.sagopaint.vn/assets/products/chat-chong-tham-bt-11a-pha-xi-mang.png", features: "Giải pháp chống thấm cho bề mặt xi măng và bê tông.", coverage: "Theo hạng mục"}
-        ]
-      };
-
-      const prices = {
-        "Sơn Nội Thất": {primer: 65000, finish: 95000},
-        "Sơn Ngoại Thất": {primer: 75000, finish: 125000},
-        "Sơn Chống Thấm": {primer: 85000, finish: 145000}
-      };
-
-      const inputs = document.querySelectorAll("input, select");
-      const tabs = document.querySelectorAll(".calculator-tab");
-      let mode = "room";
-
-      function value(id) {
-        return Math.max(0, Number(document.getElementById(id).value) || 0);
-      }
-
-      function money(number) {
-        return new Intl.NumberFormat("vi-VN").format(Math.round(number)) + " VNĐ";
-      }
-
-      function currentType() {
-        return mode === "room" ? document.getElementById("paintTypeRoom").value : document.getElementById("paintTypeArea").value;
-      }
-
-      function calculate() {
-        let paintableArea = 0;
-        let coats = 2;
-        if (mode === "room") {
-          const wallArea = (value("length") + value("width")) * 2 * value("height");
-          const doorArea = value("doors") * 2;
-          const windowArea = value("windows") * 1.5;
-          paintableArea = Math.max(0, wallArea - doorArea - windowArea);
-          coats = Math.max(1, value("coatsRoom"));
-        } else {
-          paintableArea = value("manualArea");
-          coats = Math.max(1, value("coatsArea"));
-        }
-
-        const finalArea = paintableArea * coats;
-        const liters = Math.ceil(finalArea / 10);
-        const buckets = Math.ceil(liters / 18);
-        const type = currentType();
-        const primerCost = Math.ceil(paintableArea / 10) * prices[type].primer;
-        const finishCost = liters * prices[type].finish;
-
-        document.getElementById("paintableArea").textContent = Math.round(paintableArea) + " m²";
-        document.getElementById("coatResult").textContent = coats + " lớp";
-        document.getElementById("paintNeeded").textContent = liters + " L";
-        document.getElementById("bucketResult").textContent = buckets + " thùng 18L";
-        document.getElementById("primerCost").textContent = money(primerCost);
-        document.getElementById("finishCost").textContent = money(finishCost);
-        document.getElementById("totalCost").textContent = money(primerCost + finishCost);
-        renderProducts(type);
-      }
-
-      function renderProducts(type) {
-        document.getElementById("productRecommendations").innerHTML = products[type].map((product) => `
-          <div class="col-md-6 col-xl-4">
-            <article class="product-card ${product.primary ? "recommended" : ""} d-flex flex-column">
-              <a class="product-image-link" href="${product.href}" aria-label="Xem ${product.name}">
-                <img src="${product.img}" alt="${product.name}" loading="lazy">
-              </a>
-              <div class="product-card-body d-flex flex-column flex-grow-1">
-                <span class="product-badge">${product.badge}</span>
-                <h3 class="h5">${product.name}</h3>
-                <p>${product.features}</p>
-                <p><strong>Độ phủ:</strong> ${product.coverage}</p>
-                <div class="d-flex flex-wrap gap-2 mt-auto">
-                  <a class="btn btn-sm btn-outline-primary" href="${product.href}">Xem Chi Tiết</a>
-                  <a class="btn btn-sm btn-primary" href="#tu-van">Liên Hệ Tư Vấn</a>
-                </div>
-              </div>
-            </article>
-          </div>
-        `).join("");
-      }
-
-      tabs.forEach((tab) => {
-        tab.addEventListener("click", () => {
-          mode = tab.dataset.tab;
-          tabs.forEach((item) => {
-            item.classList.toggle("active", item === tab);
-            item.setAttribute("aria-selected", item === tab ? "true" : "false");
-          });
-          document.querySelectorAll(".calculator-panel").forEach((panel) => {
-            panel.classList.toggle("active", panel.id === `panel-${mode}`);
-          });
-          calculate();
-        });
-      });
-
-      document.querySelectorAll("[data-preset]").forEach((button) => {
-        button.addEventListener("click", () => {
-          const preset = button.dataset.preset;
-          const presets = {
-            bedroom: {mode: "room", length: 4, width: 3.5, height: 3, doors: 1, windows: 1},
-            living: {mode: "room", length: 6, width: 4, height: 3.2, doors: 1, windows: 2},
-            apt60: {mode: "area", area: 150},
-            apt80: {mode: "area", area: 200},
-            house100: {mode: "area", area: 280},
-            house150: {mode: "area", area: 420}
-          };
-          const data = presets[preset];
-          document.querySelector(`[data-tab="${data.mode}"]`).click();
-          if (data.mode === "room") {
-            ["length", "width", "height", "doors", "windows"].forEach((id) => document.getElementById(id).value = data[id]);
-          } else {
-            document.getElementById("manualArea").value = data.area;
-          }
-          calculate();
-        });
-      });
-
-      inputs.forEach((input) => input.addEventListener("input", calculate));
-      inputs.forEach((input) => input.addEventListener("change", calculate));
-
-      document.getElementById("consultForm").addEventListener("submit", (event) => {
-        event.preventDefault();
-        const form = event.currentTarget;
-        const message = document.getElementById("formMessage");
-        if (!form.checkValidity()) {
-          form.classList.add("was-validated");
-          message.textContent = "Vui lòng nhập họ tên, số điện thoại và loại công trình.";
-          return;
-        }
-        message.textContent = "Thông tin đã sẵn sàng. Vui lòng gọi +8428 6681 5050 hoặc gửi email info.sagopaint@gmail.com để được tư vấn nhanh.";
-        form.reset();
-        form.classList.remove("was-validated");
-      });
-
-      calculate();
-    </script>
+    <script src="/assets/js/paint-calculator.js"></script>
   </body>
 </html>

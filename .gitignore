@@ -9,3 +9,8 @@ Thumbs.db
 .codex/
 .wrangler/
 /phong-thuy-son-nha.zip
+
+/dist/
+/output/
+/playwright-report/
+/test-results/

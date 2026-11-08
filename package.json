@@ -1,0 +1,25 @@
+{
+  "name": "sago-paint",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Website tĩnh Sago Paint và công cụ kiểm tra chất lượng",
+  "engines": { "node": ">=24" },
+  "scripts": {
+    "build": "node tools/build-static.js",
+    "serve": "node tools/serve-static.js",
+    "check:site": "python tools/check_site.py",
+    "check:seo": "node tools/seo-sync.js --check",
+    "test:generators": "python -m unittest discover -s tests -p test_generators.py",
+    "test:unit": "node --test tests/*.test.cjs",
+    "pretest:e2e": "npm run build",
+    "test:e2e": "playwright test",
+    "test": "npm run check:site && npm run check:seo && npm run test:generators && npm run test:unit && npm run test:e2e",
+    "preaudit:lighthouse": "npm run build",
+    "audit:lighthouse": "node tools/lighthouse-audit.mjs"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.14.0",
+    "@playwright/test": "1.65.0",
+    "lighthouse": "13.6.0"
+  }
+}

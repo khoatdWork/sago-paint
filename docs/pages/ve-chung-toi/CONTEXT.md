@@ -1,0 +1,54 @@
+# Context — Về Sago Paint - Đại lý sơn chuyên nghiệp
+
+## Vai trò
+
+- File: `ve-chung-toi.html`
+- URL: `https://sagopaint.vn/ve-chung-toi`
+- Nhóm: Doanh nghiệp
+- Mục đích: Giới thiệu Sago Paint và thông tin liên hệ.
+- Đối tượng: Khách xác minh thương hiệu và nhà cung cấp.
+- CTA hiện có: `tel:+842866815050`, `#lien-he`, `mailto:info.sagopaint@gmail.com`.
+- Nguồn chỉnh sửa: HTML biên tập trực tiếp. Sửa template cùng trang nếu thuộc generator.
+
+## Nội dung và ý định tìm kiếm
+
+- Ý định tìm kiếm: Thông tin Công ty Sơn Sago.
+- Nội dung cụ thể là các heading dưới đây; không tự thêm thông số, chứng nhận hoặc lời hứa chưa có nguồn.
+
+- H1: Giải pháp sơn nhà chuyên nghiệp cho công trình Việt Nam
+- H2: Hệ sản phẩm chính
+- H2: Chọn đúng hệ sơn
+- H2: Tập trung hiệu quả thi công
+- H2: Cách Sago Paint tư vấn cho từng công trình
+- H2: Công ty Sơn Sago
+- H3: Thông tin liên hệ
+- H3: Danh mục
+
+## SEO hiện tại
+
+- Title: Về Sago Paint - Đại lý sơn chuyên nghiệp
+- Description: Tìm hiểu Sago Paint, đơn vị tư vấn sơn nội thất, ngoại thất, chống thấm và giải pháp hoàn thiện bề mặt cho công trình Việt Nam.
+- Canonical: `https://sagopaint.vn/ve-chung-toi`
+- Robots: `index, follow`
+- Schema: BreadcrumbList, HomeAndConstructionBusiness, Organization.
+- Ngôn ngữ: `vi`. Giữ URL/canonical và trạng thái index khi sửa giao diện.
+
+## Tài nguyên chính
+
+- `https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&display=swap`
+- `https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css`
+- `category-pages.css`
+- `assets/css/site-base.css`
+- `https://cdn.sagopaint.vn/assets/sago-logo.png`
+
+## Tiêu chí kiểm thử
+
+- Đọc AGENTS.md và DESIGN.md; sử dụng skill ứng với từng phase/hạng mục.
+- Font Be Vietnam Pro cho chữ; không tràn ở 360/768/1440px; thử fallback CDN.
+- Navigation, CTA, điểm neo hoạt động; keyboard focus rõ và không bị sticky che.
+- CSS chung dùng đường dẫn tương đối theo độ sâu HTML; skip link ẩn mặc định, hiện khi Tab và Enter đưa focus tới nội dung chính. Kiểm tra cả HTTP và mở file trực tiếp.
+- Title/description/canonical/schema hợp lệ; không làm hỏng liên kết hoặc tài nguyên.
+- Chạy kiểm tra trang, SEO và browser test; dùng Ponytail review diff trước hoàn tất.
+
+Context được tạo từ HTML bằng `python tools/update_contexts.py`; đọc diff và cập nhật
+đúng nguồn nội dung trước khi chạy lại. Giải thích hành vi riêng cần giữ ở nguồn và test.
