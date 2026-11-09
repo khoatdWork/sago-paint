@@ -17,16 +17,16 @@
 
 - H1: Sơn nội thất bền màu, ít mùi, dễ lau chùi cho không gian sống hiện đại
 - H2: Sản phẩm sơn nội thất nổi bật
+- H2: Bột trét nội thất HOASEN ANA
+- H2: Sơn nội thất ANAclean bề mặt bán bóng
+- H2: Sơn lót nội và ngoại thất ANA Sealer
+- H2: Sơn lót nội và ngoại thất Sealer Primer
+- H2: Sơn nội thất che phủ tối đa ANA MATEX
+- H2: Sơn nội thất ANAclean bề mặt bóng mờ
+- H2: Sơn nội thất màng sơn mịn đẹp V-2000
+- H2: Chọn hệ sơn phù hợp
 - H3: Ứng dụng phù hợp
 - H3: Lợi ích chính
-- H2: BỘT TRÉT NỘI THẤT HOASEN ANA
-- H2: SƠN NỘI THẤT LAU CHÙI HIỆU QUẢ ANAclean bề mặt bán bóng
-- H2: SƠN NỘI THẤT LAU CHÙI HIỆU QUẢ ANAclean bề mặt bán bóng
-- H2: Sơn Sagopaint lót nội & ngoại thất Ana Sealer
-- H2: Sơn Sagopaint lót nội & ngoại thất Sealer Primer
-- H2: Sơn Sagopaint nội thất Che Phủ Tối Đa ANA MATEX
-- H2: Sơn Sagopaint nội thất Lau Chùi Hiệu Quả Anaclean - bề mặt bóng mờ
-- H2: Sơn Sagopaint nội thất MÀNG SƠN MỊN ĐẸP V - 2000
 - H2: Chưa chắc nên dùng sản phẩm nào?
 - H2: Công ty Sơn Sago
 - H3: Thông tin liên hệ
@@ -49,7 +49,6 @@
 - `assets/css/site-base.css`
 - `https://cdn.sagopaint.vn/assets/sago-logo.png`
 - `https://cdn.sagopaint.vn/assets/products/bot-tret-noi-that-hoasen-ana.png`
-- `https://cdn.sagopaint.vn/assets/products/son-noi-that-lau-chui-hieu-qua-anaclean-be-mat-ban-bong-2.png`
 - `https://cdn.sagopaint.vn/assets/products/son-noi-that-lau-chui-hieu-qua-anaclean-be-mat-ban-bong.png`
 - `https://cdn.sagopaint.vn/assets/products/son-sagopain-lot-noi-ngoai-that-ana-sealer.png`
 - `https://cdn.sagopaint.vn/assets/products/son-sagopain-lot-noi-ngoai-that-sealer-primer.png`
@@ -58,6 +57,8 @@
 - `https://cdn.sagopaint.vn/assets/products/son-sagopaint-not-that-mang-son-min-ep-v-2000.png`
 
 ## Tiêu chí kiểm thử
+
+- Bố cục: nền trắng/xám nhẹ; sản phẩm dùng ảnh trái và thông tin phải trên desktop, tên–ảnh–mô tả trên mobile. Danh mục ưu tiên danh sách sản phẩm trước hướng dẫn lựa chọn.
 
 - Đọc AGENTS.md và DESIGN.md; sử dụng skill ứng với từng phase/hạng mục.
 - Font Be Vietnam Pro cho chữ; không tràn ở 360/768/1440px; thử fallback CDN.

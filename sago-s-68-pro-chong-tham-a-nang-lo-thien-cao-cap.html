@@ -146,11 +146,11 @@
     <link rel="shortcut icon" href="/assets/favicon.ico">
     <link href="assets/css/site-base.css" rel="stylesheet">
 </head>
-  <body>
+  <body class="product-page">
     <a class="skip-link" href="#main-content">Bỏ qua điều hướng, đến nội dung chính</a>
 
     <header class="site-header fixed-top">
-      <nav class="navbar navbar-expand-lg" aria-label="Điều hướng chính">
+      <nav class="navbar navbar-expand-xl" aria-label="Điều hướng chính">
         <div class="container">
           <a class="navbar-brand" href="index.html" aria-label="Sago Paint - Trang chủ">
             <img class="brand-logo" src="https://cdn.sagopaint.vn/assets/sago-logo.png" alt="Logo Sago Professional Coatings" width="1010" height="518">
@@ -159,15 +159,15 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="mainNavigation">
-            <ul class="navbar-nav ms-auto align-items-lg-center">
-              <li class="nav-item"><a class="nav-link" href="index.html">Trang Chủ</a></li>
-              <li class="nav-item"><a class="nav-link" href="son-noi-that.html">Nội Thất</a></li>
-              <li class="nav-item"><a class="nav-link" href="son-ngoai-that.html">Ngoại Thất</a></li>
-              <li class="nav-item"><a class="nav-link active" href="son-chong-tham.html">Chống Thấm</a></li>
-              <li class="nav-item"><a class="nav-link" href="phong-thuy-son-nha/index.html">Phong Thủy</a></li>
-              <li class="nav-item"><a class="nav-link" href="ve-chung-toi.html">Về Chúng Tôi</a></li>
+            <ul class="navbar-nav ms-auto align-items-xl-center">
+              <li class="nav-item"><a class="nav-link" href="index.html">Trang chủ</a></li>
+              <li class="nav-item"><a class="nav-link" href="son-noi-that.html">Nội thất</a></li>
+              <li class="nav-item"><a class="nav-link" href="son-ngoai-that.html">Ngoại thất</a></li>
+              <li class="nav-item"><a class="nav-link active" href="son-chong-tham.html">Chống thấm</a></li>
+              <li class="nav-item"><a class="nav-link" href="phong-thuy-son-nha/index.html">Phong thủy</a></li>
+              <li class="nav-item"><a class="nav-link" href="ve-chung-toi.html">Về chúng tôi</a></li>
             </ul>
-            <a class="btn btn-primary ms-lg-3 mt-3 mt-lg-0" href="tel:+842866815050">Nhận tư vấn</a>
+            <a class="btn btn-primary ms-xl-3 mt-3 mt-xl-0" href="tel:+842866815050">Nhận tư vấn</a>
           </div>
         </div>
       </nav>
@@ -175,23 +175,22 @@
     <main id="main-content" tabindex="-1">
       <section class="product-hero">
         <div class="container">
-          <div class="row g-5 align-items-center">
-            <div class="col-lg-7">
-              <a class="breadcrumb-link d-inline-flex mb-3" href="son-chong-tham.html">&larr; Sơn chống thấm</a>
-              <p class="section-kicker mb-3">Chi tiết sản phẩm</p>
-              <h1 class="product-hero-title mb-4">SAGO S 68 PRO - CHỐNG THẤM ĐA NĂNG LỘ THIÊN CAO CẤP</h1>
-              <p class="product-hero-copy mb-4">Sản phẩm phù hợp cho nhiều hạng mục đa dạng: Tường đứng, sàn mái, sê nô, ban công.</p>
-              <div class="keyword-strip mb-4">
-                <span>Sơn chống thấm</span><span>Chống thấm</span><span>Sago Paint</span>
-              </div>
-              <div class="d-flex flex-wrap gap-2">
-                <a class="btn btn-primary" href="#lien-he">Nhận báo giá</a>
-                <a class="btn btn-outline-primary" href="tel:+842866815050">Liên hệ tư vấn</a>
-              </div>
+          <div class="product-hero-layout">
+            <div class="product-heading">
+              <a class="breadcrumb-link" href="son-chong-tham.html">Sơn chống thấm</a>
+              <h1 class="product-hero-title">SAGO S 68 PRO chống thấm đa năng lộ thiên cao cấp</h1>
             </div>
-            <div class="col-lg-5">
-              <div class="product-visual">
-                <img class="product-detail-image" src="/assets/products/sago-s68-pro-preview.webp" alt="SAGO S 68 PRO - CHỐNG THẤM ĐA NĂNG LỘ THIÊN CAO CẤP" width="3500" height="2600">
+            <div class="product-visual">
+              <picture>
+                <source srcset="assets/products/sago-s68-pro-home.webp" width="419" height="447">
+                <img class="product-detail-image" fetchpriority="high" src="assets/products/sago-s68-pro-preview.webp" alt="SAGO S 68 PRO - CHỐNG THẤM ĐA NĂNG LỘ THIÊN CAO CẤP" width="3500" height="2600">
+              </picture>
+            </div>
+            <div class="product-intro">
+              <p class="product-hero-copy">Sản phẩm phù hợp cho nhiều hạng mục đa dạng: Tường đứng, sàn mái, sê nô, ban công.</p>
+              <div class="product-hero-actions">
+                <a class="btn btn-primary" href="#lien-he">Nhận báo giá</a>
+                <a class="catalog-text-link" href="tel:+842866815050">Gọi tư vấn</a>
               </div>
             </div>
           </div>
@@ -202,14 +201,14 @@
           <div class="row g-4 mb-4">
             <div class="col-lg-6">
               <article class="info-panel accent-panel">
-                <p class="section-kicker mb-2">Lợi ích</p>
+
                 <h2 class="h3 mb-4">Lợi ích khi sử dụng sản phẩm</h2>
                 <ul class="feature-list"><li>Giảm nguy cơ nước xâm nhập vào bề mặt tường và bê tông</li><li>Hạn chế ẩm mốc, bong tróc và xuống cấp công trình</li><li>Được Sago Paint tư vấn hệ sơn theo tình trạng bề mặt thực tế</li></ul>
               </article>
             </div>
             <div class="col-lg-6">
               <article class="info-panel">
-                <p class="section-kicker mb-2">Ứng dụng</p>
+
                 <h2 class="h3 mb-4">Ứng dụng phù hợp</h2>
                 <ul class="feature-list"><li>Sân thượng, sê nô, ban công và mái bê tông</li><li>Tường đứng ngoài trời có nguy cơ thấm nước</li><li>Khu vực lộ thiên cần màng phủ đàn hồi, bền thời tiết</li></ul>
               </article>
@@ -218,14 +217,14 @@
           <div class="row g-4 mb-4">
             <div class="col-lg-5">
               <article class="info-panel accent-panel">
-                <p class="section-kicker mb-2">Tính năng</p>
+
                 <h2 class="h3 mb-4">Điểm nổi bật</h2>
                 <ul class="feature-list"><li>Giảm nguy cơ nước xâm nhập vào bề mặt tường và bê tông</li><li>Hạn chế ẩm mốc, bong tróc và xuống cấp công trình</li><li>Được Sago Paint tư vấn hệ sơn theo tình trạng bề mặt thực tế</li></ul>
               </article>
             </div>
             <div class="col-lg-7">
               <article class="info-panel">
-                <p class="section-kicker mb-2">Thông số</p>
+
                 <h2 class="h3 mb-4">Thông tin kỹ thuật</h2>
                 <ul class="spec-list"><li>Liên hệ Sago Paint để được tư vấn định mức và hệ sơn phù hợp.</li></ul>
               </article>
@@ -234,14 +233,14 @@
           <div class="row g-4">
             <div class="col-lg-7">
               <article class="info-panel">
-                <p class="section-kicker mb-2">Mô tả</p>
+
                 <h2 class="h3 mb-4">Thông tin sản phẩm</h2>
                 <p class="detail-copy">Sản phẩm phù hợp cho nhiều hạng mục đa dạng: Tường đứng, sàn mái, sê nô, ban công.</p>
               </article>
             </div>
             <div class="col-lg-5">
               <article class="info-panel">
-                <p class="section-kicker mb-2">Thi công</p>
+
                 <h2 class="h3 mb-4">Hướng dẫn sử dụng</h2>
                 <ul class="process-list"><li>Sản phẩm phù hợp cho nhiều hạng mục đa dạng::</li><li>Tường đứng, sàn mái, sê nô, ban công.</li><li>Tầng hầm, bể nước, hồ bơi.</li><li>Nhà vệ sinh, sàn bếp, máng xối.</li><li>Các bề mặt kim loại, mái tôn và các bề mặt đặc biệt khác.</li><li>1. Chuẩn bị bề mặt</li><li>Bề mặt thi công phải được làm sạch hoàn toàn bụi bẩn, dầu mỡ, rêu mốc và các lớp sơn cũ bong tróc.</li><li>Bề mặt mới xây cần để khô và dưỡng dưỡng ít nhất 28 ngày (trong điều kiện bình thường).</li><li>Đảm bảo bề mặt khô ráo, độ ẩm không quá 16% trước khi thi công.</li><li>2. Kết cấu hệ thống thi công</li><li>3. Phương pháp thi công</li><li>Dùng cọ quét, rulo lăn hoặc máy phun chuyên dụng.</li><li>Thi công lớp sau cách lớp trước từ 2-4 tiếng (khi lớp trước đã khô mặt).</li></ul>
               </article>
@@ -253,7 +252,7 @@
         <div class="container">
           <div class="seo-panel">
             <div>
-              <p class="section-kicker mb-2">Tư vấn hệ sơn</p>
+
               <h2 class="h3 mb-3">Cần chọn đúng sản phẩm cho bề mặt thực tế?</h2>
               <p class="mb-0">Sago Paint hỗ trợ kiểm tra bề mặt, gợi ý sơn lót, sơn phủ và định mức vật tư phù hợp để tối ưu chi phí thi công.</p>
             </div>
@@ -265,7 +264,7 @@
         <div class="container">
           <div class="row g-4 align-items-start">
             <div class="col-lg-4">
-              <p class="section-kicker mb-2">FAQ</p>
+
               <h2 id="faq-heading" class="h1 fw-bold mb-3">Câu hỏi thường gặp</h2>
               <p class="text-secondary mb-0">Các câu trả lời dưới đây giúp bạn chọn đúng hệ sơn, chuẩn bị bề mặt và dự trù vật tư trước khi thi công.</p>
             </div>
@@ -340,7 +339,7 @@
         <div class="container">
           <div class="d-flex flex-column flex-lg-row justify-content-between gap-3 mb-4">
             <div>
-              <p class="section-kicker mb-2">Gợi ý thêm</p>
+
               <h2 id="related-heading" class="h1 fw-bold mb-0">Sản phẩm liên quan</h2>
             </div>
             <a class="btn btn-outline-primary align-self-lg-end" href="son-chong-tham.html">Xem danh mục Chống thấm</a>
@@ -352,8 +351,7 @@
                   <img src="https://cdn.sagopaint.vn/assets/products/chat-chong-tham-bt-11a-pha-xi-mang.png" alt="Chất Chống Thấm BT - 11A “ Pha Xi Măng ”" loading="lazy" width="3500" height="2600">
                 </a>
                 <div class="related-body">
-                  <span>Chống thấm</span>
-                  <h3><a href="chat-chong-tham-bt-11a-pha-xi-mang.html">Chất Chống Thấm BT - 11A “ Pha Xi Măng ”</a></h3>
+                  <h3><a href="chat-chong-tham-bt-11a-pha-xi-mang.html">Chất chống thấm BT-11A pha xi măng</a></h3>
                   <p>Chất Chống Thấm BT - 11A là chất chống thấm cao cấp bền dùng cho các cấu trúc xi măng và bê-tông như sân thượng, nền nhà, tường … Chất Chống Thấm BT - 11A có.</p>
                 </div>
               </article>
@@ -364,9 +362,8 @@
                   <img src="https://cdn.sagopaint.vn/assets/products/chong-tham-lo-thien-pu-502.png" alt="Chống Thấm Lộ Thiên PU - 502" loading="lazy" width="3500" height="2600">
                 </a>
                 <div class="related-body">
-                  <span>Chống thấm</span>
-                  <h3><a href="chong-tham-lo-thien-pu-502.html">Chống Thấm Lộ Thiên PU - 502</a></h3>
-                  <p>Chống Thấm Lộ Thiên PU – 502 là chất chống thấm 1 thành phần gốc Polyurethan cải tiến, hướng đến mục tiêu &quot; dễ sử dụng mà vẫn đạt hiệu quả&quot;, công ty chúng.</p>
+                  <h3><a href="chong-tham-lo-thien-pu-502.html">Chống thấm lộ thiên PU-502</a></h3>
+                  <p>Chống thấm lộ thiên PU-502 là chất chống thấm một thành phần gốc Polyurethan cải tiến. Sản phẩm tạo màng chống thấm không mối nối, liên kết tốt với bê tông và vữa xi măng.</p>
                 </div>
               </article>
             </div>
@@ -376,8 +373,7 @@
                   <img src="https://cdn.sagopaint.vn/assets/products/son-chong-tham-mau-aqua-shield-5-in1.png" alt="SƠN CHỐNG THẤM MÀU AQUA SHIELD 5 IN1" loading="lazy" width="3500" height="2600">
                 </a>
                 <div class="related-body">
-                  <span>Chống thấm</span>
-                  <h3><a href="son-chong-tham-mau-aqua-shield-5-in1.html">SƠN CHỐNG THẤM MÀU AQUA SHIELD 5 IN1</a></h3>
+                  <h3><a href="son-chong-tham-mau-aqua-shield-5-in1.html">Sơn chống thấm màu Aqua Shield 5 in 1</a></h3>
                   <p>AQUA SHIELD 5 IN 1 là sản phẩm sơn chống thấm gốc pure acrylic biến tính cao cấp bảo vệ tường khỏi sự xâm nhập của nước. Với công thức chống thấm tiến tiến.</p>
                 </div>
               </article>

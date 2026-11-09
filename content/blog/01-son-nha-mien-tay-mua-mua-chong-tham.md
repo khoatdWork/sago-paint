@@ -35,8 +35,6 @@ image_alt_texts:
 
 Ở Cần Thơ, Bến Tre, Vĩnh Long, Đồng Tháp hay Cà Mau, câu chuyện sơn nhà không chỉ là chọn màu đẹp. Nhà miền Tây thường gặp mưa lớn kéo dài, nền đất ẩm, hơi nước từ sông rạch, triều cường, gió tạt và rêu mốc bám nhanh ở các mảng tường ít nắng. Nếu xử lý nền tường sơ sài, lớp sơn ngoài trời có thể phồng rộp, loang màu hoặc bong từng mảng chỉ sau một mùa mưa.
 
-Search intent của nhóm từ khóa này rất rõ: người dùng không chỉ muốn biết "sơn loại nào tốt", mà muốn biết vì sao nhà bị thấm, nên làm trước mùa mưa hay trong mùa mưa, quy trình thi công ra sao, khu vực nào phải ưu tiên chống thấm, và có cách nào tiết kiệm chi phí nhưng vẫn bền. Các bài đang xếp hạng cao thường đưa ra danh sách sản phẩm hoặc khuyến nghị chung như dùng sơn chống thấm, xử lý nứt, che chắn khi mưa. Điểm còn thiếu là bối cảnh địa phương: nhà cấp 4 mái tôn, tường sát hàng xóm, chân tường gần mương nước, nhà ven sông ở An Giang, Kiên Giang, Sóc Trăng, Trà Vinh, Bạc Liêu và Cà Mau.
-
 Bài viết này đi theo hướng thực tế hơn: phân loại nguyên nhân thấm, đưa ra 7 giải pháp chống thấm cho tường ngoài trời, gợi ý hệ sơn phù hợp và cách bảo trì để gia chủ miền Tây giữ nhà bền đẹp qua nhiều mùa mưa.
 
 ![Sơn nhà miền Tây mùa mưa chống thấm tường ngoài trời](images/son-nha-mien-tay-mua-mua-chong-tham-tuong-ngoai-troi.webp)

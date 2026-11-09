@@ -61,4 +61,8 @@
 
 File xác minh `google4bd4155c856d151b.html` giữ nguyên byte, không có giao diện, không thuộc sitemap/context trang nội dung.
 
+`404.html` là trang lỗi công khai cho URL không tồn tại, trả HTTP 404 trên
+Cloudflare Pages và local server, có `noindex, follow`. File được đóng gói vào
+dist nhưng không tính là trang nội dung, không có canonical và không vào sitemap.
+
 Cập nhật bảng bằng `python tools/update_contexts.py`; rà soát diff, không dùng context thay nội dung gốc.

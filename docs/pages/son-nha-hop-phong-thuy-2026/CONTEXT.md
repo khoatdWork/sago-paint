@@ -16,12 +16,12 @@
 - Nội dung cụ thể là các heading dưới đây; không tự thêm thông số, chứng nhận hoặc lời hứa chưa có nguồn.
 
 - H1: Sơn nhà hợp phong thủy 2026: chọn màu theo mệnh mà vẫn hiện đại
-- H2: NguyĂªn táº¯c chá»n mĂ u theo ngÅ© hĂ nh
-- H2: Má»‡nh Kim
-- H2: Má»‡nh Má»™c
-- H2: Má»‡nh Thá»§y
-- H2: Má»‡nh Há»a
-- H2: Má»‡nh Thá»•
+- H2: Nguyên tắc chọn màu theo ngũ hành
+- H2: Mệnh Kim
+- H2: Mệnh Mộc
+- H2: Mệnh Thủy
+- H2: Mệnh Hỏa
+- H2: Mệnh Thổ
 - H2: Cách áp dụng trong nhà Việt
 
 ## SEO hiện tại
@@ -39,8 +39,15 @@
 - `https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css`
 - `category-pages.css`
 - `assets/css/site-base.css`
+- `assets/css/editorial.css`
 - `https://cdn.sagopaint.vn/assets/sago-logo.png`
 - `https://cdn.sagopaint.vn/assets/categories/son-ngoai-that-mat-tien-nha-hien-dai.webp`
+
+## Giao diện
+
+- Giao diện tối giản: nền trắng/xám nhạt, tiêu đề trái, ảnh minh họa rộng; không gradient hoặc thẻ trang trí nổi.
+- Nội dung bài đọc tối đa 70ch; sidebar tư vấn nhẹ, chuyển xuống dưới ở màn hình nhỏ. Danh sách bài dùng ảnh lớn và metadata dạng chữ.
+- Menu thu gọn dưới 1200px; CSS editorial riêng không tác động danh mục/sản phẩm.
 
 ## Tiêu chí kiểm thử
 

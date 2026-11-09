@@ -226,12 +226,12 @@ def capture_schema(match: re.Match[str], store: dict[str, str]) -> str:
 def nav(active: str = "") -> str:
     return f"""
     <header class="site-header fixed-top">
-      <nav class="navbar navbar-expand-lg" aria-label="Điều hướng chính">
+      <nav class="navbar navbar-expand-xl" aria-label="Điều hướng chính">
         <div class="container">
           <a class="navbar-brand" href="index.html" aria-label="Sago Paint - Trang chủ"><img class="brand-logo" src="https://cdn.sagopaint.vn/assets/sago-logo.png" alt="Logo Sago Paint" width="1010" height="518"></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavigation" aria-controls="mainNavigation" aria-expanded="false" aria-label="Mở menu"><span class="navbar-toggler-icon"></span></button>
           <div class="collapse navbar-collapse" id="mainNavigation">
-            <ul class="navbar-nav ms-auto align-items-lg-center">
+            <ul class="navbar-nav ms-auto align-items-xl-center">
               <li class="nav-item"><a class="nav-link" href="index.html">Trang Chủ</a></li>
               <li class="nav-item"><a class="nav-link" href="son-noi-that.html">Nội Thất</a></li>
               <li class="nav-item"><a class="nav-link" href="son-ngoai-that.html">Ngoại Thất</a></li>
@@ -239,7 +239,7 @@ def nav(active: str = "") -> str:
               <li class="nav-item"><a class="nav-link" href="tinh-son/index.html">Tính Sơn</a></li>
               <li class="nav-item"><a class="nav-link {'active' if active == 'blog' else ''}" href="blog.html">Bài Viết</a></li>
             </ul>
-            <a class="btn btn-primary ms-lg-3 mt-3 mt-lg-0" href="tel:+842866815050">Nhận tư vấn</a>
+            <a class="btn btn-primary ms-xl-3 mt-3 mt-xl-0" href="tel:+842866815050">Nhận tư vấn</a>
           </div>
         </div>
       </nav>
@@ -324,8 +324,9 @@ def render_post(md_name: str, config: dict[str, str]) -> None:
 {schema_block}
     </script>
     <link href="assets/css/site-base.css" rel="stylesheet">
+    <link href="assets/css/editorial.css" rel="stylesheet">
   </head>
-  <body>
+  <body class="editorial-page journal-article">
     <a class="skip-link" href="#main-content">Bỏ qua điều hướng, đến nội dung chính</a>
 {nav("blog")}
     <main id="main-content" tabindex="-1">
@@ -343,7 +344,7 @@ def render_post(md_name: str, config: dict[str, str]) -> None:
               </div>
             </div>
             <div class="col-lg-5">
-              <div class="product-visual blog-article-visual"><img class="product-detail-image" src="{esc(config["thumbnail"])}" alt="{esc(title)}" width="1400" height="788" loading="eager"></div>
+              <div class="product-visual blog-article-visual"><img class="product-detail-image" src="{esc(config["thumbnail"])}" alt="{esc(title)}" width="1400" height="788" loading="eager" fetchpriority="high"></div>
             </div>
           </div>
         </div>
@@ -374,27 +375,26 @@ def render_post(md_name: str, config: dict[str, str]) -> None:
     (ROOT / f"{config['slug']}.html").write_text(page, encoding="utf-8", newline="\n")
 
 
-def article_card(article: dict[str, object]) -> str:
+def article_card(article: dict[str, object], *, priority: bool = False) -> str:
     featured = " featured" if article.get("featured") else ""
     return f"""
             <article class="trend-card{featured}">
               <a class="trend-card-link" href="{esc(str(article["url"]))}">
                 <div class="trend-card-media">
-                  <img src="{esc(str(article["thumbnail"]))}" alt="{esc(str(article["title"]))}" loading="lazy" width="1400" height="788">
-                  <span class="trend-badge">{esc(str(article["category"]))}</span>
+                  <img src="{esc(str(article["thumbnail"]))}" alt="{esc(str(article["title"]))}" loading="{'eager' if priority else 'lazy'}"{' fetchpriority="high"' if priority else ''} width="1400" height="788">
                 </div>
                 <div class="trend-card-body">
-                  <div class="trend-meta"><span>{esc(str(article["read_time"]))}</span></div>
+                  <div class="trend-meta"><span class="trend-category">{esc(str(article["category"]))}</span><span>{esc(str(article["read_time"]))}</span></div>
                   <h3>{esc(str(article["title"]))}</h3>
                   <p>{esc(str(article["summary"]))}</p>
-                  <span class="trend-cta">Khám phá bài viết →</span>
+                  <span class="trend-cta">Đọc bài viết</span>
                 </div>
               </a>
             </article>"""
 
 
 def render_blog_index() -> None:
-    cards = "\n".join(article_card(article) for article in HOME_ARTICLES)
+    cards = "\n".join(article_card(article, priority=index == 0) for index, article in enumerate(HOME_ARTICLES))
     page = f"""<!doctype html>
 <html lang="vi">
   <head>
@@ -417,8 +417,9 @@ def render_blog_index() -> None:
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link href="category-pages.css" rel="stylesheet">
     <link href="assets/css/site-base.css" rel="stylesheet">
+    <link href="assets/css/editorial.css" rel="stylesheet">
   </head>
-  <body>
+  <body class="editorial-page journal-index">
     <a class="skip-link" href="#main-content">Bỏ qua điều hướng, đến nội dung chính</a>
 {nav("blog")}
     <main id="main-content" tabindex="-1">

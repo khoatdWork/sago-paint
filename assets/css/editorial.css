@@ -1,0 +1,208 @@
+/* Editorial layouts: clear reading order, generous space, quiet supporting links. */
+.editorial-page { color: #202428; background: #fff; }
+.editorial-page .section-kicker {
+  color: #626b74;
+  font-size: .875rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.editorial-page main > section { background: #fff; }
+.editorial-page .product-hero,
+.editorial-page .category-hero {
+  padding: 64px 0 48px;
+  border-bottom: 0;
+  background: #fff;
+}
+.editorial-page .product-hero::before,
+.editorial-page .product-hero::after,
+.editorial-page .category-hero::before,
+.editorial-page .category-hero::after,
+.editorial-page .trend-section::before { display: none; }
+.editorial-page .product-hero-title,
+.editorial-page .category-title {
+  max-width: 26ch;
+  color: #202428;
+  font-size: clamp(2rem, 3.6vw, 3.4rem);
+  line-height: 1.18;
+  font-weight: 700;
+  letter-spacing: -.035em;
+  text-wrap: balance;
+}
+.editorial-page .product-hero-copy,
+.editorial-page .category-description {
+  max-width: 64ch;
+  color: #626b74;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+}
+.journal-article .product-hero > .container > .row {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch !important;
+  row-gap: 32px;
+}
+.journal-article .product-hero .row > .col-lg-7 { width: 100%; }
+.journal-article .product-hero .row > .col-lg-5 { width: 100%; }
+.editorial-page .hero-summary { gap: 8px 24px; }
+.editorial-page .hero-summary span,
+.editorial-page .hero-summary strong {
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  font-size: .8125rem;
+  font-weight: 400;
+  color: #626b74;
+}
+.journal-article .product-visual {
+  min-height: 0;
+  width: 100%;
+  aspect-ratio: 2.4 / 1;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  background: #f5f6f4;
+  box-shadow: none;
+  overflow: hidden;
+}
+.journal-article .product-visual::before,
+.journal-article .product-visual::after { display: none; }
+.journal-article .product-visual img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  border-radius: 8px;
+  object-fit: cover;
+  filter: none;
+}
+.editorial-page .section-padding { padding: 48px 0 72px; }
+.journal-article main > .section-padding > .container > .row {
+  display: grid;
+  grid-template-columns: minmax(0, 70ch) minmax(0, 260px);
+  column-gap: 72px;
+  row-gap: 40px;
+  justify-content: space-between !important;
+}
+.journal-article main > .section-padding article,
+.journal-article main > .section-padding aside { width: auto; }
+.journal-article main article {
+  max-width: 70ch;
+  color: #3f464b;
+  font-size: 1.0625rem;
+  line-height: 1.85;
+}
+.journal-article article .detail-copy { color: inherit; font-size: inherit; line-height: inherit; }
+.journal-article main article h2 {
+  margin: 2.5rem 0 1rem;
+  color: #202428;
+  font-size: clamp(1.4rem, 2vw, 1.8rem);
+  line-height: 1.35;
+  font-weight: 600;
+  letter-spacing: -.02em;
+}
+.journal-article main article h2:first-child { margin-top: 0; }
+.journal-article main article h3 { margin: 1.75rem 0 .75rem; font-size: 1.2rem; line-height: 1.5; font-weight: 600; }
+.journal-article main article p,
+.journal-article main article ul { margin-bottom: 1.4rem; }
+.journal-article .article-figure { margin: 2.5rem 0; }
+.journal-article .article-figure img { border-radius: 8px; box-shadow: none; }
+.journal-article .article-figure figcaption { color: #626b74; font-size: .875rem; }
+.editorial-page aside .info-panel {
+  height: auto;
+  padding: 24px 0 0;
+  border: 0;
+  border-top: 1px solid #dce0da;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  font-size: .9375rem;
+}
+.editorial-page aside .info-panel::before,
+.editorial-page aside .info-panel::after { display: none; }
+.editorial-page aside .section-kicker { display: none; }
+.editorial-page aside .h4 { font-size: 1.25rem; font-weight: 600; line-height: 1.45; }
+.editorial-page aside .btn { font-size: .875rem; padding: 10px 16px; }
+.editorial-page .internal-link-list { display: grid !important; gap: 12px !important; }
+.editorial-page .internal-link-list a {
+  display: inline;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.journal-index .category-title { max-width: 29ch; }
+.journal-index .trend-section { padding: 0 0 72px; background: #fff; overflow: visible; }
+.journal-index .trend-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px 40px; }
+.journal-index .trend-card,
+.journal-index .trend-card:hover,
+.journal-index .trend-card:focus-within {
+  grid-column: auto;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  transform: none;
+  overflow: visible;
+}
+.journal-index .trend-card-media,
+.journal-index .trend-card.featured .trend-card-media { aspect-ratio: 16 / 10; border-radius: 8px; background: #f5f6f4; }
+.journal-index .trend-card-media img { transform: none; transition: none; }
+.journal-index .trend-card-link:focus-visible { border-radius: 8px; }
+.journal-index .trend-card-body { padding: 22px 0 0; }
+.journal-index .trend-meta { display: flex; flex-wrap: wrap; gap: 16px; font-weight: 400; font-size: .8125rem; margin-bottom: 12px; }
+.journal-index .trend-category { color: #a83c31; font-weight: 500; }
+.journal-index .trend-card h3 { font-size: clamp(1.4rem, 2vw, 1.8rem); line-height: 1.35; font-weight: 600; letter-spacing: -.02em; }
+.journal-index .trend-card p { display: block; overflow: visible; line-height: 1.7; -webkit-line-clamp: unset; }
+.journal-index .trend-cta { font-size: .875rem; font-weight: 600; margin-top: 8px; transform: none; text-decoration: underline; text-underline-offset: 4px; }
+.journal-index main > .section-padding { background: #f5f6f4; }
+.about-page .product-hero-title { max-width: 24ch; }
+.about-page .product-hero .col-lg-7 { width: 100%; }
+.about-page .info-panel {
+  padding: 28px 0 0;
+  border: 0;
+  border-top: 1px solid #dce0da;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.about-page .info-panel::before,
+.about-page .info-panel::after { display: none; }
+.about-page .info-panel .section-kicker { display: none; }
+.about-page .info-panel h2 { font-size: 1.5rem; font-weight: 600; }
+.about-page .feature-list li { padding-left: 0; border-left: 0; }
+.about-page .feature-list li::before { display: none; }
+.about-page main > section:last-child { background: #f5f6f4; }
+.about-page .detail-copy { max-width: 70ch; }
+@media (max-width: 991.98px) {
+  .journal-article main > .section-padding > .container > .row { grid-template-columns: minmax(0, 1fr); }
+  .editorial-page aside .info-panel { max-width: 70ch; }
+}
+@media (max-width: 575.98px) {
+  .editorial-page .product-hero,
+  .editorial-page .category-hero { padding: 36px 0 32px; }
+  .editorial-page .product-hero-title,
+  .editorial-page .category-title { font-size: 2rem; line-height: 1.25; }
+  .journal-article .product-visual { aspect-ratio: 16 / 10; }
+  .editorial-page .section-padding { padding: 32px 0 48px; }
+  .journal-index .trend-grid { grid-template-columns: minmax(0, 1fr); gap: 36px; }
+  .journal-index .trend-card h3 { font-size: 1.4rem; }
+  .journal-index .trend-card-body { padding-top: 18px; }
+  .journal-index .trend-section { padding-bottom: 48px; }
+}
+/* Reset Bootstrap row gutters where the editorial layout owns the spacing. */
+.journal-article .product-hero > .container > .row,
+.journal-article main > .section-padding > .container > .row { margin: 0; }
+.journal-article .product-hero > .container > .row > *,
+.journal-article main > .section-padding > .container > .row > * { margin-top: 0; padding-inline: 0; }
+.editorial-page .hero-summary { display: flex; flex-wrap: wrap; padding: 0; border: 0; background: transparent; }
+.editorial-page .hero-summary span { margin-top: 0; }
+@media (max-width: 575.98px) {
+  .journal-article .product-hero-title { font-size: 1.875rem; }
+}
+.journal-article .product-visual img[src*="/products/"] { object-fit: contain; padding: 24px; }
+.editorial-page main a:not(.btn):not(.trend-card-link) { color: #a83c31; text-underline-offset: 4px; }
+.editorial-page aside a:not(.btn) { color: #454d53; }

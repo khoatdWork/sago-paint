@@ -15,8 +15,8 @@
 - Ý định tìm kiếm: So sánh giải pháp sơn Sago Paint và tìm nơi tư vấn.
 - Nội dung cụ thể là các heading dưới đây; không tự thêm thông số, chứng nhận hoặc lời hứa chưa có nguồn.
 
-- H1: SAGO S 68 PRO chống thấm mái, sàn, ban công.
-- H2: Chọn đúng sơn cho từng khu vực công trình.
+- H1: Sơn cho ngôi nhà bền đẹp mỗi ngày.
+- H2: Mỗi không gian, một hệ sơn phù hợp.
 - H3: Sơn nội thất
 - H3: Sơn ngoại thất
 - H3: Sơn chống thấm
@@ -47,6 +47,7 @@
 - `https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&display=swap`
 - `https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css`
 - `assets/css/site-base.css`
+- `assets/css/home.css`
 - `https://cdn.sagopaint.vn/assets/sago-logo.png`
 - `assets/products/sago-s68-pro-home.webp`
 - `https://cdn.sagopaint.vn/assets/categories/son-noi-that-phong-khach-hien-dai.webp`
@@ -59,10 +60,12 @@
 ## Hành vi giao diện
 
 - Menu điều hướng thu gọn dưới 1200px để tránh xuống hàng ở laptop nhỏ.
-- Hero SAGO S 68 PRO tĩnh; ảnh luôn hiện ở mobile/tablet/desktop, không có carousel.
+- Hero hai cột: giới thiệu hệ sơn bên trái, ảnh nhà và thùng S68 bên phải; mobile xếp dọc. Nền trắng, CTA đỏ bo 8px, không có carousel.
+- Ảnh công trình hero dùng asset tương đối; S68 đặt trên ảnh, luôn nằm trong phạm vi hero và hiển thị ở mobile/tablet/desktop.
 - Ảnh hero cắt khoảng trong suốt từ ảnh gốc, không thay nhãn; dùng đường dẫn tương đối cho HTTP và file trực tiếp.
 - Ba danh mục đặt cạnh nhau trên desktop/tablet, xếp dọc trên mobile. Công cụ tính sơn và phong thủy là hai mục ngắn.
 - Cẩm nang có ba bài kèm ảnh và ba liên kết phụ; giữ đường dẫn tới cả sáu bài viết.
+- Bỏ dải số liệu quảng bá ở cuối để ưu tiên luồng chọn sản phẩm/công cụ/cẩm nang; footer nền xám nhẹ, thông tin doanh nghiệp giữ nguyên.
 
 ## Tiêu chí kiểm thử
 

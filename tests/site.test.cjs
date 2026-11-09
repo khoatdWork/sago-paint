@@ -11,13 +11,15 @@ const { createServer } = require('../tools/serve-static');
 test('build contains public files, excludes project instructions, tests, dependencies and stale files', () => {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'sago-build-'));
   try {
-    for (const name of ['index.html', 'styles.css', 'AGENTS.md', 'docs/demo.html', '.agents/SKILL.md',
+    for (const name of ['index.html', '404.html', 'styles.css', 'AGENTS.md', 'docs/demo.html', '.agents/SKILL.md',
       'tests/fixture.html', 'node_modules/demo.html', 'assets/js/main.js', 'dist/stale.txt']) {
       const file = path.join(root, name); fs.mkdirSync(path.dirname(file), { recursive: true }); fs.writeFileSync(file, name);
     }
     const out = build(root);
     assert.deepEqual(publicFiles(root).map(p => path.relative(root, p)).sort(),
-      ['assets/js/main.js', 'index.html', 'styles.css'].map(p => p.split('/').join(path.sep)).sort());
+      ['404.html', 'assets/js/main.js', 'index.html', 'styles.css'].map(p => p.split('/').join(path.sep)).sort());
+    assert.equal(fs.readFileSync(path.join(out, '404.html'), 'utf8'), '404.html');
+    assert.equal(pageFiles(root).some(file => path.basename(file) === '404.html'), false);
     assert.equal(fs.existsSync(path.join(out, 'AGENTS.md')), false);
     assert.equal(fs.existsSync(path.join(out, 'stale.txt')), false);
     assert.equal(fs.readFileSync(path.join(out, 'index.html'), 'utf8'), 'index.html');
@@ -30,12 +32,14 @@ test('public inventory preserves 54 routes and excludes Google verification from
   assert.ok(routes.includes('/')); assert.ok(routes.includes('/tinh-son/'));
   assert.ok(routes.includes('/phong-thuy-son-nha/tuoi-1990/'));
   assert.equal(routes.some(route => route.includes('google4bd')), false);
+  assert.equal(routes.includes('/404'), false);
 });
 
 test('local server resolves production routes, redirects, HEAD and rejects traversal/private files', async () => {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'sago-serve-'));
   fs.writeFileSync(path.join(root, 'index.html'), 'home');
   fs.writeFileSync(path.join(root, 'paint.html'), 'paint');
+  fs.writeFileSync(path.join(root, '404.html'), '<h1>Không tìm thấy trang</h1>');
   fs.writeFileSync(path.join(root, '_redirects'), '/old/ /paint 301');
   const server = createServer(root);
   await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
@@ -46,6 +50,15 @@ test('local server resolves production routes, redirects, HEAD and rejects trave
     const redirect = await fetch(base + '/old/', { redirect: 'manual' });
     assert.equal(redirect.status, 301); assert.equal(redirect.headers.get('location'), '/paint');
     assert.equal((await fetch(base + '/paint', { method: 'HEAD' })).status, 200);
+    for (const route of ['/missing-page', '/assets/missing.webp']) {
+      const missing = await fetch(base + route);
+      assert.equal(missing.status, 404);
+      assert.match(missing.headers.get('content-type'), /text\/html/);
+      assert.equal(await missing.text(), '<h1>Không tìm thấy trang</h1>');
+      const head = await fetch(base + route, { method: 'HEAD' });
+      assert.equal(head.status, 404);
+      assert.equal(await head.text(), '');
+    }
     assert.equal((await fetch(base + '/paint', { method: 'POST' })).status, 405);
     assert.equal((await fetch(base + '/_redirects')).status, 404);
     assert.equal((await fetch(base + '/%2e%2e%2fAGENTS.md')).status, 403);

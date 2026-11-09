@@ -57,6 +57,8 @@ def check():
             require(page.title.strip() in text, "context title differs from page")
         for img in page.images:
             require("alt" in img, f"image has no alt: {img.get('src')}")
+            require(not img.get("src", "").startswith("/assets/"),
+                    f"local image must use file-safe relative src: {img.get('src')}")
         for ref in page.links + page.assets:
             url = urlsplit(ref)
             if url.scheme and not (url.scheme in ("https", "http") and url.hostname in ("sagopaint.vn", "www.sagopaint.vn")):

@@ -17,13 +17,14 @@
 
 - H1: Bảo vệ mặt tiền trước nắng mưa, rêu mốc và phai màu
 - H2: Sản phẩm sơn ngoại thất nổi bật
+- H2: Bột trét ngoại thất HOASEN ANA
+- H2: Sơn ngoại thất ANA Satin bề mặt bán bóng
+- H2: Sơn ngoại thất ANA Satin bề mặt siêu bóng
+- H2: Sơn ngoại thất Anashield bề mặt bóng mờ
+- H2: Sơn ngoại thất chống rêu mốc Super Satin
+- H2: Chọn hệ sơn phù hợp
 - H3: Ứng dụng phù hợp
 - H3: Lợi ích chính
-- H2: BỘT TRÉT NGOẠI THẤT HOASEN ANA
-- H2: SƠN NGOẠI THẤT ANA SATIN – bề mặt bán bóng
-- H2: SƠN NGOẠI THẤT ANA SATIN – bề mặt siêu bóng
-- H2: Sơn sagopaint ngoại thất Chống Phai Màu Anashield – bề mặt bóng mờ
-- H2: Sơn Sagopaint ngoại thất Chống Rêu Mốc Super Satin.1
 - H2: Chưa chắc nên dùng sản phẩm nào?
 - H2: Công ty Sơn Sago
 - H3: Thông tin liên hệ
@@ -52,6 +53,8 @@
 - `https://cdn.sagopaint.vn/assets/products/son-sagopaint-ngoai-that-chong-reu-moc-super-satin-1.png`
 
 ## Tiêu chí kiểm thử
+
+- Bố cục: nền trắng/xám nhẹ; sản phẩm dùng ảnh trái và thông tin phải trên desktop, tên–ảnh–mô tả trên mobile. Danh mục ưu tiên danh sách sản phẩm trước hướng dẫn lựa chọn.
 
 - Đọc AGENTS.md và DESIGN.md; sử dụng skill ứng với từng phase/hạng mục.
 - Font Be Vietnam Pro cho chữ; không tràn ở 360/768/1440px; thử fallback CDN.

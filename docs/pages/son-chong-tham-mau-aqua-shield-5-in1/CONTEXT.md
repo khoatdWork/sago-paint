@@ -15,7 +15,7 @@
 - Ý định tìm kiếm: SƠN CHỐNG THẤM MÀU AQUA SHIELD 5 IN1 | Sơn chống thấm Sago Paint.
 - Nội dung cụ thể là các heading dưới đây; không tự thêm thông số, chứng nhận hoặc lời hứa chưa có nguồn.
 
-- H1: SƠN CHỐNG THẤM MÀU AQUA SHIELD 5 IN1
+- H1: Sơn chống thấm màu Aqua Shield 5 in 1
 - H2: Lợi ích khi sử dụng sản phẩm
 - H2: Ứng dụng phù hợp
 - H2: Điểm nổi bật
@@ -31,9 +31,9 @@
 - H3: Có cần sơn lót trước khi sử dụng không?
 - H3: Làm sao để nhận báo giá chính xác?
 - H2: Sản phẩm liên quan
-- H3: Chất Chống Thấm BT - 11A “ Pha Xi Măng ”
-- H3: Chống Thấm Lộ Thiên PU - 502
-- H3: SAGO S 68 PRO - CHỐNG THẤM ĐA NĂNG LỘ THIÊN CAO CẤP
+- H3: Chất chống thấm BT-11A pha xi măng
+- H3: Chống thấm lộ thiên PU-502
+- H3: SAGO S 68 PRO chống thấm đa năng lộ thiên cao cấp
 - H2: Công ty Sơn Sago
 - H3: Thông tin liên hệ
 - H3: Danh mục
@@ -41,7 +41,7 @@
 ## SEO hiện tại
 
 - Title: SƠN CHỐNG THẤM MÀU AQUA SHIELD 5 IN1 | Sơn chống thấm Sago Paint
-- Description: AQUA SHIELD 5 IN 1 là sản phẩm sơn chống thấm gốc pure acrylic biến tính cao cấp bảo vệ tường khỏi sự xâm nhập của nước. Với công thức chống thấm tiến.
+- Description: AQUA SHIELD 5 IN 1 là sơn chống thấm gốc pure acrylic biến tính giúp bảo vệ tường khỏi nước xâm nhập. Sản phẩm phù hợp cho bề mặt bê tông và tường tô vữa ngoài trời.
 - Canonical: `https://sagopaint.vn/son-chong-tham-mau-aqua-shield-5-in1`
 - Robots: `index, follow`
 - Schema: BreadcrumbList, FAQPage, HomeAndConstructionBusiness, Product.
@@ -57,15 +57,18 @@
 - `https://cdn.sagopaint.vn/assets/products/son-chong-tham-mau-aqua-shield-5-in1.png`
 - `https://cdn.sagopaint.vn/assets/products/chat-chong-tham-bt-11a-pha-xi-mang.png`
 - `https://cdn.sagopaint.vn/assets/products/chong-tham-lo-thien-pu-502.png`
-- `/assets/products/sago-s68-pro-preview.webp`
+- `assets/products/sago-s68-pro-preview.webp`
 
 ## Tiêu chí kiểm thử
+
+- Bố cục: nền trắng/xám nhẹ; sản phẩm dùng ảnh trái và thông tin phải trên desktop, tên–ảnh–mô tả trên mobile. Danh mục ưu tiên danh sách sản phẩm trước hướng dẫn lựa chọn.
 
 - Đọc AGENTS.md và DESIGN.md; sử dụng skill ứng với từng phase/hạng mục.
 - Font Be Vietnam Pro cho chữ; không tràn ở 360/768/1440px; thử fallback CDN.
 - Navigation, CTA, điểm neo hoạt động; keyboard focus rõ và không bị sticky che.
 - CSS chung dùng đường dẫn tương đối theo độ sâu HTML; skip link ẩn mặc định, hiện khi Tab và Enter đưa focus tới nội dung chính. Kiểm tra cả HTTP và mở file trực tiếp.
 - Title/description/canonical/schema hợp lệ; không làm hỏng liên kết hoặc tài nguyên.
+- FAQ thời gian khô và FAQPage phải cùng nêu khô bề mặt 30 phút, sơn lớp kế tiếp 120 phút theo thông số hiện có; không trả lời bằng tiêu đề rỗng "Thời gian khô:".
 - Chạy kiểm tra trang, SEO và browser test; dùng Ponytail review diff trước hoàn tất.
 
 Context được tạo từ HTML bằng `python tools/update_contexts.py`; đọc diff và cập nhật

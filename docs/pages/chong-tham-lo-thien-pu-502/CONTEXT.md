@@ -15,7 +15,7 @@
 - Ý định tìm kiếm: Chống Thấm Lộ Thiên PU - 502 | Sơn chống thấm Sago Paint.
 - Nội dung cụ thể là các heading dưới đây; không tự thêm thông số, chứng nhận hoặc lời hứa chưa có nguồn.
 
-- H1: Chống Thấm Lộ Thiên PU - 502
+- H1: Chống thấm lộ thiên PU-502
 - H2: Lợi ích khi sử dụng sản phẩm
 - H2: Ứng dụng phù hợp
 - H2: Điểm nổi bật
@@ -31,9 +31,9 @@
 - H3: Có cần sơn lót trước khi sử dụng không?
 - H3: Làm sao để nhận báo giá chính xác?
 - H2: Sản phẩm liên quan
-- H3: Chất Chống Thấm BT - 11A “ Pha Xi Măng ”
-- H3: SAGO S 68 PRO - CHỐNG THẤM ĐA NĂNG LỘ THIÊN CAO CẤP
-- H3: SƠN CHỐNG THẤM MÀU AQUA SHIELD 5 IN1
+- H3: Chất chống thấm BT-11A pha xi măng
+- H3: SAGO S 68 PRO chống thấm đa năng lộ thiên cao cấp
+- H3: Sơn chống thấm màu Aqua Shield 5 in 1
 - H2: Công ty Sơn Sago
 - H3: Thông tin liên hệ
 - H3: Danh mục
@@ -41,7 +41,7 @@
 ## SEO hiện tại
 
 - Title: Chống Thấm Lộ Thiên PU - 502 | Sơn chống thấm Sago Paint
-- Description: Chống Thấm Lộ Thiên PU – 502 là chất chống thấm 1 thành phần gốc Polyurethan cải tiến, hướng đến mục tiêu " dễ sử dụng mà vẫn đạt hiệu quả", công ty chúng.
+- Description: Chống thấm lộ thiên PU-502 là chất chống thấm một thành phần gốc Polyurethan cải tiến. Sản phẩm tạo màng chống thấm không mối nối, liên kết tốt với bê tông và vữa xi măng.
 - Canonical: `https://sagopaint.vn/chong-tham-lo-thien-pu-502`
 - Robots: `index, follow`
 - Schema: BreadcrumbList, FAQPage, HomeAndConstructionBusiness, Product.
@@ -56,10 +56,12 @@
 - `https://cdn.sagopaint.vn/assets/sago-logo.png`
 - `https://cdn.sagopaint.vn/assets/products/chong-tham-lo-thien-pu-502.png`
 - `https://cdn.sagopaint.vn/assets/products/chat-chong-tham-bt-11a-pha-xi-mang.png`
-- `/assets/products/sago-s68-pro-preview.webp`
+- `assets/products/sago-s68-pro-preview.webp`
 - `https://cdn.sagopaint.vn/assets/products/son-chong-tham-mau-aqua-shield-5-in1.png`
 
 ## Tiêu chí kiểm thử
+
+- Bố cục: nền trắng/xám nhẹ; sản phẩm dùng ảnh trái và thông tin phải trên desktop, tên–ảnh–mô tả trên mobile. Danh mục ưu tiên danh sách sản phẩm trước hướng dẫn lựa chọn.
 
 - Đọc AGENTS.md và DESIGN.md; sử dụng skill ứng với từng phase/hạng mục.
 - Font Be Vietnam Pro cho chữ; không tràn ở 360/768/1440px; thử fallback CDN.

@@ -15,7 +15,7 @@
 - Ý định tìm kiếm: Người Sinh Năm 1997 Sơn Nhà Màu Gì Hút Tài Lộc?.
 - Nội dung cụ thể là các heading dưới đây; không tự thêm thông số, chứng nhận hoặc lời hứa chưa có nguồn.
 
-- H1: Người Sinh Năm 1997 Sơn Nhà Màu Gì Để Hút Tài Lộc Và May Mắn?
+- H1: Người sinh năm 1997 nên sơn nhà màu gì?
 - H2: Tổng quan tuổi 1997
 - H2: Màu tương sinh
 - H2: Màu tương hợp
@@ -31,8 +31,8 @@
 - H2: Phối màu theo vật liệu nội thất
 - H2: Lưu ý màu cần hạn chế
 - H2: Chuẩn bị bề mặt và hệ sơn
-- H2: Bài Viết Liên Quan Cùng Mệnh Thủy
-- H2: Mệnh Liên Quan Khác
+- H2: Bài viết cùng mệnh Thủy
+- H2: Khám phá các mệnh khác
 - H2: Sản phẩm sơn nên dùng
 - H2: Câu hỏi thường gặp
 - H2: S68 Pro - giải pháp chống thấm cao cấp cho màu sơn phong thủy hiện đại
@@ -58,7 +58,7 @@
 - `https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80`
 - `https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=900&q=80`
 - `https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=900&q=80`
-- `/assets/products/sago-s68-pro-preview.webp`
+- `../../assets/products/sago-s68-pro-preview.webp`
 
 ## Tiêu chí kiểm thử
 
@@ -71,3 +71,9 @@
 
 Context được tạo từ HTML bằng `python tools/update_contexts.py`; đọc diff và cập nhật
 đúng nguồn nội dung trước khi chạy lại. Giải thích hành vi riêng cần giữ ở nguồn và test.
+
+## Bố cục hiện tại
+
+- Giao diện tối giản: nền trắng/xám nhạt, CTA đỏ tiết chế, nội dung đọc tối đa khoảng 75ch.
+- Hub dùng ảnh phòng khách ở hero; các mệnh/tuổi giữ bảng màu và liên kết dạng danh sách.
+- Navigation thu gọn dưới 1200px; ảnh S68 dùng đường dẫn tương đối để xem trực tiếp từ file.

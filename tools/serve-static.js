@@ -25,7 +25,12 @@ function createServer(root = path.join(ROOT, 'dist')) {
     const candidates = [target, `${target}.html`, path.join(target, 'index.html')];
     const file = candidates.find(p => fs.existsSync(p) && fs.statSync(p).isFile());
     if (!file || path.basename(file).startsWith('_') || route.split('/').some(p => p.startsWith('.'))) {
-      res.writeHead(404); res.end('Not found'); return;
+      const notFound = path.join(root, '404.html');
+      res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8' });
+      if (req.method === 'HEAD') res.end();
+      else if (fs.existsSync(notFound)) fs.createReadStream(notFound).on('error', () => res.destroy()).pipe(res);
+      else res.end('Not found');
+      return;
     }
     res.writeHead(200, { 'Content-Type': TYPES[path.extname(file)] || 'application/octet-stream' });
     if (req.method === 'HEAD') res.end();

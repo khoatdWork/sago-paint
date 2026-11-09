@@ -15,7 +15,7 @@
 - Ý định tìm kiếm: Sơn Sagopaint lót nội & ngoại thất Ana Sealer | Sago Paint.
 - Nội dung cụ thể là các heading dưới đây; không tự thêm thông số, chứng nhận hoặc lời hứa chưa có nguồn.
 
-- H1: Sơn Sagopaint lót nội & ngoại thất Ana Sealer
+- H1: Sơn lót nội và ngoại thất ANA Sealer
 - H2: Lợi ích khi sử dụng sản phẩm
 - H2: Ứng dụng phù hợp
 - H2: Điểm nổi bật
@@ -31,9 +31,9 @@
 - H3: Có cần sơn lót trước khi sử dụng không?
 - H3: Làm sao để nhận báo giá chính xác?
 - H2: Sản phẩm liên quan
-- H3: BỘT TRÉT NỘI THẤT HOASEN ANA
-- H3: SƠN NỘI THẤT LAU CHÙI HIỆU QUẢ ANAclean bề mặt bán bóng
-- H3: SƠN NỘI THẤT LAU CHÙI HIỆU QUẢ ANAclean bề mặt bán bóng
+- H3: Bột trét nội thất HOASEN ANA
+- H3: Sơn nội thất ANAclean bề mặt bán bóng
+- H3: Sơn lót nội và ngoại thất Sealer Primer
 - H2: Công ty Sơn Sago
 - H3: Thông tin liên hệ
 - H3: Danh mục
@@ -56,10 +56,12 @@
 - `https://cdn.sagopaint.vn/assets/sago-logo.png`
 - `https://cdn.sagopaint.vn/assets/products/son-sagopain-lot-noi-ngoai-that-ana-sealer.png`
 - `https://cdn.sagopaint.vn/assets/products/bot-tret-noi-that-hoasen-ana.png`
-- `https://cdn.sagopaint.vn/assets/products/son-noi-that-lau-chui-hieu-qua-anaclean-be-mat-ban-bong-2.png`
 - `https://cdn.sagopaint.vn/assets/products/son-noi-that-lau-chui-hieu-qua-anaclean-be-mat-ban-bong.png`
+- `https://cdn.sagopaint.vn/assets/products/son-sagopain-lot-noi-ngoai-that-sealer-primer.png`
 
 ## Tiêu chí kiểm thử
+
+- Bố cục: nền trắng/xám nhẹ; sản phẩm dùng ảnh trái và thông tin phải trên desktop, tên–ảnh–mô tả trên mobile. Danh mục ưu tiên danh sách sản phẩm trước hướng dẫn lựa chọn.
 
 - Đọc AGENTS.md và DESIGN.md; sử dụng skill ứng với từng phase/hạng mục.
 - Font Be Vietnam Pro cho chữ; không tràn ở 360/768/1440px; thử fallback CDN.

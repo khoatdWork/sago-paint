@@ -15,7 +15,7 @@
 - Ý định tìm kiếm: Màu Sơn Hợp Mệnh Kim Cho Nhà Sang Trọng, Vượng Khí.
 - Nội dung cụ thể là các heading dưới đây; không tự thêm thông số, chứng nhận hoặc lời hứa chưa có nguồn.
 
-- H1: Màu Sơn Hợp Mệnh Kim Cho Nhà Sang Trọng, Vượng Khí
+- H1: Màu sơn hợp mệnh Kim
 - H2: Đặc điểm người mệnh Kim khi chọn màu nhà
 - H2: Màu tương sinh và tương hợp
 - H2: Màu cần tránh
@@ -26,8 +26,8 @@
 - H2: Lưu ý màu cần hạn chế
 - H2: Chuẩn bị bề mặt và hệ sơn
 - H2: Liên kết nhanh theo tuổi
-- H2: Bài Viết Theo Tuổi Cùng Mệnh Kim
-- H2: Các Mệnh Khác
+- H2: Bài viết theo tuổi cùng mệnh Kim
+- H2: Các mệnh khác
 - H2: Sản phẩm sơn nên dùng
 - H2: Câu hỏi thường gặp
 - H2: S68 Pro - giải pháp chống thấm cao cấp cho màu sơn phong thủy hiện đại
@@ -50,7 +50,7 @@
 - `../../assets/css/site-base.css`
 - `https://cdn.sagopaint.vn/assets/sago-logo.png`
 - `https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1400&q=82`
-- `/assets/products/sago-s68-pro-preview.webp`
+- `../../assets/products/sago-s68-pro-preview.webp`
 
 ## Tiêu chí kiểm thử
 
@@ -63,3 +63,9 @@
 
 Context được tạo từ HTML bằng `python tools/update_contexts.py`; đọc diff và cập nhật
 đúng nguồn nội dung trước khi chạy lại. Giải thích hành vi riêng cần giữ ở nguồn và test.
+
+## Bố cục hiện tại
+
+- Giao diện tối giản: nền trắng/xám nhạt, CTA đỏ tiết chế, nội dung đọc tối đa khoảng 75ch.
+- Hub dùng ảnh phòng khách ở hero; các mệnh/tuổi giữ bảng màu và liên kết dạng danh sách.
+- Navigation thu gọn dưới 1200px; ảnh S68 dùng đường dẫn tương đối để xem trực tiếp từ file.

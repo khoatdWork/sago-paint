@@ -36,6 +36,11 @@ Sitemap có 53 URL canonical indexable, bỏ file xác minh Google và trang
 ANAclean `-2` đang noindex. Không áp đặt số từ tối thiểu như điều kiện SEO đạt:
 độ hữu ích và ý định tìm kiếm được review bằng skill seo-audit.
 
+`404.html` được đóng gói để Cloudflare Pages trả mã 404 cho URL không tồn tại,
+không thuộc inventory 54 trang nội dung hoặc sitemap. Local server cũng trả
+trang lỗi với GET/HEAD; sau deploy phải kiểm tra mã HTTP cho cả URL trang và
+asset không tồn tại, vì nhìn thấy trang lỗi chưa đủ xác nhận mã phản hồi đúng.
+
 `npm run build` chỉ đóng gói các file công khai vào `dist` theo inventory
 `tools/site-files.js`; docs, skills, tests và node_modules không được xuất bản.
 `npm run serve` phục vụ dist ở http://127.0.0.1:4173, có URL không đuôi .html

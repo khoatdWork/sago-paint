@@ -15,7 +15,7 @@
 - Ý định tìm kiếm: BỘT TRÉT NGOẠI THẤT HOASEN ANA | Sơn ngoại thất Sago Paint.
 - Nội dung cụ thể là các heading dưới đây; không tự thêm thông số, chứng nhận hoặc lời hứa chưa có nguồn.
 
-- H1: BỘT TRÉT NGOẠI THẤT HOASEN ANA
+- H1: Bột trét ngoại thất HOASEN ANA
 - H2: Lợi ích khi sử dụng sản phẩm
 - H2: Ứng dụng phù hợp
 - H2: Điểm nổi bật
@@ -31,9 +31,9 @@
 - H3: Có cần sơn lót trước khi sử dụng không?
 - H3: Làm sao để nhận báo giá chính xác?
 - H2: Sản phẩm liên quan
-- H3: SƠN NGOẠI THẤT ANA SATIN – bề mặt bán bóng
-- H3: SƠN NGOẠI THẤT ANA SATIN – bề mặt siêu bóng
-- H3: Sơn sagopaint ngoại thất Chống Phai Màu Anashield – bề mặt bóng mờ
+- H3: Sơn ngoại thất ANA Satin bề mặt bán bóng
+- H3: Sơn ngoại thất ANA Satin bề mặt siêu bóng
+- H3: Sơn ngoại thất Anashield bề mặt bóng mờ
 - H2: Công ty Sơn Sago
 - H3: Thông tin liên hệ
 - H3: Danh mục
@@ -41,7 +41,7 @@
 ## SEO hiện tại
 
 - Title: BỘT TRÉT NGOẠI THẤT HOASEN ANA | Sơn ngoại thất Sago Paint
-- Description: Bột trét tường ngoại thất HOASEN ANA là vật liệu xử lý bề mặt để làm phẳng các bề mặt hồ xây & bê tông. Sản phẩm có độ phủ tốt, dễ thi công, mang lại bề.
+- Description: Bột trét tường ngoại thất HOASEN ANA dùng để làm phẳng bề mặt hồ xây và bê tông. Sản phẩm có độ phủ tốt, dễ thi công, tạo bề mặt láng mịn cho sơn nước ngoại thất.
 - Canonical: `https://sagopaint.vn/bot-tret-ngoai-that-hoasen-ana`
 - Robots: `index, follow`
 - Schema: BreadcrumbList, FAQPage, HomeAndConstructionBusiness, Product.
@@ -61,11 +61,14 @@
 
 ## Tiêu chí kiểm thử
 
+- Bố cục: nền trắng/xám nhẹ; sản phẩm dùng ảnh trái và thông tin phải trên desktop, tên–ảnh–mô tả trên mobile. Danh mục ưu tiên danh sách sản phẩm trước hướng dẫn lựa chọn.
+
 - Đọc AGENTS.md và DESIGN.md; sử dụng skill ứng với từng phase/hạng mục.
 - Font Be Vietnam Pro cho chữ; không tràn ở 360/768/1440px; thử fallback CDN.
 - Navigation, CTA, điểm neo hoạt động; keyboard focus rõ và không bị sticky che.
 - CSS chung dùng đường dẫn tương đối theo độ sâu HTML; skip link ẩn mặc định, hiện khi Tab và Enter đưa focus tới nội dung chính. Kiểm tra cả HTTP và mở file trực tiếp.
 - Title/description/canonical/schema hợp lệ; không làm hỏng liên kết hoặc tài nguyên.
+- FAQ thời gian khô và FAQPage phải cùng dùng "Thời gian khô: 16 giờ" từ hướng dẫn sử dụng; không lấy khối lượng thể tích của bột khô làm thời gian.
 - Chạy kiểm tra trang, SEO và browser test; dùng Ponytail review diff trước hoàn tất.
 
 Context được tạo từ HTML bằng `python tools/update_contexts.py`; đọc diff và cập nhật

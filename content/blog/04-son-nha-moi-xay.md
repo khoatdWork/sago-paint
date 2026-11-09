@@ -35,8 +35,6 @@ image_alt_texts:
 
 Nhà mới xây xong, ai cũng muốn sơn ngay để kịp dọn vào ở. Nhưng trong nghề sơn, vội ở bước này thường trả giá bằng phồng rộp, loang màu, mốc chân tường và bong lớp phủ sau vài tháng. Câu hỏi "nhà mới xây bao lâu thì sơn được" vì vậy không nên trả lời bằng một con số cố định cho mọi công trình. Ở miền Tây, thời gian chờ còn phụ thuộc mùa mưa, độ dày tường, hướng nắng, khả năng thông gió, chất lượng hồ vữa và vị trí nhà gần sông rạch hay không.
 
-Search intent của người dùng rất thực tế: họ muốn biết sau khi trát tường bao nhiêu ngày thì sơn, có thể sơn trong mùa mưa không, làm sao biết tường đã khô, sơn lót có bắt buộc không, và nếu cần dọn vào sớm thì nên xử lý thế nào. Các bài đang xếp hạng cao thường đưa mốc 21-28 ngày, có bài nói 3-4 tuần, có bài nhắc mùa mưa có thể lâu hơn. Điểm cần bổ sung là cách áp dụng cho Cần Thơ, Long An, Tiền Giang, Bến Tre, Vĩnh Long, Đồng Tháp, An Giang, Kiên Giang, Hậu Giang, Sóc Trăng, Trà Vinh, Bạc Liêu, Cà Mau, nơi độ ẩm cao làm tường khô chậm.
-
 Bài viết này giúp gia chủ quyết định đúng thời điểm sơn, tránh chạy tiến độ bằng cảm tính.
 
 ![Nhà mới xây bao lâu thì sơn được miền Tây](images/nha-moi-xay-bao-lau-thi-son-duoc-mien-tay.webp)

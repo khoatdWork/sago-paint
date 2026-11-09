@@ -37,7 +37,14 @@
 - `https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css`
 - `category-pages.css`
 - `assets/css/site-base.css`
+- `assets/css/editorial.css`
 - `https://cdn.sagopaint.vn/assets/sago-logo.png`
+
+## Giao diện
+
+- Giao diện tối giản: nền trắng/xám nhạt, tiêu đề trái, ảnh minh họa rộng; không gradient hoặc thẻ trang trí nổi.
+- Nội dung bài đọc tối đa 70ch; sidebar tư vấn nhẹ, chuyển xuống dưới ở màn hình nhỏ. Danh sách bài dùng ảnh lớn và metadata dạng chữ.
+- Menu thu gọn dưới 1200px; CSS editorial riêng không tác động danh mục/sản phẩm.
 
 ## Tiêu chí kiểm thử
 

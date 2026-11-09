@@ -35,8 +35,6 @@ image_alt_texts:
 
 Nhà hướng Tây ở miền Tây thường nóng rõ nhất từ khoảng 13h đến 17h, khi nắng chiếu xiên trực tiếp vào mặt tiền, tường hông hoặc phòng ngủ phía trước. Ở Cần Thơ, Long An, Đồng Tháp, An Giang, Kiên Giang hay Cà Mau, cảm giác nóng còn khó chịu hơn vì độ ẩm cao, gió ít và nhiều nhà cấp 4 dùng mái tôn. Vì vậy câu hỏi "nhà hướng Tây sơn màu gì" không chỉ là chuyện thẩm mỹ. Màu sơn ảnh hưởng đến hấp thụ nhiệt, độ chói, độ bền màng sơn và cảm giác bên trong nhà.
 
-Search intent của người dùng thường gồm bốn nhu cầu: chọn màu sơn giảm nóng, phối màu mặt tiền đẹp, tìm giải pháp chống nóng rẻ hơn cải tạo lớn, và biết có cần sơn chống nóng hay chống thấm không. Các bài đang xếp hạng cao thường nhắc đến tường hai lớp, lam che, cây xanh, hạn chế kính, rèm, thạch cao và màu sáng. Tuy nhiên, ít bài giải thích cách chọn màu theo thực tế miền Tây: nhà gần sông rạch dễ ẩm, mùa mưa dài, mặt tiền chịu mưa tạt sau thời gian nắng gắt, và nhiều nhà không có khoảng lùi đủ để trồng cây lớn.
-
 Bài viết này đưa ra bảng màu nên dùng, màu nên tránh, cách phối ngoại thất - nội thất và quy trình tăng hiệu quả chống nóng bằng hệ sơn, che nắng và chống thấm.
 
 ![Nhà hướng Tây sơn màu gì chống nóng miền Tây](images/nha-huong-tay-son-mau-gi-chong-nong-mien-tay.webp)

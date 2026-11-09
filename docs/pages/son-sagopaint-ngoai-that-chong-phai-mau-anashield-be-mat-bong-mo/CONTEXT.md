@@ -15,7 +15,7 @@
 - Ý định tìm kiếm: Sơn sagopaint ngoại thất Chống Phai Màu Anashield – | Sago Paint.
 - Nội dung cụ thể là các heading dưới đây; không tự thêm thông số, chứng nhận hoặc lời hứa chưa có nguồn.
 
-- H1: Sơn sagopaint ngoại thất Chống Phai Màu Anashield – bề mặt bóng mờ
+- H1: Sơn ngoại thất Anashield bề mặt bóng mờ
 - H2: Lợi ích khi sử dụng sản phẩm
 - H2: Ứng dụng phù hợp
 - H2: Điểm nổi bật
@@ -31,9 +31,9 @@
 - H3: Có cần sơn lót trước khi sử dụng không?
 - H3: Làm sao để nhận báo giá chính xác?
 - H2: Sản phẩm liên quan
-- H3: BỘT TRÉT NGOẠI THẤT HOASEN ANA
-- H3: SƠN NGOẠI THẤT ANA SATIN – bề mặt bán bóng
-- H3: SƠN NGOẠI THẤT ANA SATIN – bề mặt siêu bóng
+- H3: Bột trét ngoại thất HOASEN ANA
+- H3: Sơn ngoại thất ANA Satin bề mặt bán bóng
+- H3: Sơn ngoại thất ANA Satin bề mặt siêu bóng
 - H2: Công ty Sơn Sago
 - H3: Thông tin liên hệ
 - H3: Danh mục
@@ -41,7 +41,7 @@
 ## SEO hiện tại
 
 - Title: Sơn sagopaint ngoại thất Chống Phai Màu Anashield – | Sago Paint
-- Description: Sơn sagopaint ngoại thất Chống Phai Màu Anashield – bề mặt bóng mờ được chế tạo từ nhựa pure Acrylic nguyên chất 100% kết hợp nhựa silicon với cấu trúc ma.
+- Description: Sơn ngoại thất Anashield bề mặt bóng mờ kết hợp nhựa pure Acrylic và silicon với cấu trúc ma trận kép Nano-Quartz. Sản phẩm bảo vệ lớp phủ mặt tiền trước tảo và nấm mốc.
 - Canonical: `https://sagopaint.vn/son-sagopaint-ngoai-that-chong-phai-mau-anashield-be-mat-bong-mo`
 - Robots: `index, follow`
 - Schema: BreadcrumbList, FAQPage, HomeAndConstructionBusiness, Product.
@@ -60,6 +60,8 @@
 - `https://cdn.sagopaint.vn/assets/products/son-ngoai-that-ana-satin-be-mat-sieu-bong.png`
 
 ## Tiêu chí kiểm thử
+
+- Bố cục: nền trắng/xám nhẹ; sản phẩm dùng ảnh trái và thông tin phải trên desktop, tên–ảnh–mô tả trên mobile. Danh mục ưu tiên danh sách sản phẩm trước hướng dẫn lựa chọn.
 
 - Đọc AGENTS.md và DESIGN.md; sử dụng skill ứng với từng phase/hạng mục.
 - Font Be Vietnam Pro cho chữ; không tràn ở 360/768/1440px; thử fallback CDN.

@@ -15,7 +15,7 @@
 - Ý định tìm kiếm: Tính lượng sơn cần dùng trước khi hỏi báo giá.
 - Nội dung cụ thể là các heading dưới đây; không tự thêm thông số, chứng nhận hoặc lời hứa chưa có nguồn.
 
-- H1: Công CụTính Lượng SơnCần Dùng
+- H1: Tính lượng sơn cần dùng
 - H2: Nhập thông tin công trình
 - H2: Lượng sơn và chi phí
 - H2: Sản phẩm phù hợp với nhu cầu của bạn
@@ -56,6 +56,7 @@
 - `https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css`
 - `../category-pages.css`
 - `../assets/css/site-base.css`
+- `../assets/css/calculator.css`
 - `https://cdn.sagopaint.vn/assets/sago-logo.png`
 
 ## Tiêu chí kiểm thử
@@ -67,6 +68,11 @@
 - Title/description/canonical/schema hợp lệ; không làm hỏng liên kết hoặc tài nguyên.
 - Chạy kiểm tra trang, SEO và browser test; dùng Ponytail review diff trước hoàn tất.
 - Kiểm tra tính phòng/diện tích, preset, số 0, tab bàn phím và email chứa kết quả; không tự gửi hoặc xóa dữ liệu.
+- Chỉ kiểm tra input của tab đang chọn: bắt buộc nhập, tuân thủ min/step và số hợp lệ. Input lỗi có aria-invalid, mô tả qua calculationMessage; kết quả đổi thành — và submit focus input lỗi đầu tiên. Diện tích 0 hợp lệ; số quá lớn có thông báo riêng.
+- Script tính sơn và ảnh S68 dùng đường dẫn tương đối để công cụ hoạt động khi mở file trực tiếp.
+- Tên liên hệ được bỏ khoảng trắng đầu/cuối trước required; điện thoại chấp nhận chữ số quốc tế với + đầu chuỗi, khoảng trắng, dấu chấm, gạch nối và ngoặc. Website chỉ mở email để người dùng tự gửi.
+- Giao diện tối giản: hero ngắn, tab nhập liệu bên trái và kết quả bên phải; metric 2 cột, chi phí thành hàng thay vì nhiều hộp; mobile xếp dọc. CTA mobile cố định được bỏ để giữ vùng đọc.
+- Số liệu lớn nhưng hợp lệ được phép xuống dòng trong metric và hàng chi phí, không bị cắt bởi vỏ calculator. Thông báo form có tương phản trên nền xám nhẹ.
 
 Context được tạo từ HTML bằng `python tools/update_contexts.py`; đọc diff và cập nhật
 đúng nguồn nội dung trước khi chạy lại. Giải thích hành vi riêng cần giữ ở nguồn và test.

@@ -15,7 +15,7 @@
 - Ý định tìm kiếm: Phong Thủy Sơn Nhà: Chọn Màu Hợp Mệnh, Hợp Tuổi.
 - Nội dung cụ thể là các heading dưới đây; không tự thêm thông số, chứng nhận hoặc lời hứa chưa có nguồn.
 
-- H1: Phong Thủy Sơn Nhà - Chọn Màu Sơn Hợp Mệnh, Hợp Tuổi Để Thu Hút Tài Lộc
+- H1: Chọn màu sơn nhà hợp mệnh, hợp tuổi
 - H2: Vai trò của màu sơn trong phong thủy nhà ở
 - H2: Ý nghĩa ngũ hành trong thiết kế nhà ở
 - H2: Cách chọn màu sơn theo mệnh
@@ -24,7 +24,7 @@
 - H2: Quy trình chọn màu sơn phong thủy thực tế
 - H2: Gợi ý màu theo từng không gian
 - H2: Sản phẩm và hệ thi công nên đi cùng màu phong thủy
-- H2: Bài Viết Theo Năm Sinh Nổi Bật
+- H2: Bài viết theo năm sinh
 - H2: Sản phẩm sơn nên dùng
 - H2: Câu hỏi thường gặp
 - H2: S68 Pro - giải pháp chống thấm cao cấp cho màu sơn phong thủy hiện đại
@@ -46,8 +46,9 @@
 - `../phong-thuy-son-nha/styles.css`
 - `../assets/css/site-base.css`
 - `https://cdn.sagopaint.vn/assets/sago-logo.png`
-- `https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=82`
-- `/assets/products/sago-s68-pro-preview.webp`
+- `../assets/categories/son-noi-that-phong-khach-hien-dai.webp`
+- `../assets/categories/son-noi-that-phong-khach-720.webp`
+- `../assets/products/sago-s68-pro-preview.webp`
 
 ## Tiêu chí kiểm thử
 
@@ -60,3 +61,9 @@
 
 Context được tạo từ HTML bằng `python tools/update_contexts.py`; đọc diff và cập nhật
 đúng nguồn nội dung trước khi chạy lại. Giải thích hành vi riêng cần giữ ở nguồn và test.
+
+## Bố cục hiện tại
+
+- Giao diện tối giản: nền trắng/xám nhạt, CTA đỏ tiết chế, nội dung đọc tối đa khoảng 75ch.
+- Hub dùng ảnh phòng khách ở hero; các mệnh/tuổi giữ bảng màu và liên kết dạng danh sách.
+- Navigation thu gọn dưới 1200px; ảnh S68 dùng đường dẫn tương đối để xem trực tiếp từ file.

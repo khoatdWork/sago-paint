@@ -54,6 +54,7 @@
 - `https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css`
 - `category-pages.css`
 - `assets/css/site-base.css`
+- `assets/css/editorial.css`
 - `https://cdn.sagopaint.vn/assets/sago-logo.png`
 - `https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1400&q=84`
 - `https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=82`
@@ -61,6 +62,12 @@
 - `https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=1200&q=82`
 - `https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=82`
 - `https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?auto=format&fit=crop&w=1200&q=82`
+
+## Giao diện
+
+- Giao diện tối giản: nền trắng/xám nhạt, tiêu đề trái, ảnh minh họa rộng; không gradient hoặc thẻ trang trí nổi.
+- Nội dung bài đọc tối đa 70ch; sidebar tư vấn nhẹ, chuyển xuống dưới ở màn hình nhỏ. Danh sách bài dùng ảnh lớn và metadata dạng chữ.
+- Menu thu gọn dưới 1200px; CSS editorial riêng không tác động danh mục/sản phẩm.
 
 ## Tiêu chí kiểm thử
 

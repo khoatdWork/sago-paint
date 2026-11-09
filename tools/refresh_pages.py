@@ -133,9 +133,50 @@ def product_category(source: str) -> str:
     return html.unescape(match.group(1)) if match else "son-noi-that.html"
 
 
+PRODUCT_DISPLAY_NAMES = {
+    "bot-tret-ngoai-that-hoasen-ana.html": "Bột trét ngoại thất HOASEN ANA",
+    "bot-tret-noi-that-hoasen-ana.html": "Bột trét nội thất HOASEN ANA",
+    "chat-chong-tham-bt-11a-pha-xi-mang.html": "Chất chống thấm BT-11A pha xi măng",
+    "chong-tham-lo-thien-pu-502.html": "Chống thấm lộ thiên PU-502",
+    "sago-s-68-pro-chong-tham-a-nang-lo-thien-cao-cap.html": "SAGO S 68 PRO chống thấm đa năng lộ thiên cao cấp",
+    "son-chong-tham-mau-aqua-shield-5-in1.html": "Sơn chống thấm màu Aqua Shield 5 in 1",
+    "son-ngoai-that-ana-satin-be-mat-ban-bong.html": "Sơn ngoại thất ANA Satin bề mặt bán bóng",
+    "son-ngoai-that-ana-satin-be-mat-sieu-bong.html": "Sơn ngoại thất ANA Satin bề mặt siêu bóng",
+    "son-noi-that-lau-chui-hieu-qua-anaclean-be-mat-ban-bong-2.html": "Sơn nội thất ANAclean bề mặt bán bóng",
+    "son-noi-that-lau-chui-hieu-qua-anaclean-be-mat-ban-bong.html": "Sơn nội thất ANAclean bề mặt bán bóng",
+    "son-sagopain-lot-noi-ngoai-that-ana-sealer.html": "Sơn lót nội và ngoại thất ANA Sealer",
+    "son-sagopain-lot-noi-ngoai-that-sealer-primer.html": "Sơn lót nội và ngoại thất Sealer Primer",
+    "son-sagopaint-chong-tham-mau-aqua-shield-5in1.html": "Sơn chống thấm màu Aqua Shield 5 in 1",
+    "son-sagopaint-ngoai-that-chong-phai-mau-anashield-be-mat-bong-mo.html": "Sơn ngoại thất Anashield bề mặt bóng mờ",
+    "son-sagopaint-ngoai-that-chong-reu-moc-super-satin-1.html": "Sơn ngoại thất chống rêu mốc Super Satin",
+    "son-sagopaint-noi-that-che-phu-toi-a-ana-matex.html": "Sơn nội thất che phủ tối đa ANA MATEX",
+    "son-sagopaint-noi-that-lau-chui-hieu-qua-anaclean-be-mat-bong-mo.html": "Sơn nội thất ANAclean bề mặt bóng mờ",
+    "son-sagopaint-not-that-mang-son-min-ep-v-2000.html": "Sơn nội thất màng sơn mịn đẹp V-2000",
+}
+
+
+def display_name(product: dict) -> str:
+    return PRODUCT_DISPLAY_NAMES.get(product["file"], product["name"])
+
+
 def extract_product(path: Path) -> dict:
     source = path.read_text(encoding="utf-8")
     title = text_from_tag(source, "h1", "product-hero-title") or text_from_tag(source, "title").replace(" - Sago Paint", "")
+    def product_name(value):
+        if isinstance(value, list):
+            return next((name for item in value if (name := product_name(item))), None)
+        if isinstance(value, dict):
+            types = value.get("@type", [])
+            if "Product" in (types if isinstance(types, list) else [types]):
+                return value.get("name")
+            return product_name(value.get("@graph", []))
+        return None
+
+    for block in re.findall(r'<script\b[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>', source, re.S | re.I):
+        name = product_name(json.loads(block))
+        if name:
+            title = name
+            break
     image = attr_from_tag(source, "img", "product-detail-image", "src")
     detail = paragraphs(source)
     category_file = product_category(source)
@@ -143,11 +184,22 @@ def extract_product(path: Path) -> dict:
     features = list_items(source, "feature-list")
     specs = list_items(source, "spec-list")
     process = list_items(source, "process-list")
-    description = summarize(detail, text_from_tag(source, "p", "product-hero-copy"))
+    class DescriptionParser(HTMLParser):
+        description = ""
+
+        def handle_starttag(self, tag, attrs):
+            attrs = dict(attrs)
+            if tag == "meta" and attrs.get("name", "").lower() == "description":
+                self.description = attrs.get("content", "").strip()
+
+    metadata = DescriptionParser()
+    metadata.feed(source)
+    description = metadata.description or summarize(detail, text_from_tag(source, "p", "product-hero-copy"))
     return {
         "file": path.name,
         "name": title,
-        "image": image,
+        "image": image.lstrip("/") if image.startswith("/assets/") else image,
+        "noindex": bool(re.search(r'<meta[^>]+name=["\']robots["\'][^>]+content=["\'][^"\']*noindex', source, re.I)),
         "image_width": attr_from_tag(source, "img", "product-detail-image", "width") or "600",
         "image_height": attr_from_tag(source, "img", "product-detail-image", "height") or "600",
         "category_file": category_file,
@@ -188,7 +240,7 @@ def nav(active: str | None = None) -> str:
     aria_home = ' aria-current="page"' if active == "index.html" else ""
     return f"""
     <header class="site-header fixed-top">
-      <nav class="navbar navbar-expand-lg" aria-label="Điều hướng chính">
+      <nav class="navbar navbar-expand-xl" aria-label="Điều hướng chính">
         <div class="container">
           <a class="navbar-brand" href="index.html" aria-label="Sago Paint - Trang chủ">
             <img class="brand-logo" src="https://cdn.sagopaint.vn/assets/sago-logo.png" alt="Logo Sago Professional Coatings" width="1010" height="518">
@@ -197,15 +249,15 @@ def nav(active: str | None = None) -> str:
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="mainNavigation">
-            <ul class="navbar-nav ms-auto align-items-lg-center">
-              <li class="nav-item"><a class="nav-link{cls('index.html')}" href="index.html"{aria_home}>Trang Chủ</a></li>
-              <li class="nav-item"><a class="nav-link{cls('son-noi-that.html')}" href="son-noi-that.html">Nội Thất</a></li>
-              <li class="nav-item"><a class="nav-link{cls('son-ngoai-that.html')}" href="son-ngoai-that.html">Ngoại Thất</a></li>
-              <li class="nav-item"><a class="nav-link{cls('son-chong-tham.html')}" href="son-chong-tham.html">Chống Thấm</a></li>
-              <li class="nav-item"><a class="nav-link" href="phong-thuy-son-nha/index.html">Phong Thủy</a></li>
-              <li class="nav-item"><a class="nav-link{cls('ve-chung-toi.html')}" href="ve-chung-toi.html">Về Chúng Tôi</a></li>
+            <ul class="navbar-nav ms-auto align-items-xl-center">
+              <li class="nav-item"><a class="nav-link{cls('index.html')}" href="index.html"{aria_home}>Trang chủ</a></li>
+              <li class="nav-item"><a class="nav-link{cls('son-noi-that.html')}" href="son-noi-that.html">Nội thất</a></li>
+              <li class="nav-item"><a class="nav-link{cls('son-ngoai-that.html')}" href="son-ngoai-that.html">Ngoại thất</a></li>
+              <li class="nav-item"><a class="nav-link{cls('son-chong-tham.html')}" href="son-chong-tham.html">Chống thấm</a></li>
+              <li class="nav-item"><a class="nav-link" href="phong-thuy-son-nha/index.html">Phong thủy</a></li>
+              <li class="nav-item"><a class="nav-link{cls('ve-chung-toi.html')}" href="ve-chung-toi.html">Về chúng tôi</a></li>
             </ul>
-            <a class="btn btn-primary ms-lg-3 mt-3 mt-lg-0" href="tel:+842866815050">Nhận tư vấn</a>
+            <a class="btn btn-primary ms-xl-3 mt-3 mt-xl-0" href="tel:+842866815050">Nhận tư vấn</a>
           </div>
         </div>
       </nav>
@@ -326,7 +378,14 @@ def product_faq(product: dict) -> list[dict[str, str]]:
     cat = product["category_name"].lower()
     apps = application_items(product)
     coverage = next((item for item in product["specs"] if "Độ phủ" in item or "độ phủ" in item), "")
-    dry = next((item for item in product["specs"] if "khô" in item.lower()), "")
+    duration = re.compile(r"\d+(?:[.,]\d+)?\s*(?:phút|giờ|tiếng|ngày)\b", re.I)
+    dry_items = [item.replace("::", ":") for item in product["specs"]
+                 if re.match(r"(?:Thời gian khô|Khô bề mặt|Sơn lớp kế tiếp)", item, re.I)
+                 and duration.search(item)]
+    if not dry_items:
+        dry_items = [item.replace("::", ":") for item in product["process"]
+                     if re.match(r"Thời gian khô", item, re.I) and duration.search(item)]
+    dry = "; ".join(dry_items)
     primer = "Có. Với đa số bề mặt tường mới hoặc tường cũ đã xử lý, nên dùng sơn lót phù hợp để tăng bám dính, chống kiềm và giúp lớp phủ lên màu đều hơn."
     if "bột trét" in name.lower():
         primer = "Sau khi bột trét khô và được xả nhám, nên dùng sơn lót trước lớp phủ để hệ sơn bám chắc và màu hoàn thiện đẹp hơn."
@@ -361,6 +420,7 @@ def product_faq(product: dict) -> list[dict[str, str]]:
 
 
 def related_products(product: dict, products: list[dict], limit: int = 3) -> list[dict]:
+    products = [item for item in products if not item.get("noindex")]
     same_category = [item for item in products if item["file"] != product["file"] and item["category_file"] == product["category_file"]]
     if len(same_category) >= limit:
         return same_category[:limit]
@@ -371,7 +431,7 @@ def related_products(product: dict, products: list[dict], limit: int = 3) -> lis
 def render_product(product: dict, products: list[dict]) -> str:
     cat_file = product["category_file"]
     title = f"{product['name']} | {product['category_name']} Sago Paint"
-    description = summarize([product["description"]], product["name"], 155)
+    description = product["description"] or product["name"]
     faqs = product_faq(product)
     schema = [
         breadcrumb_schema([("Trang chủ", "index.html"), (product["category_name"], cat_file), (product["name"], product["file"])]),
@@ -379,7 +439,7 @@ def render_product(product: dict, products: list[dict]) -> str:
             "@context": "https://schema.org",
             "@type": "Product",
             "name": product["name"],
-            "image": f"{SITE_URL}/{product['image']}",
+            "image": product["image"] if product["image"].startswith(("https://", "http://")) else f"{SITE_URL}/{product['image'].lstrip('/')}",
             "description": description,
             "brand": {"@type": "Brand", "name": "Sago Paint"},
             "category": product["category_name"],
@@ -401,7 +461,6 @@ def render_product(product: dict, products: list[dict]) -> str:
     spec_items = "".join(f"<li>{esc(item)}</li>" for item in product["specs"][:8])
     process_items = "".join(f"<li>{esc(item)}</li>" for item in product["process"][:14])
     detail_paras = "\n".join(f'                <p class="detail-copy">{esc(item)}</p>' for item in product["detail"])
-    keywords = [product["category_name"], product["badge"], "Sago Paint"]
     benefits = "".join(f"<li>{esc(item)}</li>" for item in benefit_items(product))
     applications = "".join(f"<li>{esc(item)}</li>" for item in application_items(product))
     faq_items = "\n".join(
@@ -424,8 +483,7 @@ def render_product(product: dict, products: list[dict]) -> str:
                   <img src="{esc(item['image'])}" alt="{esc(item['name'])}" loading="lazy" width="{esc(item['image_width'])}" height="{esc(item['image_height'])}">
                 </a>
                 <div class="related-body">
-                  <span>{esc(item['badge'])}</span>
-                  <h3><a href="{esc(item['file'])}">{esc(item['name'])}</a></h3>
+                  <h3><a href="{esc(item['file'])}">{esc(display_name(item))}</a></h3>
                   <p>{esc(item['description'])}</p>
                 </div>
               </article>
@@ -435,29 +493,27 @@ def render_product(product: dict, products: list[dict]) -> str:
     return f"""<!doctype html>
 <html lang="vi">
 {head(title, description, product['file'], product['image'], schema)}
-  <body>
+  <body class="product-page">
     <a class="skip-link" href="#main-content">Bỏ qua điều hướng, đến nội dung chính</a>
 {nav(cat_file)}
     <main id="main-content" tabindex="-1">
       <section class="product-hero">
         <div class="container">
-          <div class="row g-5 align-items-center">
-            <div class="col-lg-7">
-              <a class="breadcrumb-link d-inline-flex mb-3" href="{esc(cat_file)}">&larr; {esc(product['category_name'])}</a>
-              <p class="section-kicker mb-3">Chi tiết sản phẩm</p>
-              <h1 class="product-hero-title mb-4">{esc(product['name'])}</h1>
-              <p class="product-hero-copy mb-4">{esc(description)}</p>
-              <div class="keyword-strip mb-4">
-                {"".join(f'<span>{esc(item)}</span>' for item in keywords)}
-              </div>
-              <div class="d-flex flex-wrap gap-2">
-                <a class="btn btn-primary" href="#lien-he">Nhận báo giá</a>
-                <a class="btn btn-outline-primary" href="tel:+842866815050">Liên hệ tư vấn</a>
-              </div>
+          <div class="product-hero-layout">
+            <div class="product-heading">
+              <a class="breadcrumb-link" href="{esc(cat_file)}">{esc(product['category_name'])}</a>
+              <h1 class="product-hero-title">{esc(display_name(product))}</h1>
             </div>
-            <div class="col-lg-5">
-              <div class="product-visual">
-                <img class="product-detail-image" src="{esc(product['image'])}" alt="{esc(product['name'])}" width="{esc(product['image_width'])}" height="{esc(product['image_height'])}">
+            <div class="product-visual">
+              <picture>{('<source srcset="assets/products/sago-s68-pro-home.webp" width="419" height="447">' if 'sago-s68-pro-preview.webp' in product['image'] else '')}
+                <img class="product-detail-image" fetchpriority="high" src="{esc(product['image'])}" alt="{esc(product['name'])}" width="{esc(product['image_width'])}" height="{esc(product['image_height'])}">
+              </picture>
+            </div>
+            <div class="product-intro">
+              <p class="product-hero-copy">{esc(description)}</p>
+              <div class="product-hero-actions">
+                <a class="btn btn-primary" href="#lien-he">Nhận báo giá</a>
+                <a class="catalog-text-link" href="tel:+842866815050">Gọi tư vấn</a>
               </div>
             </div>
           </div>
@@ -468,14 +524,14 @@ def render_product(product: dict, products: list[dict]) -> str:
           <div class="row g-4 mb-4">
             <div class="col-lg-6">
               <article class="info-panel accent-panel">
-                <p class="section-kicker mb-2">Lợi ích</p>
+
                 <h2 class="h3 mb-4">Lợi ích khi sử dụng sản phẩm</h2>
                 <ul class="feature-list">{benefits}</ul>
               </article>
             </div>
             <div class="col-lg-6">
               <article class="info-panel">
-                <p class="section-kicker mb-2">Ứng dụng</p>
+
                 <h2 class="h3 mb-4">Ứng dụng phù hợp</h2>
                 <ul class="feature-list">{applications}</ul>
               </article>
@@ -484,14 +540,14 @@ def render_product(product: dict, products: list[dict]) -> str:
           <div class="row g-4 mb-4">
             <div class="col-lg-5">
               <article class="info-panel accent-panel">
-                <p class="section-kicker mb-2">Tính năng</p>
+
                 <h2 class="h3 mb-4">Điểm nổi bật</h2>
                 <ul class="feature-list">{feature_items or '<li>Phù hợp thi công cho công trình dân dụng và thương mại.</li>'}</ul>
               </article>
             </div>
             <div class="col-lg-7">
               <article class="info-panel">
-                <p class="section-kicker mb-2">Thông số</p>
+
                 <h2 class="h3 mb-4">Thông tin kỹ thuật</h2>
                 <ul class="spec-list">{spec_items or '<li>Liên hệ Sago Paint để được tư vấn định mức và hệ sơn phù hợp.</li>'}</ul>
               </article>
@@ -500,14 +556,14 @@ def render_product(product: dict, products: list[dict]) -> str:
           <div class="row g-4">
             <div class="col-lg-7">
               <article class="info-panel">
-                <p class="section-kicker mb-2">Mô tả</p>
+
                 <h2 class="h3 mb-4">Thông tin sản phẩm</h2>
 {detail_paras}
               </article>
             </div>
             <div class="col-lg-5">
               <article class="info-panel">
-                <p class="section-kicker mb-2">Thi công</p>
+
                 <h2 class="h3 mb-4">Hướng dẫn sử dụng</h2>
                 <ul class="process-list">{process_items or '<li>Chuẩn bị bề mặt sạch, khô và ổn định trước khi thi công.</li><li>Khuấy đều sản phẩm và thi công theo hệ sơn được tư vấn.</li>'}</ul>
               </article>
@@ -519,7 +575,7 @@ def render_product(product: dict, products: list[dict]) -> str:
         <div class="container">
           <div class="seo-panel">
             <div>
-              <p class="section-kicker mb-2">Tư vấn hệ sơn</p>
+
               <h2 class="h3 mb-3">Cần chọn đúng sản phẩm cho bề mặt thực tế?</h2>
               <p class="mb-0">Sago Paint hỗ trợ kiểm tra bề mặt, gợi ý sơn lót, sơn phủ và định mức vật tư phù hợp để tối ưu chi phí thi công.</p>
             </div>
@@ -531,7 +587,7 @@ def render_product(product: dict, products: list[dict]) -> str:
         <div class="container">
           <div class="row g-4 align-items-start">
             <div class="col-lg-4">
-              <p class="section-kicker mb-2">FAQ</p>
+
               <h2 id="faq-heading" class="h1 fw-bold mb-3">Câu hỏi thường gặp</h2>
               <p class="text-secondary mb-0">Các câu trả lời dưới đây giúp bạn chọn đúng hệ sơn, chuẩn bị bề mặt và dự trù vật tư trước khi thi công.</p>
             </div>
@@ -547,7 +603,7 @@ def render_product(product: dict, products: list[dict]) -> str:
         <div class="container">
           <div class="d-flex flex-column flex-lg-row justify-content-between gap-3 mb-4">
             <div>
-              <p class="section-kicker mb-2">Gợi ý thêm</p>
+
               <h2 id="related-heading" class="h1 fw-bold mb-0">Sản phẩm liên quan</h2>
             </div>
             <a class="btn btn-outline-primary align-self-lg-end" href="{esc(cat_file)}">Xem danh mục {esc(product['category_short'])}</a>
@@ -566,7 +622,7 @@ def render_product(product: dict, products: list[dict]) -> str:
 
 
 def category_products(category_file: str, products: list[dict]) -> list[dict]:
-    return [item for item in products if item["category_file"] == category_file]
+    return [item for item in products if item["category_file"] == category_file and not item.get("noindex")]
 
 
 def render_category(category_file: str, products: list[dict]) -> str:
@@ -584,7 +640,7 @@ def render_category(category_file: str, products: list[dict]) -> str:
             "mainEntity": {
                 "@type": "ItemList",
                 "itemListElement": [
-                    {"@type": "ListItem", "position": index + 1, "name": product["name"], "url": f"{SITE_URL}/{product['file']}"}
+                    {"@type": "ListItem", "position": index + 1, "name": product["name"], "url": f"{SITE_URL}/{product['file'].removesuffix('.html')}"}
                     for index, product in enumerate(items)
                 ],
             },
@@ -597,17 +653,9 @@ def render_category(category_file: str, products: list[dict]) -> str:
                   <img src="{esc(product['image'])}" alt="{esc(product['name'])}" loading="lazy" width="{esc(product['image_width'])}" height="{esc(product['image_height'])}">
                 </a>
                 <div class="product-card-body d-flex flex-column flex-grow-1">
-                  <span class="product-badge">{esc(product['badge'])}</span>
-                  <h2><a href="{esc(product['file'])}">{esc(product['name'])}</a></h2>
+                  <h2><a href="{esc(product['file'])}">{esc(display_name(product))}</a></h2>
                   <p>{esc(product['description'])}</p>
-                  <div class="card-feature-block">
-                    <strong>Tính năng nổi bật</strong>
-                    <ul>{"".join(f"<li>{esc(feature)}</li>" for feature in (product["features"][:3] or benefit_items(product)[:3]))}</ul>
-                  </div>
-                  <div class="product-card-actions">
-                    <a class="btn btn-sm btn-outline-primary" href="{esc(product['file'])}">Xem chi tiết</a>
-                    <a class="btn btn-sm btn-primary" href="#lien-he">Nhận báo giá</a>
-                  </div>
+                  <a class="catalog-text-link" href="{esc(product['file'])}">Xem sản phẩm</a>
                 </div>
               </article>
             </div>"""
@@ -618,7 +666,7 @@ def render_category(category_file: str, products: list[dict]) -> str:
     return f"""<!doctype html>
 <html lang="vi">
 {head(title, meta['description'], category_file, "https://cdn.sagopaint.vn/assets/sago-logo.png", schema)}
-  <body>
+  <body class="catalog-page">
     <a class="skip-link" href="#main-content">Bỏ qua điều hướng, đến nội dung chính</a>
 {nav(category_file)}
     <main id="main-content" tabindex="-1">
@@ -626,7 +674,7 @@ def render_category(category_file: str, products: list[dict]) -> str:
         <div class="container">
           <div class="row align-items-end g-4">
             <div class="col-lg-8">
-              <p class="section-kicker mb-3">{esc(meta['kicker'])}</p>
+
               <h1 class="category-title mb-4">{esc(meta['headline'])}</h1>
               <p class="category-description mb-0">{esc(meta['description'])}</p>
             </div>
@@ -641,10 +689,14 @@ def render_category(category_file: str, products: list[dict]) -> str:
       </section>
       <section class="section-padding bg-white" aria-labelledby="product-heading">
         <div class="container">
-          <div class="row g-4 mb-5">
+          <h2 id="product-heading" class="catalog-list-heading">{esc(meta['heading'])}</h2>
+          <div class="row g-4">
+{cards}
+          </div>
+          <div class="row g-4 category-reading-guide">
             <div class="col-lg-7">
-              <p class="section-kicker mb-2">Sản phẩm Sago Paint</p>
-              <h2 id="product-heading" class="h1 fw-bold mb-3">{esc(meta['heading'])}</h2>
+
+              <h2 id="category-guide-heading" class="h1 fw-bold mb-3">Chọn hệ sơn phù hợp</h2>
               <p class="lead text-secondary mb-0">{esc(meta['seo'])}</p>
             </div>
             <div class="col-lg-5">
@@ -660,16 +712,14 @@ def render_category(category_file: str, products: list[dict]) -> str:
               </div>
             </div>
           </div>
-          <div class="row g-4">
-{cards}
-          </div>
+
         </div>
       </section>
       <section class="seo-band">
         <div class="container">
           <div class="seo-panel">
             <div>
-              <p class="section-kicker mb-2">Tối ưu vật tư</p>
+
               <h2 class="h3 mb-3">Chưa chắc nên dùng sản phẩm nào?</h2>
               <p class="mb-0">Gửi tình trạng bề mặt, diện tích và khu vực thi công để Sago Paint tư vấn hệ sơn, định mức và quy trình phù hợp.</p>
             </div>
@@ -731,7 +781,40 @@ def preserve_head(path: Path, rendered: str) -> str:
     original = re.search(r"<head\b[^>]*>.*?</head>", path.read_text(encoding="utf-8"), re.S | re.I)
     if not original:
         raise ValueError(f"Missing head in {path}; refusing to overwrite metadata")
-    return re.sub(r"<head\b[^>]*>.*?</head>", lambda _: original.group(), rendered, count=1, flags=re.S | re.I)
+    generated = {}
+    script_pattern = r'(<script\b[^>]*type=["\']application/ld\+json["\'][^>]*>)(.*?)(</script>)'
+
+    def collect(value):
+        if isinstance(value, list):
+            for item in value: collect(item)
+        elif isinstance(value, dict):
+            if value.get("@type") == "FAQPage": generated["FAQPage"] = value
+            if value.get("@type") == "CollectionPage" and isinstance(value.get("mainEntity"), dict):
+                generated["ItemList"] = value["mainEntity"]
+            if "@graph" in value: collect(value["@graph"])
+
+    for match in re.finditer(script_pattern, rendered, re.S | re.I):
+        collect(json.loads(match[2]))
+
+    def update(value):
+        if isinstance(value, list): return [update(item) for item in value]
+        if not isinstance(value, dict): return value
+        if value.get("@type") == "FAQPage" and "FAQPage" in generated:
+            return generated["FAQPage"]
+        result = dict(value)
+        if value.get("@type") == "CollectionPage" and "ItemList" in generated:
+            result["mainEntity"] = generated["ItemList"]
+        if "@graph" in value: result["@graph"] = update(value["@graph"])
+        return result
+
+    def sync_script(match):
+        before = json.loads(match[2])
+        after = update(before)
+        if before == after: return match[0]
+        return match[1] + "\n" + json.dumps(after, ensure_ascii=False, indent=6) + "\n    " + match[3]
+
+    head = re.sub(script_pattern, sync_script, original.group(), flags=re.S | re.I)
+    return re.sub(r"<head\b[^>]*>.*?</head>", lambda _: head, rendered, count=1, flags=re.S | re.I)
 
 
 if __name__ == "__main__":

@@ -15,7 +15,7 @@
 - Ý định tìm kiếm: Sơn Sagopaint nội thất Che Phủ Tối Đa ANA MATEX | Sago Paint.
 - Nội dung cụ thể là các heading dưới đây; không tự thêm thông số, chứng nhận hoặc lời hứa chưa có nguồn.
 
-- H1: Sơn Sagopaint nội thất Che Phủ Tối Đa ANA MATEX
+- H1: Sơn nội thất che phủ tối đa ANA MATEX
 - H2: Lợi ích khi sử dụng sản phẩm
 - H2: Ứng dụng phù hợp
 - H2: Điểm nổi bật
@@ -31,9 +31,9 @@
 - H3: Có cần sơn lót trước khi sử dụng không?
 - H3: Làm sao để nhận báo giá chính xác?
 - H2: Sản phẩm liên quan
-- H3: BỘT TRÉT NỘI THẤT HOASEN ANA
-- H3: SƠN NỘI THẤT LAU CHÙI HIỆU QUẢ ANAclean bề mặt bán bóng
-- H3: SƠN NỘI THẤT LAU CHÙI HIỆU QUẢ ANAclean bề mặt bán bóng
+- H3: Bột trét nội thất HOASEN ANA
+- H3: Sơn nội thất ANAclean bề mặt bán bóng
+- H3: Sơn lót nội và ngoại thất ANA Sealer
 - H2: Công ty Sơn Sago
 - H3: Thông tin liên hệ
 - H3: Danh mục
@@ -41,7 +41,7 @@
 ## SEO hiện tại
 
 - Title: Sơn Sagopaint nội thất Che Phủ Tối Đa ANA MATEX | Sago Paint
-- Description: Sơn Sagopaint nội thất Che Phủ Tối Đa ANA MATEX là loại sơn nước được pha chế đặc biệt gốc Pure Acrylic có độ bền màu cao. Sơn Sagopaint nội thất Che Phủ.
+- Description: Sơn nội thất ANA MATEX có gốc Pure Acrylic, độ bền màu cao và màng sơn phẳng mịn. Công nghệ Titanium Dioxide TI-PURE giúp tăng độ che phủ của màng sơn.
 - Canonical: `https://sagopaint.vn/son-sagopaint-noi-that-che-phu-toi-a-ana-matex`
 - Robots: `index, follow`
 - Schema: BreadcrumbList, FAQPage, HomeAndConstructionBusiness, Product.
@@ -56,10 +56,12 @@
 - `https://cdn.sagopaint.vn/assets/sago-logo.png`
 - `https://cdn.sagopaint.vn/assets/products/son-sagopaint-noi-that-che-phu-toi-a-ana-matex.png`
 - `https://cdn.sagopaint.vn/assets/products/bot-tret-noi-that-hoasen-ana.png`
-- `https://cdn.sagopaint.vn/assets/products/son-noi-that-lau-chui-hieu-qua-anaclean-be-mat-ban-bong-2.png`
 - `https://cdn.sagopaint.vn/assets/products/son-noi-that-lau-chui-hieu-qua-anaclean-be-mat-ban-bong.png`
+- `https://cdn.sagopaint.vn/assets/products/son-sagopain-lot-noi-ngoai-that-ana-sealer.png`
 
 ## Tiêu chí kiểm thử
+
+- Bố cục: nền trắng/xám nhẹ; sản phẩm dùng ảnh trái và thông tin phải trên desktop, tên–ảnh–mô tả trên mobile. Danh mục ưu tiên danh sách sản phẩm trước hướng dẫn lựa chọn.
 
 - Đọc AGENTS.md và DESIGN.md; sử dụng skill ứng với từng phase/hạng mục.
 - Font Be Vietnam Pro cho chữ; không tràn ở 360/768/1440px; thử fallback CDN.

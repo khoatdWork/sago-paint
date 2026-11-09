@@ -15,7 +15,7 @@
 - Ý định tìm kiếm: BỘT TRÉT NỘI THẤT HOASEN ANA | Sơn nội thất Sago Paint.
 - Nội dung cụ thể là các heading dưới đây; không tự thêm thông số, chứng nhận hoặc lời hứa chưa có nguồn.
 
-- H1: BỘT TRÉT NỘI THẤT HOASEN ANA
+- H1: Bột trét nội thất HOASEN ANA
 - H2: Lợi ích khi sử dụng sản phẩm
 - H2: Ứng dụng phù hợp
 - H2: Điểm nổi bật
@@ -31,9 +31,9 @@
 - H3: Có cần sơn lót trước khi sử dụng không?
 - H3: Làm sao để nhận báo giá chính xác?
 - H2: Sản phẩm liên quan
-- H3: SƠN NỘI THẤT LAU CHÙI HIỆU QUẢ ANAclean bề mặt bán bóng
-- H3: SƠN NỘI THẤT LAU CHÙI HIỆU QUẢ ANAclean bề mặt bán bóng
-- H3: Sơn Sagopaint lót nội & ngoại thất Ana Sealer
+- H3: Sơn nội thất ANAclean bề mặt bán bóng
+- H3: Sơn lót nội và ngoại thất ANA Sealer
+- H3: Sơn lót nội và ngoại thất Sealer Primer
 - H2: Công ty Sơn Sago
 - H3: Thông tin liên hệ
 - H3: Danh mục
@@ -41,7 +41,7 @@
 ## SEO hiện tại
 
 - Title: BỘT TRÉT NỘI THẤT HOASEN ANA | Sơn nội thất Sago Paint
-- Description: Bột trét tường nội thất HOASEN ANA là vật liệu xử lý bề mặt để làm phẳng các bề mặt hồ xây & bê tông. Sản phẩm có độ phủ tốt, dễ thi công, mang lại bề mặt.
+- Description: Bột trét tường nội thất HOASEN ANA dùng để làm phẳng bề mặt hồ xây và bê tông. Sản phẩm có độ phủ tốt, dễ thi công, tạo bề mặt láng mịn cho tường và trần.
 - Canonical: `https://sagopaint.vn/bot-tret-noi-that-hoasen-ana`
 - Robots: `index, follow`
 - Schema: BreadcrumbList, FAQPage, HomeAndConstructionBusiness, Product.
@@ -55,17 +55,20 @@
 - `assets/css/site-base.css`
 - `https://cdn.sagopaint.vn/assets/sago-logo.png`
 - `https://cdn.sagopaint.vn/assets/products/bot-tret-noi-that-hoasen-ana.png`
-- `https://cdn.sagopaint.vn/assets/products/son-noi-that-lau-chui-hieu-qua-anaclean-be-mat-ban-bong-2.png`
 - `https://cdn.sagopaint.vn/assets/products/son-noi-that-lau-chui-hieu-qua-anaclean-be-mat-ban-bong.png`
 - `https://cdn.sagopaint.vn/assets/products/son-sagopain-lot-noi-ngoai-that-ana-sealer.png`
+- `https://cdn.sagopaint.vn/assets/products/son-sagopain-lot-noi-ngoai-that-sealer-primer.png`
 
 ## Tiêu chí kiểm thử
+
+- Bố cục: nền trắng/xám nhẹ; sản phẩm dùng ảnh trái và thông tin phải trên desktop, tên–ảnh–mô tả trên mobile. Danh mục ưu tiên danh sách sản phẩm trước hướng dẫn lựa chọn.
 
 - Đọc AGENTS.md và DESIGN.md; sử dụng skill ứng với từng phase/hạng mục.
 - Font Be Vietnam Pro cho chữ; không tràn ở 360/768/1440px; thử fallback CDN.
 - Navigation, CTA, điểm neo hoạt động; keyboard focus rõ và không bị sticky che.
 - CSS chung dùng đường dẫn tương đối theo độ sâu HTML; skip link ẩn mặc định, hiện khi Tab và Enter đưa focus tới nội dung chính. Kiểm tra cả HTTP và mở file trực tiếp.
 - Title/description/canonical/schema hợp lệ; không làm hỏng liên kết hoặc tài nguyên.
+- FAQ thời gian khô và FAQPage phải cùng dùng "Thời gian khô: 16 giờ" từ hướng dẫn sử dụng; không lấy khối lượng thể tích của bột khô làm thời gian.
 - Chạy kiểm tra trang, SEO và browser test; dùng Ponytail review diff trước hoàn tất.
 
 Context được tạo từ HTML bằng `python tools/update_contexts.py`; đọc diff và cập nhật

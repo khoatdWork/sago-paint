@@ -37,8 +37,6 @@ Chọn màu sơn nhà hợp phong thủy là nhu cầu rất phổ biến ở Vi
 
 Với gia chủ miền Tây, phong thủy màu sơn cần đi cùng thực tế khí hậu: nóng ẩm, mùa mưa dài, nhà gần sông rạch, tường dễ rêu mốc, nhà cấp 4 phổ biến, nhiều mặt tiền hứng nắng Tây. Một màu "hợp mệnh" nhưng quá tối có thể làm nhà nóng; một màu đẹp trong ảnh nhưng dễ bẩn có thể xuống cấp nhanh nếu không có hệ sơn ngoại thất và chống thấm tốt.
 
-Search intent của chủ đề này gồm: tra màu theo mệnh Kim, Mộc, Thủy, Hỏa, Thổ; chọn màu theo tuổi vợ chồng; biết màu nên tránh; phối màu phòng khách, phòng ngủ, mặt tiền; và tìm màu hợp phong thủy nhưng vẫn hiện đại năm 2026. Bài viết này không thần thánh hóa màu sắc, mà dùng phong thủy như một khung tham khảo để chọn bảng màu hài hòa, dễ sống và bền đẹp.
-
 ![Màu sơn nhà hợp phong thủy theo tuổi và mệnh 2026](images/mau-son-nha-hop-phong-thuy-theo-tuoi-menh-2026.webp)
 *Caption: Màu sơn hợp phong thủy nên hài hòa với mệnh, ánh sáng, khí hậu và phong cách sống.*
 

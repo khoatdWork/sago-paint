@@ -2,11 +2,47 @@
   --font-sans: "Be Vietnam Pro", Arial, sans-serif;
   --bs-font-sans-serif: var(--font-sans);
   --bs-body-font-family: var(--font-sans);
+  --brand-ink: #202428;
+  --brand-muted: #626b74;
+  --brand-soft: #f5f6f4;
+  --brand-line: #e2e5e1;
+  --brand-primary-dark: #a83c31;
+  --site-header-height: 76px;
 }
 body, h1, h2, h3, h4, h5, h6, button, input, select, textarea {
   font-family: var(--font-sans);
 }
-body { line-height: 1.6; }
+body { line-height: 1.7; color: var(--brand-ink); }
+h1, h2, h3 { text-wrap: balance; }
+body:has(> .site-header) { padding-top: var(--site-header-height); }
+body:has(> .site-header) > main { padding-top: 0; }
+.site-header { background: #fff; border-bottom: 1px solid var(--brand-line); backdrop-filter: none; }
+.site-header .navbar { min-height: var(--site-header-height); padding-block: 10px; }
+.site-header .brand-logo { width: auto; height: 42px; }
+.site-header .navbar-brand { padding: 0; }
+.site-header .navbar-nav .nav-link { color: #202428; font-size: 0.875rem; font-weight: 600; padding-inline: 14px; }
+.site-header .navbar-nav .nav-link:hover, .site-header .navbar-nav .nav-link.active { color: #a83c31; }
+.site-header .navbar-toggler { border: 1px solid #e2e5e1; padding: 8px 10px; border-radius: 6px; }
+body .btn { border-radius: 8px; font-weight: 600; padding: 11px 22px; box-shadow: none; }
+body .btn-primary { --bs-btn-bg: #a83c31; --bs-btn-border-color: #a83c31; --bs-btn-hover-bg: #862f26; --bs-btn-hover-border-color: #862f26; --bs-btn-active-bg: #862f26; --bs-btn-active-border-color: #862f26; }
+body .btn-outline-primary { --bs-btn-color: #a83c31; --bs-btn-border-color: #d2b8b3; --bs-btn-hover-color: #fff; --bs-btn-hover-bg: #a83c31; --bs-btn-hover-border-color: #a83c31; }
+body .section-kicker, body .eyebrow { text-transform: none; letter-spacing: 0; font-size: 0.875rem; font-weight: 500; }
+body .footer { background: #f5f6f4; color: #626b74; border-top: 1px solid #e2e5e1; }
+body .footer h2, body .footer h3 { color: #202428; font-weight: 600; }
+body .footer a { color: #454d53; }
+body .footer a:hover { color: #a83c31; }
+body .footer .footer-logo { height: 40px; width: auto; padding: 0; border-radius: 0; background: transparent; }
+body .footer .footer-bottom { border-color: #dce0db; color: #626b74; font-size: 0.8125rem; }
+body .footer :is(h2, h3).text-white { color: #202428 !important; }
+body .footer .text-white-50 { color: #626b74 !important; }
+@media (min-width: 1400px) { .container:not(.narrow) { max-width: 1240px; } }
+@media (max-width: 1199.98px) {
+  :root { --site-header-height: 68px; }
+  .site-header .brand-logo { height: 38px; }
+  .site-header .navbar-collapse { padding: 16px 0 20px; max-height: calc(100dvh - 68px); overflow-y: auto; }
+  .site-header .navbar-nav .nav-link { padding: 10px 0; }
+}
+@media (max-width: 767.98px) { .container { padding-inline: 24px; } }
 img { max-width: 100%; }
 main, section, article, aside, .row > *, .product-visual { min-width: 0; }
 .skip-link {

@@ -10,7 +10,7 @@ const products = {
     {name: "Anashield Bóng Mờ", badge: "Chống phai", href: "../son-sagopaint-ngoai-that-chong-phai-mau-anashield-be-mat-bong-mo.html", img: "https://cdn.sagopaint.vn/assets/products/son-sagopaint-ngoai-that-chong-phai-mau-anashield-be-mat-bong-mo.png", features: "Hỗ trợ chống phai màu cho tường ngoại thất hiện đại.", coverage: "10m²/lít/lớp"}
   ],
   "Sơn Chống Thấm": [
-    {name: "SAGO S68 Pro", badge: "Chống thấm cao cấp", href: "../sago-s-68-pro-chong-tham-a-nang-lo-thien-cao-cap.html", img: "/assets/products/sago-s68-pro-preview.webp", features: "Chống thấm lộ thiên, bền UV, phù hợp sân thượng và ban công.", coverage: "Theo bề mặt thực tế", primary: true},
+    {name: "SAGO S68 Pro", badge: "Chống thấm cao cấp", href: "../sago-s-68-pro-chong-tham-a-nang-lo-thien-cao-cap.html", img: "../assets/products/sago-s68-pro-preview.webp", features: "Chống thấm lộ thiên, bền UV, phù hợp sân thượng và ban công.", coverage: "Theo bề mặt thực tế", primary: true},
     {name: "Aqua Shield 5 in 1", badge: "Chống thấm màu", href: "../son-chong-tham-mau-aqua-shield-5-in1.html", img: "https://cdn.sagopaint.vn/assets/products/son-chong-tham-mau-aqua-shield-5-in1.png", features: "Bảo vệ tường khỏi nước xâm nhập, dùng được cho tường ngoài.", coverage: "10m²/lít/lớp"},
     {name: "BT-11A Pha Xi Măng", badge: "Xử lý nền", href: "../chat-chong-tham-bt-11a-pha-xi-mang.html", img: "https://cdn.sagopaint.vn/assets/products/chat-chong-tham-bt-11a-pha-xi-mang.png", features: "Giải pháp chống thấm cho bề mặt xi măng và bê tông.", coverage: "Theo hạng mục"}
   ]
@@ -41,6 +41,9 @@ function currentType() {
 }
 
 function calculate() {
+  const activeInputs = document.querySelectorAll(`#panel-${mode} input`);
+  const invalidInput = [...activeInputs].find(input => !input.validity.valid);
+  activeInputs.forEach(input => input.setAttribute("aria-invalid", String(!input.validity.valid)));
   let paintableArea = 0;
   let coats = 2;
   if (mode === "room") {
@@ -60,9 +63,11 @@ function calculate() {
   const type = currentType();
   const primerCost = Math.ceil(paintableArea / 10) * prices[type].primer;
   const finishCost = liters * prices[type].finish;
-  validEstimate = Number.isSafeInteger(primerCost + finishCost);
+  validEstimate = !invalidInput && Number.isSafeInteger(primerCost + finishCost);
   document.getElementById("calculationMessage").textContent = validEstimate
-    ? "" : "Giá trị quá lớn để tính chính xác. Vui lòng giảm diện tích hoặc số lớp sơn.";
+    ? "" : invalidInput
+      ? `${invalidInput.labels[0].textContent}: ${invalidInput.validationMessage}`
+      : "Giá trị quá lớn để tính chính xác. Vui lòng giảm diện tích hoặc số lớp sơn.";
   if (!validEstimate) {
     ["paintableArea", "coatResult", "paintNeeded", "bucketResult", "primerCost", "finishCost", "totalCost"]
       .forEach(id => document.getElementById(id).textContent = "—");
@@ -160,15 +165,18 @@ document.getElementById("consultForm").addEventListener("submit", (event) => {
   event.preventDefault();
   const form = event.currentTarget;
   const message = document.getElementById("formMessage");
+  document.getElementById("fullName").value = document.getElementById("fullName").value.trim();
   if (!form.checkValidity()) {
     form.classList.add("was-validated");
     message.textContent = "Vui lòng nhập họ tên, số điện thoại và loại công trình.";
     form.querySelector(":invalid")?.focus();
     return;
   }
+  calculate();
   if (!validEstimate) {
     message.textContent = "Vui lòng điều chỉnh giá trị tính sơn trước khi soạn email, hoặc gọi điện để được tư vấn.";
-    document.getElementById(mode === "room" ? "length" : "manualArea").focus();
+    (document.querySelector(`#panel-${mode} input:invalid`)
+      || document.getElementById(mode === "room" ? "length" : "manualArea")).focus();
     return;
   }
   const field = (id) => document.getElementById(id).value.trim();

@@ -27,7 +27,7 @@ function publicFiles(root = ROOT) {
 }
 
 function pageFiles(root = ROOT) {
-  return publicFiles(root).filter(file => file.endsWith('.html') && !isVerification(file));
+  return publicFiles(root).filter(file => file.endsWith('.html') && !isVerification(file) && path.basename(file) !== '404.html');
 }
 
 function routeFromFile(file, root = ROOT) {

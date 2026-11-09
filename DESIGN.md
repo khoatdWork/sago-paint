@@ -3,7 +3,9 @@
 ## Mục đích
 
 Giúp chủ nhà, thợ sơn và khách công trình Việt Nam chọn hệ sơn, hiểu cách thi công
-và liên hệ tư vấn. Giữ bố cục, hình ảnh sản phẩm và nhận diện hiện có.
+và liên hệ tư vấn. Hướng được người dùng chọn ngày 09/11/2026: tối giản,
+hiện đại, thoáng. Giữ nhận diện và hình ảnh sản phẩm thật; được thay bố cục
+để có thứ bậc rõ và giảm khối trang trí.
 
 ## Màu và typography
 
@@ -13,28 +15,37 @@ và liên hệ tư vấn. Giữ bố cục, hình ảnh sản phẩm và nhận 
 | Màu thương hiệu đậm, chữ/nút cần tương phản | `#a83c31` |
 | Chữ chính | `#202428` |
 | Chữ phụ | `#626b74` |
-| Nền nhẹ | `#fff4f1` |
+| Nền nhẹ | `#f5f6f4` |
 | Nền trắng | `#ffffff` |
+| Đường phân cách | `#e2e5e1` |
 
 Chữ dùng Be Vietnam Pro, Arial, sans-serif. Tải Google Fonts với `display=swap`,
 weight normal 300–900 và italic 400/700. Không nhúng font vào repo.
 Token ở `assets/css/site-base.css`; override cả Bootstrap và heading.
 Khai báo font-family và tham chiếu --font-sans chỉ nằm trong file chung này;
 CSS riêng của trang kế thừa font, không khai báo lặp lại biến ở file khác.
-Body 400, nhãn 600, navigation/button 700, heading 700–800; số nhấn 900 khi cần.
+Body 400, nhãn/navigation/button 600, heading 600–700; số nhấn 700 khi cần.
 Weight trung gian 650/750/850 được chuẩn hóa về 600/700/800 để dùng font có thật.
-Giữ type scale từng nhóm trang, chỉ chỉnh khi cần tránh tràn và đảm bảo đọc rõ dấu.
-Body tối thiểu 16px; line-height 1.6; nội dung dài rộng tối đa khoảng 75ch.
+Heading dùng sentence case, không ép in hoa tên dài; không thêm nhãn in hoa
+giãn chữ chỉ để trang trí. Body tối thiểu 16px; line-height 1.65–1.75;
+nội dung dài rộng tối đa khoảng 70–75ch.
 
 ## Bố cục và thành phần
 
 - Dùng container/grid Bootstrap; các mốc chính 576/768/992/1200/1400px.
-- Spacing theo bội số 4/8px; section hiện có 46–80px; không redesign toàn site.
+- Spacing theo bội số 4/8px; section 64–96px desktop, 40–56px mobile.
+- Nền trắng/xám nhẹ là chính; đỏ dành cho CTA và nhấn có ý nghĩa. Không dùng
+  gradient, bóng đổ lớn, chip/khung lặp lại cho mọi đoạn nội dung.
+- Product: ảnh thật bên trái, tên/thông tin bên phải; mobile tên rồi ảnh và mô tả.
+  Danh mục ưu tiên ảnh, tên và một liên kết, hướng dẫn chọn đặt sau danh sách.
+- Bài viết có title/intro/ảnh và vùng đọc tập trung, aside giữ vai trò phụ.
 - Header fixed: nội dung và điểm neo phải chừa đủ khoảng trống phía trên.
 - CTA chính là tư vấn/chọn sản phẩm/tính sơn. Hình sản phẩm dùng `object-fit: contain`;
   hình công trình dùng `cover`, luôn có giới hạn chiều rộng và tỉ lệ ổn định.
-- Giữ button pill hiện có. Link/heading có tên rõ; không dùng card trang trí thay
+- Button bo 8px. Link/heading có tên rõ; không dùng card trang trí thay
   cấu trúc thông tin. Số liệu tính sơn dùng tabular-nums.
+- Header trắng gọn, menu thu gọn dưới 1200px. Footer nền xám nhẹ, phân cấp bằng
+  typography và khoảng cách, giữ nguyên thông tin doanh nghiệp.
 - Form tính sơn chỉ ước tính. Form tư vấn mở ứng dụng email với dữ liệu và kết quả
   hiện tại; người dùng tự gửi email. Có nút gọi dự phòng, không hiển thị “đã gửi”.
 

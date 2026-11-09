@@ -15,7 +15,7 @@
 - Ý định tìm kiếm: SƠN NỘI THẤT LAU CHÙI HIỆU QUẢ ANAclean bề mặt bán | Sago Paint.
 - Nội dung cụ thể là các heading dưới đây; không tự thêm thông số, chứng nhận hoặc lời hứa chưa có nguồn.
 
-- H1: SƠN NỘI THẤT LAU CHÙI HIỆU QUẢ ANAclean bề mặt bán bóng
+- H1: Sơn nội thất ANAclean bề mặt bán bóng
 - H2: Lợi ích khi sử dụng sản phẩm
 - H2: Ứng dụng phù hợp
 - H2: Điểm nổi bật
@@ -31,9 +31,9 @@
 - H3: Có cần sơn lót trước khi sử dụng không?
 - H3: Làm sao để nhận báo giá chính xác?
 - H2: Sản phẩm liên quan
-- H3: BỘT TRÉT NỘI THẤT HOASEN ANA
-- H3: SƠN NỘI THẤT LAU CHÙI HIỆU QUẢ ANAclean bề mặt bán bóng
-- H3: Sơn Sagopaint lót nội & ngoại thất Ana Sealer
+- H3: Bột trét nội thất HOASEN ANA
+- H3: Sơn nội thất ANAclean bề mặt bán bóng
+- H3: Sơn lót nội và ngoại thất ANA Sealer
 - H2: Công ty Sơn Sago
 - H3: Thông tin liên hệ
 - H3: Danh mục
@@ -41,7 +41,7 @@
 ## SEO hiện tại
 
 - Title: SƠN NỘI THẤT LAU CHÙI HIỆU QUẢ ANAclean bề mặt bán | Sago Paint
-- Description: ANAclean mang lại một lớp phủ sang trọng, được hỗ trợ bởi Polyme liên kết ngang, đảm bảo rằng ngay cả những vết bẩn cứng đầu cũng có thể được làm sạch dễ.
+- Description: Sơn nội thất ANAclean bề mặt bán bóng sử dụng Polyme liên kết ngang, giúp làm sạch vết bẩn trên tường dễ dàng. Sơn gốc nước, nhẹ mùi, giữ không gian sạch đẹp.
 - Canonical: `https://sagopaint.vn/son-noi-that-lau-chui-hieu-qua-anaclean-be-mat-ban-bong`
 - Robots: `noindex, follow`
 - Schema: BreadcrumbList, FAQPage, HomeAndConstructionBusiness, Product.
@@ -60,6 +60,8 @@
 - `https://cdn.sagopaint.vn/assets/products/son-sagopain-lot-noi-ngoai-that-ana-sealer.png`
 
 ## Tiêu chí kiểm thử
+
+- Bố cục: nền trắng/xám nhẹ; sản phẩm dùng ảnh trái và thông tin phải trên desktop, tên–ảnh–mô tả trên mobile. Danh mục ưu tiên danh sách sản phẩm trước hướng dẫn lựa chọn.
 
 - Đọc AGENTS.md và DESIGN.md; sử dụng skill ứng với từng phase/hạng mục.
 - Font Be Vietnam Pro cho chữ; không tràn ở 360/768/1440px; thử fallback CDN.

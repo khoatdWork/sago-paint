@@ -35,6 +35,8 @@ for (const width of [360, 768, 1440]) {
           .map(el => ({ tag: el.tagName, id: el.id, className: el.className, font: getComputedStyle(el).fontFamily })),
         fontLoaded: [...document.fonts].some(f => f.family.replace(/["']/g, '') === 'Be Vietnam Pro' && f.status === 'loaded'),
         failedImages: [...document.images].filter(img => img.complete && !img.naturalWidth).map(img => img.src),
+        duplicateIds: [...document.querySelectorAll('[id]')].map(el => el.id)
+          .filter((id, index, ids) => ids.indexOf(id) !== index),
         skipLink: document.querySelector('body a').getAttribute('href') === '#main-content',
         skipLinkOutsideViewport: document.querySelector('.skip-link').getBoundingClientRect().bottom <= 0,
       }));
@@ -49,6 +51,7 @@ for (const width of [360, 768, 1440]) {
       if (!state.skipLink) problems.push('skip link missing');
       if (!state.skipLinkOutsideViewport) problems.push('skip link visible before keyboard focus');
       if (state.failedImages.length) problems.push(`failed images: ${state.failedImages.join(', ')}`);
+      if (state.duplicateIds.length) problems.push(`duplicate IDs: ${state.duplicateIds.join(', ')}`);
       if (errors.length) problems.push(`page errors: ${errors.join(', ')}`);
       if (violations.length) problems.push(`axe: ${violations.map(v => v.id).join(', ')}`);
       rows.push({ route, width, status: response.status(), ...state, errors: [...errors], violations });
@@ -150,7 +153,7 @@ test('navigation, skip link and offline font fallback', async ({ page }) => {
   await expect(page.locator('#main-content')).toBeFocused();
   await page.locator('.navbar-toggler').click();
   await expect(page.locator('.navbar-collapse')).toHaveClass(/show/);
-  await page.getByRole('link', { name: 'Nội Thất', exact: true }).click();
+  await page.locator('header').getByRole('link', { name: 'Nội thất', exact: true }).click();
   await expect(page).toHaveURL(/son-noi-that/);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
   await page.goto('/');
