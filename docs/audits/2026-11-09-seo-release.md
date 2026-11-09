@@ -33,7 +33,14 @@ Lighthouse mobile bản cuối: 6 nhóm trang có performance 95–98, accessibi
 best practices và SEO đều 100. LCP home/blog/bài hướng dẫn khoảng 2,6–2,7s,
 còn dư địa tối ưu tài nguyên ngoài. Bảng số liệu ở seo/seo-summary.md; đây là
 lab một lượt mỗi route, không xác nhận thứ hạng hoặc Core Web Vitals thực địa.
-Kết quả production sẽ ghi khi hoàn tất.
+Production code d8dfb26 đã phát hành tại https://sagopaint.vn/ qua deployment
+758ae9a4-7412-4895-a63d-a9c69971a559. Kiểm tra cả custom domain và deployment
+domain: 54 trang metadata/schema đúng, 41 asset khớp byte/MIME, Google
+verification giữ nguyên, 8 redirect đúng đích. Missing page và missing image
+GET/HEAD trả đúng HTTP404 (4 trường hợp/domain), không còn 200 trang chủ.
+Browser production 24 trường hợp ở 3 kích thước đạt ảnh/font/layout/bàn phím/
+menu/axe. GitHub Actions run 42573978284 success cho đúng code commit.
+Chi tiết SHA/log/giới hạn trong docs/tasks/2026-11-09-seo-release.md.
 
 ## Cơ hội nội dung cần xác minh thêm
 

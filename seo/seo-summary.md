@@ -65,7 +65,12 @@ thủy có ý định tìm kiếm giao nhau; cần truy vấn/landing page từ 
 
 output/seo-release/ chứa các audit, mapping mô tả, npm-test.txt,
 lighthouse/summary.json, public-manifest.json, ảnh và logs release.
-Kết quả commit/deploy/HTTP live sẽ ghi trong nhật ký phát hành sau khi hoàn tất.
+Đã push code d8dfb26 và deploy https://sagopaint.vn/ (Pages 758ae9a4).
+Kiểm tra live cả custom/deployment domain: 54 trang metadata/schema đúng,
+41 asset khớp byte/MIME, Google verification giữ nguyên, 8 redirect đúng đích;
+missing page/image GET/HEAD đều HTTP404. Browser production 24 trường hợp ở
+3 kích thước đạt. CI run 42573978284 success cho đúng code commit; chi tiết
+trong nhật ký phát hành, các JSON live/browser và ci.json.
 Robots production có phần Cloudflare Managed Content bên cạnh file nguồn;
 kiểm tra riêng sitemap/crawl và giữ nguyên cấu hình bot của chủ website.
 
